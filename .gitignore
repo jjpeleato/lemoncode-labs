@@ -1,0 +1,65 @@
+#################################
+# Ignore base files/directories #
+#################################
+.env
+.idea
+.vscode
+node_modules
+package-lock.json
+yarn.lock
+
+############################
+# Logs, databases and misc #
+############################
+.bash_history
+.bash_logout
+.bashrc
+.cache
+.mysql_history
+.profile
+*.log
+*.sass-cache
+*.sql
+*.sql.gz
+*.sqlite
+
+######################
+# OS generated files #
+######################
+._*
+.DS_Store
+.Spotlight-V100
+.Trashes
+*.lock
+ehthumbs.db
+Icon?
+Thumbs.db
+
+############
+# Packages #
+############
+*.7z
+*.bat
+*.dmg
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+###################
+# Compiled source #
+###################
+*.class
+*.com
+*.dll
+*.exe
+*.o
+*.so
+
+###################
+# Temporary files #
+###################
+*.swo
+*.swp
+*~
