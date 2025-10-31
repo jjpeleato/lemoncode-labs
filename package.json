@@ -1,0 +1,34 @@
+{
+  "name": "lemoncode-labs",
+  "description": "A repository for exercises and labs from the LemonCode Front-End master.",
+  "keywords": [
+    "labs",
+    "lemoncode-front",
+    "lemoncode"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jjpeleato/lemoncode-labs.git"
+  },
+  "author": "jjpeleato",
+  "license": "GPL-3.0-only",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "commit": "cz",
+    "prepare": "husky install"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^20.1.0",
+    "@commitlint/config-conventional": "^20.0.0",
+    "commitizen": "^4.3.1",
+    "cz-conventional-changelog": "^3.3.0",
+    "husky": "^9.1.7"
+  }
+}
