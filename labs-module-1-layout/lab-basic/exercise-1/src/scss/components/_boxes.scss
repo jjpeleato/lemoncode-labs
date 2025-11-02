@@ -1,0 +1,27 @@
+@use "../base/variables" as *;
+
+.box {
+  margin: 10px 5px;
+  padding: 30px 10px;
+  background-color: $base-color;
+  color: $text-color;
+  border-radius: $border-radius-base;
+}
+
+@for $i from 1 through 3 {
+  .container-#{$i} {
+    @if $i == 1 {
+      .base-color {
+        background-color: $primary;
+      }
+    } @else if $i == 2 {
+      .base-color {
+        background-color: $secondary;
+      }
+    } @else if $i == 3 {
+      .base-color {
+        background-color: $tertiary;
+      }
+    }
+  }
+}

@@ -1,0 +1,9 @@
+@use "../base/variables" as *;
+
+@for $i from 1 through 3 {
+  .container-#{$i} {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+}

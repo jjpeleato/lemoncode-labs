@@ -1,2 +1,6 @@
-@import "normalize.css";
-@use "./vendor/reset";
+@use "normalize.css";
+@use "./vendors/reset";
+@use "./base/elements";
+@use "./components/boxes";
+@use "./components/containers";
+@use "./pages/home";
