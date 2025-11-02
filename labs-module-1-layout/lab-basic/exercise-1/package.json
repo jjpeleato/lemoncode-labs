@@ -4,13 +4,21 @@
   "version": "0.1.0",
   "type": "module",
   "scripts": {
+	"lint:scss": "stylelint \"src/**/*.scss\"",
+	"lint:scss:fix": "stylelint \"src/**/*.scss\" --fix",
+	"build": "tsc && vite build",
     "dev": "vite",
-    "build": "tsc && vite build",
     "preview": "vite preview"
   },
   "devDependencies": {
     "sass": "^1.93.3",
+    "stylelint": "^16.25.0",
+    "stylelint-config-standard-scss": "^16.0.0",
+    "stylelint-scss": "^6.12.1",
     "typescript": "~5.9.3",
     "vite": "^7.1.7"
+  },
+  "dependencies": {
+    "normalize.css": "^8.0.1"
   }
 }
