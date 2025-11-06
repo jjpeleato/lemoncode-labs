@@ -1,10 +1,11 @@
 @use "../base/variables" as *;
+@use "../utilities/mixins" as *;
 
 .box {
   margin: 10px 5px;
   padding: 30px 10px;
-  background-color: $base-color;
-  color: $text-color;
+  background-color: $black;
+  color: $text-on-primary;
   border-radius: $border-radius-base;
 }
 
@@ -14,14 +15,20 @@
       .base-color {
         background-color: $primary;
       }
+
+      @include color-variations($primary);
     } @else if $i == 2 {
       .base-color {
         background-color: $secondary;
       }
+
+      @include color-variations($secondary);
     } @else if $i == 3 {
       .base-color {
         background-color: $tertiary;
       }
+
+      @include color-variations($tertiary);
     }
   }
 }
