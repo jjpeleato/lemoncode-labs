@@ -1,0 +1,22 @@
+@use 'sass:color';
+@use "../base/variables" as *;
+
+@mixin color-variations(
+  $base-color,
+  $lighten-step: 10%,
+  $lighten-text-step: 50%,
+  $darken-step: 8%,
+  $darken-text-step: 100%
+) {
+  @for $i from 1 through 4 {
+    .lighten-#{$i} {
+      background-color: color.adjust($base-color, $whiteness: $i * $lighten-step);
+      color: color.adjust($text-on-secondary, $blackness: $i * $lighten-text-step);
+    }
+
+    .darken-#{$i} {
+      background-color: color.adjust($base-color, $blackness: $i * $darken-step);
+      color: color.adjust($text-on-secondary, $whiteness: $i * $darken-text-step);
+    }
+  }
+}
