@@ -1,0 +1,36 @@
+@use "../base/variables" as *;
+
+.theme {
+  width: 100%;
+  max-width: 768px;
+  margin: 0 auto;
+
+  &__title {
+    font-size: 1.5rem;
+    margin: 1.5rem 0;
+  }
+
+  &__item {
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border: 1px solid $light-border;
+    border-radius: 5px;
+  }
+
+  &__checkbox {
+    margin-right: 0.5rem;
+  }
+
+  &__label {
+    font-size: 1rem;
+  }
+}
+
+body:has(#theme-dark:checked) {
+  .theme {
+    &__item {
+      border-radius: 0;
+      border: 1px solid $dark-border;
+    }
+  }
+}
