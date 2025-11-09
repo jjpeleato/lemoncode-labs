@@ -1,18 +1,21 @@
-# Module 1 - Basic Laboratory - Exercise 1
+# Module 1 - Basic Laboratory - Exercise 2
 
-Create a dynamic color palette.
+Create two different themes and show the results on a page.
 
-Use the SASS language to create different color palette themes.
+The changes in the theme affect the following features:
 
-The idea is to start from a base color and generate four darker colors gradually, and four lighter colors gradually.
+- Color
+- Font
+- Border Radius
+- Shadow Box
 
-To check that everything is working as expected, use the HTML from the instructions (see PDF).
+To see the changes, it should be enough to import one theme or another in the main style file.
 
 ## Installation to develop
 
 1. Install the Node.js dependencies:
    ```bash
-   cd labs-module-1-layout/lab-basic/exercise-1
+   cd labs-module-1-layout/lab-basic/exercise-2
    npm i --save-dev
    ```
 2. Start the development server:
