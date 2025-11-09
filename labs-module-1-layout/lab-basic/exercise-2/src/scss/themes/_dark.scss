@@ -1,0 +1,7 @@
+@use "../base/variables" as *;
+
+body:has(#theme-dark:checked) {
+  background-color: $dark-background;
+  font-family: $dark-font-family;
+  color: $dark-text;
+}

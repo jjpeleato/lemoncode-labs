@@ -1,0 +1,36 @@
+@use "../base/variables" as *;
+
+.font {
+  width: 100%;
+  max-width: 768px;
+  margin: 0 auto;
+
+  &__title {
+    font-size: 1.5rem;
+    margin: 2rem 0 1.5rem;
+  }
+
+  &__text {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    color: $light-text;
+  }
+}
+
+body:has(#theme-dark:checked) {
+  .font {
+    &__text {
+      &--primary {
+        color: $dark-primary-text;
+      }
+
+      &--secondary {
+        color: $dark-secondary-text;
+      }
+
+      &--tertiary {
+        color: $dark-tertiary-text;
+      }
+    }
+  }
+}

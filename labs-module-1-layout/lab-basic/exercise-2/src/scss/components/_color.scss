@@ -1,0 +1,60 @@
+@use "../base/variables" as *;
+
+.color {
+  width: 100%;
+  max-width: 768px;
+  margin: 0 auto;
+
+  &__title {
+    font-size: 1.5rem;
+    margin: 1.5rem 0;
+  }
+
+  &__item {
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+    border: 1px solid $light-border;
+    border-radius: 5px;
+    box-shadow: -10px 10px 10px 0 rgb(0 0 0 / 50%);
+
+    &--base {
+      background-color: $light-primary;
+      color: $light-background;
+    }
+
+    &--important {
+      background-color: $light-secondary;
+      color: $light-background;
+    }
+
+    &--warning {
+      background-color: $light-tertiary;
+      color: $light-background;
+    }
+  }
+}
+
+body:has(#theme-dark:checked) {
+  .color {
+    &__item {
+      border-radius: 0;
+      border: 1px solid $dark-border;
+      box-shadow: 10px 10px 10px 0 rgb(255 255 255 / 50%);
+
+      &--base {
+        background-color: $dark-primary;
+        color: $dark-background;
+      }
+
+      &--important {
+        background-color: $dark-secondary;
+        color: $dark-background;
+      }
+
+      &--warning {
+        background-color: $dark-tertiary;
+        color: $dark-background;
+      }
+    }
+  }
+}
