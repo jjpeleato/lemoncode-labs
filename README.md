@@ -30,6 +30,7 @@ For more information visit:
 
 - [Basic laboratory - Exercise 1: Dynamic Color Palette](labs-module-1-layout/lab-basic/exercise-1/README.md)
 - [Basic laboratory - Exercise 2: Themes](labs-module-1-layout/lab-basic/exercise-2/README.md)
+- [Basic laboratory - Exercise 3: Responsive Layout](labs-module-1-layout/lab-basic/exercise-3/README.md)
 
 ## Support
 
