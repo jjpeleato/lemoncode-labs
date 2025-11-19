@@ -1,0 +1,71 @@
+@use "../../base/variables" as *;
+
+@mixin responsive-down($breakpoint) {
+  @if $breakpoint == desktop-xl {
+    @media only screen and (max-width: $desktop-xl) {
+      @content;
+    }
+  } @else if $breakpoint == desktop-lg {
+    @media only screen and (max-width: $desktop-lg) {
+      @content;
+    }
+  } @else if $breakpoint == desktop-lg-plus {
+    @media only screen and (max-width: $desktop-lg-plus) {
+      @content;
+    }
+  } @else if $breakpoint == desktop {
+    @media only screen and (max-width: $desktop) {
+      @content;
+    }
+  } @else if $breakpoint == desktop-sm {
+    @media only screen and (max-width: $desktop-sm) {
+      @content;
+    }
+  } @else if $breakpoint == desktop-xs {
+    @media only screen and (max-width: $desktop-xs) {
+      @content;
+    }
+  } @else if $breakpoint == tablet-xl {
+    @media only screen and (max-width: $tablet-xl) {
+      @content;
+    }
+  } @else if $breakpoint == tablet-lg {
+    @media only screen and (max-width: $tablet-lg) {
+      @content;
+    }
+  } @else if $breakpoint == tablet {
+    @media only screen and (max-width: $tablet) {
+      @content;
+    }
+  } @else if $breakpoint == tablet-sm {
+    @media only screen and (max-width: $tablet-sm) {
+      @content;
+    }
+  } @else if $breakpoint == tablet-xs {
+    @media only screen and (max-width: $tablet-xs) {
+      @content;
+    }
+  } @else if $breakpoint == mobile-xl {
+    @media only screen and (max-width: $mobile-xl) {
+      @content;
+    }
+  } @else if $breakpoint == mobile-lg {
+    @media only screen and (max-width: $mobile-lg) {
+      @content;
+    }
+  } @else if $breakpoint == mobile {
+    @media only screen and (max-width: $mobile) {
+      @content;
+    }
+  } @else if $breakpoint == mobile-sm {
+    @media only screen and (max-width: $mobile-sm) {
+      @content;
+    }
+  } @else if $breakpoint == mobile-xs {
+    @media only screen and (max-width: $mobile-xs) {
+      @content;
+    }
+  } @else {
+    // nothing
+  }
+}

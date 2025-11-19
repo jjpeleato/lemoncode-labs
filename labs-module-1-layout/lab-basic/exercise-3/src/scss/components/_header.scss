@@ -1,6 +1,11 @@
 @use "../base/variables" as *;
+@use "../utilities/responsive/down" as *;
 
 .header {
   height: 40px;
   background-color: $primary;
+
+  @include responsive-down(tablet-xs) {
+    height: auto;
+  }
 }

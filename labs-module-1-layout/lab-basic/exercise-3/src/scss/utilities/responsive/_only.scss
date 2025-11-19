@@ -1,0 +1,19 @@
+@use "../../base/variables" as *;
+
+@mixin responsive-only($breakpoint) {
+  @if $breakpoint == desktop {
+    @media only screen and (min-width: $tablet-xl) {
+      @content;
+    }
+  } @else if $breakpoint == tablet {
+    @media (min-width: $tablet-xs) and (max-width: $tablet-xl) {
+      @content;
+    }
+  } @else if $breakpoint == mobile {
+    @media only screen and (max-width: $tablet-xs) {
+      @content;
+    }
+  } @else {
+    // nothing
+  }
+}
