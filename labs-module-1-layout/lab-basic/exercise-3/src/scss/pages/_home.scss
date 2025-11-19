@@ -1,0 +1,6 @@
+@use "../base/variables" as *;
+
+.home {
+  flex: 1;
+  background-color: $secondary;
+}
