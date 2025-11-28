@@ -15,7 +15,68 @@
     <noscript>
       <p>The page you are viewing requires JavaScript to work. If you have intentionally disabled it, please enable it again.</p>
     </noscript>
-    <main id="home" class="home"></main>
+    <main class="homepage">
+      <section class="gallery">
+        <h2 class="gallery__title">Using CSS Grid</h2>
+        <div class="gallery__item">
+          <article class="card">
+            <div class="card__header">
+              <picture>
+                <source srcset="https://picsum.photos/1920/1080?random=1" media="(min-width: 1200px)" />
+                <source srcset="https://picsum.photos/1200/650?random=1" media="(min-width: 600px)" />
+                <img src="https://picsum.photos/500/300?random=1" alt="Lorem ipsum dolor" />
+              </picture>
+            </div>
+            <div class="card__body">
+              <h3 class="card__title">Lorem ipsum dolor</h3>
+              <p class="card__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus id turpis dignissim, facilisis lorem sit amet, sodales augue. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+              <p class="card__meta">Published: <time class="card__date" datetime="1989-09-28">Sep 28, 1989</time></p>
+            </div>
+            <div class="card__footer">
+              <a class="card__button" href="#" title="More info: Lorem ipsum dolor">More info</a>
+            </div>
+          </article>
+        </div>
+        <div class="gallery__item">
+          <article class="card">
+            <div class="card__header">
+              <picture>
+                <source srcset="https://picsum.photos/1920/1080?random=2" media="(min-width: 1200px)" />
+                <source srcset="https://picsum.photos/1200/650?random=2" media="(min-width: 600px)" />
+                <img src="https://picsum.photos/500/300?random=2" alt="Donec eu ex enim" />
+              </picture>
+            </div>
+            <div class="card__body">
+              <h3 class="card__title">Donec eu ex enim</h3>
+              <p class="card__description">Donec eu ex enim. Nullam eget scelerisque nunc. Vestibulum nulla odio, tempor vel eros non, aliquam semper purus. Donec odio magna, dictum vitae ipsum malesuada, dignissim eleifend lectus. Cras accumsan.</p>
+              <p class="card__meta">Published: <time class="card__date" datetime="2011-06-16">Jun 16, 2011</time></p>
+            </div>
+            <div class="card__footer">
+              <a class="card__button" href="#" title="More info: Donec eu ex enim">More info</a>
+            </div>
+          </article>
+        </div>
+        <div class="gallery__item">
+          <article class="card">
+            <div class="card__header">
+              <picture>
+                <source srcset="https://picsum.photos/1920/1080?random=3" media="(min-width: 1200px)" />
+                <source srcset="https://picsum.photos/1200/650?random=3" media="(min-width: 600px)" />
+                <img src="https://picsum.photos/500/300?random=3" alt="Phasellus congue" />
+              </picture>
+            </div>
+            <div class="card__body">
+              <h3 class="card__title">Phasellus congue</h3>
+              <p class="card__description">Phasellus congue, nulla vel egestas imperdiet, metus odio pharetra augue, vel varius justo justo sit amet elit. Aenean eu lacus erat. Aenean fermentum, lacus ut efficitur feugiat, ipsum ipsum tempor.</p>
+              <p class="card__meta">Published: <time class="card__date" datetime="1989-09-12">Sep 12, 1989</time></p>
+            </div>
+            <div class="card__footer">
+              <a class="card__button" href="#" title="More info: Phasellus congue">More info</a>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
     <script type="module" src="/src/main.ts"></script>
   </body>
 </html>

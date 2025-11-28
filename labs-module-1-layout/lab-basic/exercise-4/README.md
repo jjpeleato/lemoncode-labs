@@ -19,6 +19,11 @@ Create a card-type element using CSS Grid.
    ```
 4. End and happy coding!
 
+## Thanks to
+
+- [Lorem Picsum](https://picsum.photos/)
+- [Lorem Ipsum](https://www.lipsum.com/)
+
 ## Finally
 
 More info in the following commits. If required.
