@@ -1,0 +1,68 @@
+@use "../base/variables" as *;
+
+.card {
+  width: 100%;
+  display: grid;
+  grid-template: "header" auto "body" 1fr "footer" auto / 1fr;
+  background-color: $white;
+  border: 1px solid $black;
+  border-radius: 5px;
+
+  &__header {
+    grid-area: header;
+    padding: 15px 15px 0;
+  }
+
+  &__body {
+    grid-area: body;
+    padding: 15px;
+  }
+
+  &__footer {
+    grid-area: footer;
+    padding: 0 15px 15px;
+  }
+
+  &__image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    display: block;
+  }
+
+  &__title {
+    margin: 0;
+    font-size: 1.5rem;
+  }
+
+  &__description {
+    margin-top: 20px;
+    font-size: 1rem;
+  }
+
+  &__meta {
+    margin-top: 20px;
+    font-size: 0.875rem;
+    color: $primary-accent;
+    text-align: right;
+  }
+
+  &__button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+    background-color: $secondary;
+    color: $text-on-primary;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 0.875rem;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: $primary-accent;
+    }
+  }
+}
