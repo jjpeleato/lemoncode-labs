@@ -1,0 +1,9 @@
+@use "../base/variables" as *;
+
+body {
+  width: 100%;
+  height: 100dvh;
+  font-family: $font-roboto;
+  font-size: $font-size-base;
+  background-color: $secondary;
+}
