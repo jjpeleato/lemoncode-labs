@@ -1,7 +1,8 @@
 // Theme light
 $light-font-family: 'Roboto', sans-serif;
 $light-background: #fff;
-$light-text: #1a1a1a;
+$light-text-on-primary: #1a1a1a;
+$light-text-on-secondary: #fff;
 $light-primary: #b2bec3;
 $light-secondary: #636e72;
 $light-tertiary: #2d3436;
@@ -10,7 +11,8 @@ $light-border: #2d3436;
 // Theme dark
 $dark-font-family: 'Orbitron', sans-serif;
 $dark-background: #1a1a1a;
-$dark-text: #fff;
+$dark-text-on-primary: #fff;
+$dark-text-on-secondary: #1a1a1a;
 $dark-primary: #fab1a0;
 $dark-primary-text: #55efc4;
 $dark-secondary: #ff7675;
