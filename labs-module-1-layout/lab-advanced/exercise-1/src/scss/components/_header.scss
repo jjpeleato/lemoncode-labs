@@ -2,10 +2,14 @@
 @use "../utilities/mixins" as *;
 
 .header {
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: sticky;
+  top: 0;
   padding: 1rem 2rem;
+  background: $background;
 
   &__logo {
     display: flex;
