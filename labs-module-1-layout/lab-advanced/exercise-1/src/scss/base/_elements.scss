@@ -1,0 +1,9 @@
+@use "../base/variables" as *;
+
+body {
+  width: 100%;
+  background-color: $background;
+  font-family: $font-jost;
+  font-size: $font-size-base;
+  color: $text-on-primary;
+}
