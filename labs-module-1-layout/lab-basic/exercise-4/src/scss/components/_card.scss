@@ -2,6 +2,7 @@
 
 .card {
   width: 100%;
+  height: 100%;
   display: grid;
   grid-template: "header" auto "body" 1fr "footer" auto / 1fr;
   background-color: $white;
