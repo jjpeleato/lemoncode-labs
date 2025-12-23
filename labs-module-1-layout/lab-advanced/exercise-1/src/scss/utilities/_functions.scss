@@ -1,0 +1,3 @@
+@function grid-width($columns, $gap: 0.5rem) {
+  @return calc(100% / #{$columns} - #{$gap});
+}
