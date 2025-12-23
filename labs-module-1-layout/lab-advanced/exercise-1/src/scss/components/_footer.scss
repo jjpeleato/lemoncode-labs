@@ -1,4 +1,5 @@
 @use "../base/variables" as *;
+@use "../utilities/responsive/down" as *;
 
 .footer {
   width: 100%;
@@ -6,6 +7,12 @@
   justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;
+
+  @include responsive-down(mobile) {
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 1rem;
+  }
 
   &__text {
     display: flex;
