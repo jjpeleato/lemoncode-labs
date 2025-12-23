@@ -1,4 +1,5 @@
 @use "../base/variables" as *;
+@use "../utilities/functions" as *;
 @use "../utilities/mixins" as *;
 @use "../utilities/responsive" as *;
 
@@ -6,7 +7,7 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: $app-gap;
   padding: 1rem 2rem 0;
 
   @include responsive-down(mobile) {
@@ -20,12 +21,12 @@
     @include custom-cursor(45, 'white', 'black', 1.5);
 
     @include responsive-down(tablet-xl) {
-      gap: 0.75rem;
+      gap: $gallery-gap-featured;
     }
   }
 
   &__item--featured {
-    gap: 0.75rem;
+    gap: $gallery-gap-featured;
   }
 
   &__title {
@@ -35,9 +36,8 @@
   &__gallery {
     width: 100%;
     display: flex;
-    justify-content: flex-start;
     align-items: center;
-    gap: 0.5rem;
+    gap: $gallery-gap;
     flex-wrap: nowrap;
     overflow-x: auto;
 
@@ -48,44 +48,44 @@
   }
 
   &__item--featured &__gallery {
-    gap: 0.75rem;
+    gap: $gallery-gap-featured;
   }
 
   &__element {
-    width: 350px;
-    height: 230px;
+    width: $element-width;
+    height: $element-height;
     flex-shrink: 0;
     display: flex;
     align-items: center;
     transition: width $transition;
 
     &:hover {
-      width: 400px;
+      width: $element-width-hover;
     }
 
     @include responsive-down(tablet-xl) {
-      width: calc(100% / 4 - 0.5rem);
+      width: grid-width(4);
       height: auto;
       transition: none;
 
       &:nth-child(n + 5) {
-        width: calc(100% / 2 - 0.5rem);
+        width: grid-width(2);
       }
     }
 
     @include responsive-down(tablet) {
-      width: calc(100% / 3 - 0.5rem);
+      width: grid-width(3);
 
       &:nth-child(n + 5) {
-        width: calc(100% / 3 - 0.5rem);
+        width: grid-width(3);
       }
     }
 
     @include responsive-down(mobile) {
-      width: calc(100%);
+      width: grid-width(1);
 
       &:nth-child(n + 5) {
-        width: calc(100%);
+        width: grid-width(1);
       }
     }
   }
@@ -100,7 +100,7 @@
     }
 
     @include responsive-down(tablet-xl) {
-      width: calc(100% / 3 - 0.5rem);
+      width: grid-width(3);
 
       &:nth-child(n + 4) {
         display: none;
@@ -108,7 +108,7 @@
     }
 
     @include responsive-down(mobile) {
-      width: calc(100% - 0.5rem);
+      width: grid-width(1);
     }
   }
 
