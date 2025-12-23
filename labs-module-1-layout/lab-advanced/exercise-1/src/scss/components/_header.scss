@@ -1,0 +1,58 @@
+@use "../base/variables" as *;
+@use "../utilities/mixins" as *;
+@use "../utilities/responsive/down" as *;
+
+.header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  padding: 1rem 2rem;
+  background: $background;
+  z-index: 10;
+
+  &__logo {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  &__image {
+    width: 40px;
+    height: auto;
+  }
+
+  &__title {
+    font-size: 1.5rem;
+
+    @include responsive-down(mobile) {
+      display: none;
+    }
+  }
+
+  &__nav-list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  &__nav-link {
+    padding: 0.75rem;
+    color: $text-on-primary;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 8px;
+    transition: background 0.7s, color 0.7s;
+
+    @include custom-cursor(45, 'white', 'black', 1.5);
+
+    &:hover {
+      background: $white;
+      color: $black;
+    }
+  }
+}

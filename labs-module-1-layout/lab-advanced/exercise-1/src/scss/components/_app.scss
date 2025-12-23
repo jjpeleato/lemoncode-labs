@@ -1,0 +1,142 @@
+@use "../base/variables" as *;
+@use "../utilities/functions" as *;
+@use "../utilities/mixins" as *;
+@use "../utilities/responsive/down" as *;
+@use "../utilities/responsive/up" as *;
+
+.app {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: $app-gap;
+  padding: 1rem 2rem 0;
+
+  @include responsive-down(mobile) {
+    padding: 1rem 1.5rem 0;
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+
+    @include custom-cursor(45, 'white', 'black', 1.5);
+
+    @include responsive-down(tablet-xl) {
+      gap: $gallery-gap-featured;
+    }
+  }
+
+  &__item--featured {
+    gap: $gallery-gap-featured;
+  }
+
+  &__title {
+    font-size: 1.25rem;
+  }
+
+  &__gallery {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: $gallery-gap;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+
+    @include responsive-down(tablet-xl) {
+      flex-wrap: wrap;
+      overflow-x: visible;
+    }
+  }
+
+  &__item--featured &__gallery {
+    gap: $gallery-gap-featured;
+  }
+
+  &__element {
+    width: $element-width;
+    height: $element-height;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    transition: width $transition;
+
+    @include responsive-up(tablet-xl) {
+      &:hover {
+        width: $element-width-hover;
+      }
+    }
+
+    @include responsive-down(tablet-xl) {
+      width: grid-width(4);
+      height: auto;
+      transition: none;
+
+      &:nth-child(n + 5) {
+        width: grid-width(2);
+      }
+    }
+
+    @include responsive-down(tablet) {
+      width: grid-width(3);
+
+      &:nth-child(n + 5) {
+        width: grid-width(3);
+      }
+    }
+
+    @include responsive-down(mobile) {
+      width: grid-width(1);
+
+      &:nth-child(n + 5) {
+        width: grid-width(1);
+      }
+    }
+  }
+
+  &__item--featured &__element {
+    width: auto;
+    height: auto;
+    transition: none;
+
+    @include responsive-up(tablet-xl) {
+      &:hover {
+        width: auto;
+      }
+    }
+
+    @include responsive-down(tablet-xl) {
+      width: grid-width(3);
+
+      &:nth-child(n + 4) {
+        display: none;
+      }
+    }
+
+    @include responsive-down(mobile) {
+      width: grid-width(1);
+    }
+  }
+
+  &__image {
+    width: 100%;
+    height: auto;
+  }
+
+  &__featured-number {
+    visibility: hidden;
+    position: relative;
+
+    &::after {
+      content: "6";
+      visibility: visible;
+      position: absolute;
+      left: 0;
+    }
+
+    @include responsive-down(tablet-xl) {
+      &::after {
+        content: "3";
+      }
+    }
+  }
+}
