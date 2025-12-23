@@ -1,6 +1,6 @@
 @use "../base/variables" as *;
 @use "../utilities/mixins" as *;
-@use "../utilities/responsive" as *;
+@use "../utilities/responsive/down" as *;
 
 .header {
   width: 100%;
@@ -11,6 +11,7 @@
   top: 0;
   padding: 1rem 2rem;
   background: $background;
+  z-index: 10;
 
   &__logo {
     display: flex;

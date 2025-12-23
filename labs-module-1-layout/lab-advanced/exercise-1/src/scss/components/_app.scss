@@ -1,7 +1,8 @@
 @use "../base/variables" as *;
 @use "../utilities/functions" as *;
 @use "../utilities/mixins" as *;
-@use "../utilities/responsive" as *;
+@use "../utilities/responsive/down" as *;
+@use "../utilities/responsive/up" as *;
 
 .app {
   width: 100%;
@@ -59,8 +60,10 @@
     align-items: center;
     transition: width $transition;
 
-    &:hover {
-      width: $element-width-hover;
+    @include responsive-up(tablet-xl) {
+      &:hover {
+        width: $element-width-hover;
+      }
     }
 
     @include responsive-down(tablet-xl) {
@@ -95,8 +98,10 @@
     height: auto;
     transition: none;
 
-    &:hover {
-      width: auto;
+    @include responsive-up(tablet-xl) {
+      &:hover {
+        width: auto;
+      }
     }
 
     @include responsive-down(tablet-xl) {
