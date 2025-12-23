@@ -29,4 +29,28 @@
     flex-wrap: nowrap;
     overflow-y: scroll;
   }
+
+  &__element {
+    flex-shrink: 0;
+    width: 350px;
+    transition: width $transition;
+
+    &:hover {
+      width: 400px;
+    }
+  }
+
+  &__item--featured &__element {
+    width: auto;
+    transition: none;
+
+    &:hover {
+      width: auto;
+    }
+  }
+
+  &__image {
+    width: 100%;
+    height: auto;
+  }
 }
