@@ -8,13 +8,91 @@
     <title>Module 1 - Extra Laboratory - Exercise 1 by @jjpeleato</title>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="author" content="@jjpeleato" />
-    <meta name="description" content="Create a Lemoncoders Webapp, a learning management system by @jjpeleato" />
+    <meta name="description" content="Create a Lemoncoders webapp, a learning management system by @jjpeleato" />
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
   </head>
   <body>
     <noscript>
       <p>The page you are viewing requires JavaScript to work. If you have intentionally disabled it, please enable it again.</p>
     </noscript>
+    <header class="header">
+      <div class="header__toolbar">
+        <form class="search" action="#">
+          <input class="search__input" type="text" placeholder="Search courses..." aria-label="Search courses" />
+        </form>
+        <p class="header__fullname">José J. Peleato Pradel</p>
+      </div>
+      <div class="header__welcome">
+        <h1 class="header__title">Welcome to Lemoncoders</h1>
+      </div>
+    </header>
+    <main class="app">
+      <aside class="sidebar">
+        <p class="sidebar__title">Frameworks</p>
+        <nav class="nav">
+          <ul class="nav__list">
+            <li class="nav__item">
+              <a class="nav__link nav__link--active" href="#" title="React">React</a>
+            </li>
+            <li class="nav__item">
+              <a class="nav__link" href="#" title="Svelte">Svelte</a>
+            </li>
+            <li class="nav__item">
+              <a class="nav__link" href="#" title="Vue">Vue</a>
+            </li>
+            <li class="nav__item">
+              <a class="nav__link" href="#" title="Angular">Angular</a>
+            </li>
+          </ul>
+        </nav>
+      </aside>
+      <section class="app__content">
+        <article class="card">
+          <img class="card__image" src="https://avatars.githubusercontent.com/u/14540103?s=96&v=4" alt="Antonio Contreras" />
+          <h3 class="card__title">Antonio Contreras</h3>
+        </article>
+        <article class="card">
+          <img class="card__image" src="https://avatars.githubusercontent.com/u/1457912?s=96&v=4" alt="Braulio Díez" />
+          <h3 class="card__title">Braulio Díez</h3>
+        </article>
+        <article class="card">
+          <img class="card__image" src="https://avatars.githubusercontent.com/u/13205689?s=96&v=4" alt="Santiago Camargo" />
+          <h3 class="card__title">Santiago Camargo</h3>
+        </article>
+        <article class="card">
+          <img class="card__image" src="https://avatars.githubusercontent.com/u/43171355?s=96&v=4" alt="Francisco Javier de Jesús Mazzoni" />
+          <h3 class="card__title">Francisco Javier de Jesús Mazzoni</h3>
+        </article>
+        <article class="card card--featured">
+          <img class="card__image" src="https://avatars.githubusercontent.com/u/24454225?s=96&v=4" alt="Javier Calzado" />
+          <h3 class="card__title">Javier Calzado</h3>
+        </article>
+        <article class="card">
+          <img class="card__image" src="https://avatars.githubusercontent.com/u/7754966?s=96&v=4" alt="Jaime Salas" />
+          <h3 class="card__title">Jaime Salas</h3>
+        </article>
+        <article class="card">
+          <img class="card__image" src="https://avatars.githubusercontent.com/u/26490961?s=96&v=4" alt="José Manuel" />
+          <h3 class="card__title">José Manuel</h3>
+        </article>
+        <article class="card">
+          <img class="card__image" src="https://avatars.githubusercontent.com/u/58438522?s=96&v=4" alt="Juan Pablo Martínez" />
+          <h3 class="card__title">Juan Pablo Martínez</h3>
+        </article>
+        <article class="card">
+          <img class="card__image" src="https://avatars.githubusercontent.com/u/4374977?s=96&v=4" alt="Daniel Sánchez" />
+          <h3 class="card__title">Daniel Sánchez</h3>
+        </article>
+        <article class="card">
+          <img class="card__image" src="https://avatars.githubusercontent.com/u/43609530?s=96&v=4" alt="Víctor Borrego" />
+          <h3 class="card__title">Víctor Borrego</h3>
+        </article>
+      </section>
+    </main>
+    <footer class="footer">
+      <p class="footer__text">&copy; Lemoncoders. All rights reserved</p>
+      <p class="footer__text">Created with <svg class="footer__icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="icon icon-tabler icons-tabler-filled icon-tabler-heart"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6.979 3.074a6 6 0 0 1 4.988 1.425l.037 .033l.034 -.03a6 6 0 0 1 4.733 -1.44l.246 .036a6 6 0 0 1 3.364 10.008l-.18 .185l-.048 .041l-7.45 7.379a1 1 0 0 1 -1.313 .082l-.094 -.082l-7.493 -7.422a6 6 0 0 1 3.176 -10.215z" /></svg> in Tardienta</p>
+    </footer>
     <script type="module" src="/src/main.ts"></script>
   </body>
 </html>
