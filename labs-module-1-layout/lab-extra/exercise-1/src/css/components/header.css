@@ -1,0 +1,33 @@
+.header {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+
+  &__toolbar {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: $white;
+    padding: 8px 20px;
+  }
+
+  &__fullname {
+    font-size: 0.8rem;
+  }
+
+  &__welcome {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background: $secondary;
+  }
+
+  &__title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: $text-on-primary;
+  }
+}

@@ -1,0 +1,13 @@
+/* base::variables::colors */
+$white: #fff;
+$black: #000;
+$primary: #4a9eff;
+$secondary: #7f8c8d;
+$tertiary: #9b59b6;
+$quaternary: #34495e;
+
+/* base::variables::fonts */
+$font-roboto: "Roboto", sans-serif;
+$font-size-base: 16px;
+$text-on-primary: $white;
+$text-on-secondary: $black;

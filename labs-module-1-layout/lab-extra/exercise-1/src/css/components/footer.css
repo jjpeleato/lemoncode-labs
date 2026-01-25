@@ -1,0 +1,18 @@
+.footer {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 20px;
+  background: $secondary;
+
+  &__text {
+    display: flex;
+    align-items: center;
+    font-size: 0.8rem;
+    color: $text-on-primary;
+  }
+
+  &__icon {
+    margin: 0 4px;
+  }
+}

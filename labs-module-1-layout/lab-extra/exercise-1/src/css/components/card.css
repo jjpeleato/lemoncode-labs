@@ -1,0 +1,22 @@
+.card {
+  @mixin grid-width 3;
+
+  display: flex;
+  align-items: center;
+  background-color: red;
+  border-radius: 8px;
+
+  &__image {
+    width: 100px;
+    height: auto;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  &__title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin: 12px 0 8px;
+    color: $text-on-secondary;
+  }
+}
