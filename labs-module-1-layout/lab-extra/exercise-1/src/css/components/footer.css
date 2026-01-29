@@ -2,13 +2,14 @@
   width: 100%;
   display: flex;
   justify-content: space-between;
-  padding: 8px 20px;
+  padding: 0.4rem 1rem;
   background: $secondary;
+  border-top: 1px solid #293036;
 
   &__text {
     display: flex;
     align-items: center;
-    font-size: 0.8rem;
+    font-size: 0.7rem;
     color: $text-on-primary;
   }
 

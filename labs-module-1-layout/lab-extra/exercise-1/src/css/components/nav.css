@@ -1,7 +1,6 @@
 .nav {
   width: 100%;
   display: flex;
-  background-color: $tertiary;
 
   &__list {
     width: 100%;
@@ -12,7 +11,7 @@
   &__item {
     width: 100%;
     display: flex;
-    border-bottom: 1px solid #000;
+    border-bottom: 1px solid #293036;
   }
 
   &__link {
@@ -21,11 +20,10 @@
     padding: 0.8rem 0.5rem;
     font-size: 0.8rem;
     text-decoration: none;
-    color: $text-on-secondary;
+    color: $text-on-primary;
 
     &:hover {
       background-color: $quaternary;
-      color: $text-on-primary;
     }
   }
 }

@@ -2,7 +2,7 @@
   width: 200px;
   display: flex;
   flex-direction: column;
-  background-color: $black;
+  background: $tertiary;
 
   &__title {
     width: 100%;
@@ -11,5 +11,6 @@
     text-align: center;
     text-transform: uppercase;
     color: $text-on-primary;
+    border-bottom: 1px solid #293036;
   }
 }
