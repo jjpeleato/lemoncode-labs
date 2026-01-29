@@ -9,7 +9,6 @@
   padding: 1rem;
   background: $tertiary;
   border-radius: 0.5rem;
-  box-shadow: 1px 0.1rem 0.5rem 0 rgb(48 45 59 / 5%);
 
   &__image {
     width: 100px;
@@ -20,7 +19,7 @@
 
   &__title {
     margin: 12px 0 8px;
-    font-size: 1.2rem;
+    font-size: 1rem;
     font-weight: bold;
     text-align: center;
   }

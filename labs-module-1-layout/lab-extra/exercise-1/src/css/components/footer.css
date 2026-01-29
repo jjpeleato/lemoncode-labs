@@ -14,6 +14,7 @@
   }
 
   &__icon {
-    margin: 0 4px;
+    width: 1.2rem;
+    margin: 0 0.3rem;
   }
 }
