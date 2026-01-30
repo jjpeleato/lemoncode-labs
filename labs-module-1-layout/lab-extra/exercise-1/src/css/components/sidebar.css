@@ -1,0 +1,28 @@
+.sidebar {
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  background: $tertiary;
+
+  @mixin responsive-down $tablet-xs {
+    width: 100%;
+    flex-direction: row;
+    position: sticky;
+    top: 0;
+  }
+
+  &__title {
+    width: 100%;
+    padding: 0.8rem 0.5rem;
+    font-size: 0.8rem;
+    text-align: center;
+    text-transform: uppercase;
+    color: $text-on-primary;
+    /* stylelint-disable-next-line declaration-property-value-no-unknown */
+    border-bottom: 1px solid $primary-accent;
+
+    @mixin responsive-down $tablet-xs {
+      display: none;
+    }
+  }
+}

@@ -1,0 +1,6 @@
+@define-mixin responsive-up $breakpoint {
+  /* stylelint-disable-next-line media-query-no-invalid */
+  @media only screen and (min-width: $breakpoint) {
+    @mixin-content;
+  }
+}

@@ -1,0 +1,40 @@
+.header {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+
+  &__toolbar {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: $white;
+    padding: 0.4rem 1rem;
+
+    @mixin responsive-down $tablet-xs {
+      display: none;
+    }
+  }
+
+  &__fullname {
+    font-size: 0.8rem;
+    color: $text-on-secondary;
+  }
+
+  &__welcome {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background: $secondary;
+    /* stylelint-disable-next-line declaration-property-value-no-unknown */
+    border-bottom: 1px solid $primary-accent;
+  }
+
+  &__title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: $text-on-primary;
+  }
+}

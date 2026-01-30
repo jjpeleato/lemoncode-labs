@@ -32,6 +32,7 @@ For more information visit:
 - [Basic laboratory - Exercise 2: Themes](labs-module-1-layout/lab-basic/exercise-2/README.md)
 - [Basic laboratory - Exercise 3: Responsive Layout](labs-module-1-layout/lab-basic/exercise-3/README.md)
 - [Basic laboratory - Exercise 4: Card with CSS Grid](labs-module-1-layout/lab-basic/exercise-4/README.md)
+- [Extra laboratory - Exercise 1: Lemoncoders Webapp](labs-module-1-layout/lab-extra/exercise-1/README.md)
 - [Advanced laboratory - Exercise 1: Warner Live](labs-module-1-layout/lab-advanced/exercise-1/README.md)
 
 ## Support
