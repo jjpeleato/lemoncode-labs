@@ -15,10 +15,6 @@
     gap: 1rem;
     padding: 1rem;
 
-    @mixin responsive-down $tablet-xs {
-      padding-top: 3.5rem;
-    }
-
     @mixin responsive-up $tablet-xs {
       height: calc(100vh - 60px - 70px);
       overflow-y: auto;

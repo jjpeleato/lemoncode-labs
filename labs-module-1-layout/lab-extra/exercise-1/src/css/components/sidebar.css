@@ -5,10 +5,8 @@
   background: $tertiary;
 
   @mixin responsive-down $tablet-xs {
-    position: fixed;
+    position: sticky;
     top: 0;
-    left: 0;
-    right: 0;
     width: 100%;
     flex-direction: row;
     z-index: 1000;
