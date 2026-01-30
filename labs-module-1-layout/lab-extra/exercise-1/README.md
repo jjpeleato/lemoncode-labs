@@ -1,12 +1,12 @@
 # Module 1 - Extra Laboratory - Exercise 1
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum vestibulum. Cras venenatis euismod malesuada.
+Lemoncode Academy, a leading coding bootcamp, is looking to redesign its website to enhance user experience and engagement.
 
 ## Installation to develop
 
 1. Install the Node.js dependencies:
    ```bash
-   cd labs-module-1-layout/lab-advanced/exercise-1
+   cd labs-module-1-layout/lab-extra/exercise-1
    npm i --save-dev
    ```
 2. Start the development server:
