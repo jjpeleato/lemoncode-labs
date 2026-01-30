@@ -6,12 +6,23 @@
     width: 100%;
     display: flex;
     flex-direction: column;
+
+    @mixin responsive-down $tablet-xs {
+      flex-direction: row;
+      justify-content: space-around;
+      border-bottom: 1px solid #293036;
+    }
   }
 
   &__item {
     width: 100%;
     display: flex;
     border-bottom: 1px solid #293036;
+
+    @mixin responsive-down $tablet-xs {
+      width: auto;
+      border-bottom: none;
+    }
   }
 
   &__link {

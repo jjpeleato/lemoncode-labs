@@ -1,3 +1,21 @@
+/* base::variables::breakpoints */
+$desktop-xl: 2560px;
+$desktop-lg-plus: 2000px;
+$desktop-lg: 1920px;
+$desktop: 1600px;
+$desktop-sm: 1440px;
+$desktop-xs: 1366px;
+$tablet-xl: 1280px;
+$tablet-lg: 1080px;
+$tablet: 991px;
+$tablet-sm: 860px;
+$tablet-xs: 768px;
+$mobile-xl: 720px;
+$mobile-lg: 640px;
+$mobile: 540px;
+$mobile-sm: 480px;
+$mobile-xs: 375px;
+
 /* base::variables::colors */
 $white: #FFF;
 $grey: #AAB8C5;

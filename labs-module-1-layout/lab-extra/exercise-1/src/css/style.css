@@ -2,6 +2,8 @@
 @import url("./vendors/reset.css");
 @import url("./base/variables.css");
 @import url("./base/elements.css");
+@import url("./utilities/responsive/down.css");
+@import url("./utilities/responsive/up.css");
 @import url("./utilities/functions.css");
 @import url("./components/app.css");
 @import url("./components/card.css");

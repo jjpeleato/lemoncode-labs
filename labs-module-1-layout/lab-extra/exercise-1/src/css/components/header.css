@@ -10,6 +10,10 @@
     align-items: center;
     background: $white;
     padding: 0.4rem 1rem;
+
+    @mixin responsive-down $tablet-xs {
+      display: none;
+    }
   }
 
   &__fullname {

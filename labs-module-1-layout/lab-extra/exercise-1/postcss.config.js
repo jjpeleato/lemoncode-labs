@@ -1,7 +1,7 @@
 export default {
 	plugins: {
-		'postcss-mixins': {},
 		'postcss-simple-vars': {},
+		'postcss-mixins': {},
 		'postcss-nested': {},
 		'autoprefixer': {},
 		'postcss-preset-env': {

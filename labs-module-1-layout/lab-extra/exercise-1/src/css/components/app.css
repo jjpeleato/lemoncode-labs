@@ -4,11 +4,24 @@
   display: flex;
   background: $primary;
 
+  @mixin responsive-down $tablet-xs {
+    flex-direction: column;
+  }
+
   &__content {
     flex: 1;
     display: flex;
     flex-flow: row wrap;
     gap: 1rem;
     padding: 1rem;
+
+    @mixin responsive-down $tablet-xs {
+      padding-top: 3.5rem;
+    }
+
+    @mixin responsive-up $tablet-xs {
+      height: calc(100vh - 60px - 70px);
+      overflow-y: auto;
+    }
   }
 }

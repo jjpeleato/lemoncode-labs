@@ -4,6 +4,16 @@
   flex-direction: column;
   background: $tertiary;
 
+  @mixin responsive-down $tablet-xs {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    flex-direction: row;
+    z-index: 1000;
+  }
+
   &__title {
     width: 100%;
     padding: 0.8rem 0.5rem;
@@ -12,5 +22,9 @@
     text-transform: uppercase;
     color: $text-on-primary;
     border-bottom: 1px solid #293036;
+
+    @mixin responsive-down $tablet-xs {
+      display: none;
+    }
   }
 }

@@ -6,6 +6,13 @@
   background: $secondary;
   border-top: 1px solid #293036;
 
+  @mixin responsive-down $tablet-xs {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.6rem 1rem 0.4rem;
+  }
+
   &__text {
     display: flex;
     align-items: center;

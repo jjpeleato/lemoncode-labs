@@ -1,6 +1,18 @@
 .card {
   @mixin grid-width 4, 1rem;
 
+  @mixin responsive-down $tablet-xl {
+    @mixin grid-width 3, 1rem;
+  }
+
+  @mixin responsive-down $tablet {
+    @mixin grid-width 2, 1rem;
+  }
+
+  @mixin responsive-down $mobile {
+    @mixin grid-width 1, 1rem;
+  }
+
   display: flex;
   flex-direction: column;
   justify-content: center;
