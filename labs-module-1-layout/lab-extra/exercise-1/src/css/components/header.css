@@ -28,7 +28,8 @@
     align-items: center;
     padding: 1rem;
     background: $secondary;
-    border-bottom: 1px solid #293036;
+    /* stylelint-disable-next-line declaration-property-value-no-unknown */
+    border-bottom: 1px solid $primary-accent;
   }
 
   &__title {

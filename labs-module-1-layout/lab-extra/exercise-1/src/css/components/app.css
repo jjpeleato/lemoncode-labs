@@ -11,7 +11,7 @@
   &__content {
     flex: 1;
     display: flex;
-    flex-flow: row wrap;
+    flex-wrap: wrap;
     gap: 1rem;
     padding: 1rem;
 

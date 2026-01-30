@@ -5,11 +5,10 @@
   background: $tertiary;
 
   @mixin responsive-down $tablet-xs {
-    position: sticky;
-    top: 0;
     width: 100%;
     flex-direction: row;
-    z-index: 1000;
+    position: sticky;
+    top: 0;
   }
 
   &__title {
@@ -19,7 +18,8 @@
     text-align: center;
     text-transform: uppercase;
     color: $text-on-primary;
-    border-bottom: 1px solid #293036;
+    /* stylelint-disable-next-line declaration-property-value-no-unknown */
+    border-bottom: 1px solid $primary-accent;
 
     @mixin responsive-down $tablet-xs {
       display: none;

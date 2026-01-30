@@ -4,7 +4,8 @@
   justify-content: space-between;
   padding: 0.4rem 1rem;
   background: $secondary;
-  border-top: 1px solid #293036;
+  /* stylelint-disable-next-line declaration-property-value-no-unknown */
+  border-top: 1px solid $primary-accent;
 
   @mixin responsive-down $tablet-xs {
     flex-direction: column;

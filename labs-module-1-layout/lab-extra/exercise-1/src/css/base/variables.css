@@ -21,9 +21,10 @@ $white: #FFF;
 $grey: #AAB8C5;
 $black: #000;
 $primary: #17181E;
+$primary-accent: #293036;
 $secondary: #252630;
-$tertiary: #1b1c22;
-$quaternary: #1e1f27;
+$tertiary: #1B1C22;
+$quaternary: #1E1F27;
 
 /* base::variables::fonts */
 $font-roboto: "Roboto", sans-serif;
