@@ -35,6 +35,10 @@ For more information visit:
 - [Extra laboratory - Exercise 1: Lemoncoders Webapp](labs-module-1-layout/lab-extra/exercise-1/README.md)
 - [Advanced laboratory - Exercise 1: Warner Live](labs-module-1-layout/lab-advanced/exercise-1/README.md)
 
+### Module 3: Language
+
+- [Basic laboratory - Exercise 1: Array operations](labs-module-3-language/lab-basic/exercise-1/README.md)
+
 ## Support
 
 For issues or feature requests, please open an issue in the repository or contact with me directly.
