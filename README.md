@@ -38,6 +38,7 @@ For more information visit:
 ### Module 3: Language
 
 - [Basic laboratory - Exercise 1: Array operations](labs-module-3-language/lab-basic/exercise-1/README.md)
+- [Basic laboratory - Exercise 2: Concat](labs-module-3-language/lab-basic/exercise-2/README.md)
 
 ## Support
 
