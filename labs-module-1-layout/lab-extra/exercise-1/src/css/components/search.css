@@ -1,0 +1,19 @@
+.search {
+  &__input {
+    width: 100%;
+    padding: 0.4rem 0.8rem 0.3rem 0;
+    font-size: 0.8rem;
+    border: 1px solid #000;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+
+    &:focus {
+      outline: none;
+      border: 1px solid #000;
+      border-top: none;
+      border-right: none;
+      border-left: none;
+    }
+  }
+}
