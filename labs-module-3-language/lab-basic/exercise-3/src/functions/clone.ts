@@ -1,3 +1,3 @@
-export const clone = <T>(source: T): T => {
+export const clone = <T extends object>(source: T): T => {
   return { ...source };
 };
