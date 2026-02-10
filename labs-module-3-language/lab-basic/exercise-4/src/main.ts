@@ -1,10 +1,11 @@
 import { isBookRead } from "./functions";
+import type { Book } from "./interfaces";
 
 console.log("########## Module 3 - Basic Laboratory - Exercise 4 - Read books ##########");
 
 console.log("########## START: Read book function ##########");
 
-const books = [
+const books: Book[] = [
   { title: "1984", isRead: true },
   { title: "Canción de hielo y fuego", isRead: false },
   { title: "Cien años de soledad", isRead: false },
