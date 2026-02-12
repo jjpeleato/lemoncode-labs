@@ -18,39 +18,25 @@ export class SlotMachine implements ISlotMachine {
   };
 
   game = () => {
-    let slotAlpha = Math.random() >= 0.9;
-    let slotBeta = Math.random() >= 0.9;
-    let slotGamma = Math.random() >= 0.9;
+    let reelAlpha = Math.random() >= 0.7;
+    let reelBeta = Math.random() >= 0.7;
+    let reelGamma = Math.random() >= 0.7;
 
-    this.win(slotAlpha, slotBeta, slotGamma);
+    this.win(reelAlpha, reelBeta, reelGamma);
   };
 
-  win = (slotAlpha: boolean, slotBeta: boolean, slotGamma: boolean): void => {
-    let coins = 0;
-
-    if (slotAlpha) {
-      coins++;
-    }
-
-    if (slotBeta) {
-      coins++;
-    }
-
-    if (slotGamma) {
-      coins++;
-    }
-
-    if (coins > 0) {
-      console.log(`Congratulations! You won ${coins} coins!`);
-      this.coins += coins;
+  win = (reelAlpha: boolean, reelBeta: boolean, reelGamma: boolean): void => {
+    if (reelAlpha && reelBeta && reelGamma) {
+      this.coins += 3;
+      console.log(`Congratulations! You won 3 coins! You have ${this.coins} coins!`);
     } else {
-      console.log("Ups! Good luck next time!");
+      console.log(`Ups! Good luck next time! You have ${this.coins} coins!`);
     }
   };
 
   insertCoin = (): void => {
-    console.log("Coin inserted");
     this.coins++;
+    console.log(`Coin inserted! You have ${this.coins} coins!`);
   };
 
   burnCoin = (): void => {

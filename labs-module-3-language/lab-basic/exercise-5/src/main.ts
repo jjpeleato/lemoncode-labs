@@ -6,7 +6,9 @@ console.log("########## START: Slot machine class ##########");
 
 const slotMachine = new SlotMachine();
 
-// Insert coin
+// Insert coins
+slotMachine.insertCoin();
+slotMachine.insertCoin();
 slotMachine.insertCoin();
 
 // Start game

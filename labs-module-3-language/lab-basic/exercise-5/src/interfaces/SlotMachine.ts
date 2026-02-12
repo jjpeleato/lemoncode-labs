@@ -3,7 +3,7 @@ export interface SlotMachine {
 
   play(): void;
   game(): void;
-  win(alpha: boolean, beta: boolean, gamma: boolean): void;
+  win(a: boolean, b: boolean, c: boolean): void;
   insertCoin(): void;
   burnCoin(): void;
 }
