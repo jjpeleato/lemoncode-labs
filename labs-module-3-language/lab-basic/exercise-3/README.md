@@ -41,7 +41,7 @@ function merge(source, target) {
 
 1. Install the Node.js dependencies:
    ```bash
-   cd labs-module-3-language/lab-basic/exercise-2
+   cd labs-module-3-language/lab-basic/exercise-3
    npm i --save-dev
    ```
 2. Start the development server:

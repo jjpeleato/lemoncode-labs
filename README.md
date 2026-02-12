@@ -41,6 +41,7 @@ For more information visit:
 - [Basic laboratory - Exercise 2: Concat](labs-module-3-language/lab-basic/exercise-2/README.md)
 - [Basic laboratory - Exercise 3: Clone & Merge](labs-module-3-language/lab-basic/exercise-3/README.md)
 - [Basic laboratory - Exercise 4: Read books](labs-module-3-language/lab-basic/exercise-4/README.md)
+- [Basic laboratory - Exercise 5: Slot machine](labs-module-3-language/lab-basic/exercise-5/README.md)
 
 ## Support
 
