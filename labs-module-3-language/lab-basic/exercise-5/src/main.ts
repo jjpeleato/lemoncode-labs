@@ -5,6 +5,11 @@ console.log("########## Module 3 - Basic Laboratory - Exercise 5 - Slot machine 
 console.log("########## START: Slot machine class ##########");
 
 const slotMachine = new SlotMachine();
+
+// Insert coin
+slotMachine.insertCoin();
+
+// Start game
 slotMachine.play();
 slotMachine.play();
 slotMachine.play();
