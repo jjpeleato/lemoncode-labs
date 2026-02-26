@@ -1,5 +1,27 @@
-$brand-color: #a7b62d;
+$font-stack: 'Arial', sans-serif;
+$brand-color: #00b894;
+$brand-color-hover: #55efc4;
 
-h1 {
-  color: $brand-color;
+.container {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  h1 {
+    font-family: $font-stack;
+    color: $brand-color;
+    cursor: pointer;
+
+    &:hover {
+      color: $brand-color-hover;
+    }
+  }
+
+  img {
+    width: 100px;
+    height: auto;
+  }
 }
