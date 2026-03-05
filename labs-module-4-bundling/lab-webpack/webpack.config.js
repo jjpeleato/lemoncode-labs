@@ -1,15 +1,18 @@
-const BundleAnalyzerPlugin =
-  require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
-const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
-const Dotenv = require("dotenv-webpack");
-const ESLintPlugin = require("eslint-webpack-plugin");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const path = require("path");
-const StylelintPlugin = require("stylelint-webpack-plugin");
-const TerserPlugin = require("terser-webpack-plugin");
+import { BundleAnalyzerPlugin } from "webpack-bundle-analyzer";
+import { fileURLToPath } from "url";
+import CssMinimizerPlugin from "css-minimizer-webpack-plugin";
+import Dotenv from "dotenv-webpack";
+import ESLintPlugin from "eslint-webpack-plugin";
+import HtmlWebpackPlugin from "html-webpack-plugin";
+import MiniCssExtractPlugin from "mini-css-extract-plugin";
+import path from "path";
+import StylelintPlugin from "stylelint-webpack-plugin";
+import TerserPlugin from "terser-webpack-plugin";
 
-module.exports = (env, argv) => {
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+export default (env, argv) => {
   const isProduction = argv.mode === "production";
   const styleLoader = isProduction
     ? MiniCssExtractPlugin.loader
@@ -17,10 +20,13 @@ module.exports = (env, argv) => {
   const isStats = env.stats;
 
   return {
-    entry: "./src/index.tsx",
+    mode: "development",
+    entry: {
+      index: "./src/index.tsx",
+    },
     output: {
       path: path.resolve(__dirname, "dist"),
-      filename: "bundle.js",
+      filename: "js/[name].[contenthash].js",
       clean: true,
     },
     module: {
@@ -73,13 +79,25 @@ module.exports = (env, argv) => {
         filename: "index.html",
       }),
       ...(isProduction
-        ? [new MiniCssExtractPlugin({ filename: "[name].[contenthash].css" })]
+        ? [
+            new MiniCssExtractPlugin({
+              filename: "css/[name].[contenthash].css",
+            }),
+          ]
         : []),
       ...(isStats ? [new BundleAnalyzerPlugin()] : []),
     ],
     optimization: {
       minimize: isProduction,
       minimizer: [new TerserPlugin(), new CssMinimizerPlugin()],
+      splitChunks: {
+        chunks: "all",
+      },
+    },
+    performance: {
+      hints: isProduction ? "warning" : false,
+      maxAssetSize: 256 * 1024, // 256 KB by asset
+      maxEntrypointSize: 256 * 1024, // 256 KB by entry point
     },
     resolve: {
       extensions: [".js", ".ts", ".tsx"],
