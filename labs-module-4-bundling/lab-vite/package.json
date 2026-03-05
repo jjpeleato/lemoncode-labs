@@ -1,7 +1,7 @@
 {
   "name": "lab-vite",
   "version": "0.1.0",
-  "description": "A bundling lab using Vite with React 19 and TypeScript",
+  "description": "A bundling lab using Vite 7 with TypeScript",
   "keywords": [
     "npm",
     "vite",
