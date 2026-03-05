@@ -36,6 +36,7 @@
     "stylelint": "^16.26.1",
     "stylelint-config-standard-scss": "^16.0.0",
     "stylelint-scss": "^6.13.0",
+    "stylelint-webpack-plugin": "^5.1.0",
     "terser-webpack-plugin": "^5.3.17",
     "webpack-dev-server": "^5.2.3"
   }

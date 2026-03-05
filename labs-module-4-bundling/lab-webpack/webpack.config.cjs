@@ -6,6 +6,7 @@ const ESLintPlugin = require("eslint-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const path = require("path");
+const StylelintPlugin = require("stylelint-webpack-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
 
 module.exports = (env, argv) => {
@@ -60,6 +61,10 @@ module.exports = (env, argv) => {
     plugins: [
       new ESLintPlugin({
         extensions: ["ts", "tsx"],
+        fix: true,
+      }),
+      new StylelintPlugin({
+        files: "**/*.scss",
         fix: true,
       }),
       new Dotenv(),
