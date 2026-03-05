@@ -40,6 +40,15 @@ module.exports = (env, argv) => {
         },
       ],
     },
+    devServer: {
+      static: {
+        directory: path.join(__dirname, "dist"),
+      },
+      compress: true,
+      port: 8080,
+      open: true,
+      hot: true,
+    },
     plugins: [
       new Dotenv(),
       new HtmlWebpackPlugin({
