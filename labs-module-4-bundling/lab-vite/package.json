@@ -1,0 +1,27 @@
+{
+  "name": "lab-vite",
+  "version": "0.1.0",
+  "description": "A bundling lab using Vite 7 with TypeScript",
+  "keywords": [
+    "npm",
+    "vite",
+    "bundling"
+  ],
+  "private": true,
+  "license": "ISC",
+  "author": "@jjpeleato",
+  "type": "module",
+  "scripts": {
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "start": "vite",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "rollup-plugin-visualizer": "^7.0.1",
+    "typescript": "^5.9.3",
+    "vite": "^7.3.1",
+    "vite-plugin-checker": "^0.12.0",
+    "vite-plugin-compression": "^0.5.1"
+  }
+}
