@@ -20,7 +20,10 @@ export default (env, argv) => {
   const isStats = env.stats;
 
   return {
-    entry: "./src/index.tsx",
+    mode: "development",
+    entry: {
+      index: "./src/index.tsx",
+    },
     output: {
       path: path.resolve(__dirname, "dist"),
       filename: "js/[name].[contenthash].js",
@@ -76,7 +79,11 @@ export default (env, argv) => {
         filename: "index.html",
       }),
       ...(isProduction
-        ? [new MiniCssExtractPlugin({ filename: "[name].[contenthash].css" })]
+        ? [
+            new MiniCssExtractPlugin({
+              filename: "css/[name].[contenthash].css",
+            }),
+          ]
         : []),
       ...(isStats ? [new BundleAnalyzerPlugin()] : []),
     ],
@@ -86,6 +93,11 @@ export default (env, argv) => {
       splitChunks: {
         chunks: "all",
       },
+    },
+    performance: {
+      hints: isProduction ? "warning" : false,
+      maxAssetSize: 256 * 1024, // 256 KB by asset
+      maxEntrypointSize: 256 * 1024, // 256 KB by entry point
     },
     resolve: {
       extensions: [".js", ".ts", ".tsx"],
