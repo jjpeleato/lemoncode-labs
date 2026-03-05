@@ -2,6 +2,7 @@
 # Ignore base files/directories #
 #################################
 .env
+.env.*
 .idea
 .vscode
 node_modules
