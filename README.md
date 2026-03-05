@@ -50,6 +50,7 @@ npm i --save-dev
 ### Module 4: Bundling
 
 - [Webpack laboratory](labs-module-4-bundling/lab-webpack/README.md)
+- [Vite laboratory](labs-module-4-bundling/lab-vite/README.md)
 
 ## Support
 
