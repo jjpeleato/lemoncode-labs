@@ -28,12 +28,15 @@
     "@commitlint/cli": "^20.1.0",
     "@commitlint/config-conventional": "^20.0.0",
     "commitizen": "^4.3.1",
+    "css-minimizer-webpack-plugin": "^8.0.0",
     "cz-conventional-changelog": "^3.3.0",
     "husky": "^9.1.7",
+    "mini-css-extract-plugin": "^2.10.0",
     "sass": "^1.94.2",
     "stylelint": "^16.26.1",
     "stylelint-config-standard-scss": "^16.0.0",
     "stylelint-scss": "^6.13.0",
+    "terser-webpack-plugin": "^5.3.17",
     "webpack-dev-server": "^5.2.3"
   }
 }

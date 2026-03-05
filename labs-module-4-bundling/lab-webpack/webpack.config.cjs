@@ -1,10 +1,17 @@
 const BundleAnalyzerPlugin =
   require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
+const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const Dotenv = require("dotenv-webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const path = require("path");
+const TerserPlugin = require("terser-webpack-plugin");
 
 module.exports = (env, argv) => {
+  const isProduction = argv.mode === "production";
+  const styleLoader = isProduction
+    ? MiniCssExtractPlugin.loader
+    : "style-loader";
   const isStats = env.stats;
 
   return {
@@ -32,7 +39,7 @@ module.exports = (env, argv) => {
         },
         {
           test: /\.scss$/,
-          use: ["style-loader", "css-loader", "sass-loader"],
+          use: [styleLoader, "css-loader", "sass-loader"],
         },
         {
           test: /\.(png|svg|jpg|jpeg|gif)$/i,
@@ -55,8 +62,15 @@ module.exports = (env, argv) => {
         template: "./src/index.html",
         filename: "index.html",
       }),
+      ...(isProduction
+        ? [new MiniCssExtractPlugin({ filename: "[name].[contenthash].css" })]
+        : []),
       ...(isStats ? [new BundleAnalyzerPlugin()] : []),
     ],
+    optimization: {
+      minimize: isProduction,
+      minimizer: [new TerserPlugin(), new CssMinimizerPlugin()],
+    },
     resolve: {
       extensions: [".js", ".ts", ".tsx"],
     },
