@@ -2,6 +2,7 @@ const BundleAnalyzerPlugin =
   require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const Dotenv = require("dotenv-webpack");
+const ESLintPlugin = require("eslint-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const path = require("path");
@@ -57,6 +58,10 @@ module.exports = (env, argv) => {
       hot: true,
     },
     plugins: [
+      new ESLintPlugin({
+        extensions: ["ts", "tsx"],
+        fix: true,
+      }),
       new Dotenv(),
       new HtmlWebpackPlugin({
         template: "./src/index.html",
