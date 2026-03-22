@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
-import { ROUTES } from './routes.constants';
-import { MembersPage } from '../pages/MembersPage/MembersPage';
 import { MemberDetailPage } from '../pages/MemberDetailPage/MemberDetailPage';
+import { MembersPage } from '../pages/MembersPage/MembersPage';
+import { ROUTES } from './routes.constants';
 
 export const AppRouter = () => {
   return (
