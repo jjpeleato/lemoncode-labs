@@ -16,7 +16,11 @@ export const useOrgMembers = () => {
   const initialOrg = useRef(orgFromUrl);
   const initialPage = useRef(pageFromUrl);
 
-  const isMounting = useRef(true);
+  const lastSuccessfulData = useRef<{
+    page: number;
+    members: GithubMember[];
+  } | null>(null);
+  const lastSearchedOrg = useRef(initialOrg.current);
 
   const [inputValue, setInputValue] = useState<string>(initialOrg.current);
   const debouncedOrg = useDebounce(inputValue, 500);
@@ -43,11 +47,14 @@ export const useOrgMembers = () => {
 
       if (members.length === 0 && page > 1) {
         const previousPage = page - 1;
-        const previousMembers = await getOrgMembers({
-          org,
-          page: previousPage,
-          perPage: PER_PAGE,
-        });
+        const previousMembers =
+          lastSuccessfulData.current?.page === previousPage
+            ? lastSuccessfulData.current.members
+            : await getOrgMembers({
+                org,
+                page: previousPage,
+                perPage: PER_PAGE,
+              });
 
         setState((prev) => ({
           ...prev,
@@ -60,6 +67,7 @@ export const useOrgMembers = () => {
         return;
       }
 
+      lastSuccessfulData.current = { page, members };
       setState((prev) => ({
         ...prev,
         members,
@@ -83,36 +91,43 @@ export const useOrgMembers = () => {
     if (initialOrg.current) {
       fetchMembers(initialOrg.current, initialPage.current);
     }
-
-    const timer = setTimeout(() => {
-      isMounting.current = false;
-    }, 0);
-
-    return () => clearTimeout(timer);
   }, [fetchMembers]);
 
   useEffect(() => {
     if (!debouncedOrg.trim()) return;
-    if (isMounting.current) return;
+    if (debouncedOrg === lastSearchedOrg.current) return;
 
+    lastSearchedOrg.current = debouncedOrg;
     setSearchParams({ org: debouncedOrg, page: "1" });
     fetchMembers(debouncedOrg, 1);
   }, [debouncedOrg, fetchMembers, setSearchParams]);
 
   const handleInputChange = (value: string) => {
     setInputValue(value);
+
+    if (value.trim() === "") {
+      lastSearchedOrg.current = "";
+      setState({
+        members: [],
+        isLoading: false,
+        error: null,
+        totalPages: 1,
+        currentPage: 1,
+      });
+    }
   };
 
   const handleSearch = () => {
     if (!inputValue.trim()) return;
-
+    lastSearchedOrg.current = inputValue;
     setSearchParams({ org: inputValue, page: "1" });
     fetchMembers(inputValue, 1);
   };
 
   const handlePageChange = (page: number) => {
-    setSearchParams({ org: orgFromUrl, page: String(page) });
-    fetchMembers(orgFromUrl, page);
+    if (!inputValue.trim()) return;
+    setSearchParams({ org: inputValue, page: String(page) });
+    fetchMembers(inputValue, page);
   };
 
   return {
