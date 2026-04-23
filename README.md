@@ -39,6 +39,10 @@ npm i --save-dev
 - [Extra laboratory - Exercise 1: Lemoncoders Webapp](labs-module-1-layout/lab-extra/exercise-1/README.md)
 - [Advanced laboratory - Exercise 1: Warner Live](labs-module-1-layout/lab-advanced/exercise-1/README.md)
 
+### Module 2: UX/UI
+
+[..coming soon..]
+
 ### Module 3: Language
 
 - [Basic laboratory - Exercise 1: Array operations](labs-module-3-language/lab-basic/exercise-1/README.md)
@@ -51,6 +55,10 @@ npm i --save-dev
 
 - [Webpack laboratory](labs-module-4-bundling/lab-webpack/README.md)
 - [Vite laboratory](labs-module-4-bundling/lab-vite/README.md)
+
+### Module 5: React
+
+- [Basic laboratory - Exercise 1: GitHub Organization Member Explorer](labs-module-5-react/lab-basic/exercise-1/README.md)
 
 ## Support
 
