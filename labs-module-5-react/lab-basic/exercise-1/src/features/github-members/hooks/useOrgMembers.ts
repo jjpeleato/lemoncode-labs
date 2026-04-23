@@ -21,6 +21,7 @@ export const useOrgMembers = () => {
     members: GithubMember[];
   } | null>(null);
   const lastSearchedOrg = useRef(initialOrg.current);
+  const setSearchParamsRef = useRef(setSearchParams);
 
   const [inputValue, setInputValue] = useState<string>(initialOrg.current);
   const debouncedOrg = useDebounce(inputValue, 500);
@@ -31,6 +32,7 @@ export const useOrgMembers = () => {
     error: null,
     totalPages: 1,
     currentPage: initialPage.current,
+    hasSearched: false,
   });
 
   const fetchMembers = useCallback(async (org: string, page: number) => {
@@ -74,6 +76,7 @@ export const useOrgMembers = () => {
         isLoading: false,
         currentPage: page,
         totalPages: members.length < PER_PAGE ? page : page + 1,
+        hasSearched: true,
       }));
     } catch (err) {
       setState((prev) => ({
@@ -83,6 +86,7 @@ export const useOrgMembers = () => {
         members: [],
         totalPages: 1,
         currentPage: 1,
+        hasSearched: true,
       }));
     }
   }, []);
@@ -94,13 +98,21 @@ export const useOrgMembers = () => {
   }, [fetchMembers]);
 
   useEffect(() => {
-    if (!debouncedOrg.trim()) return;
+    setSearchParamsRef.current = setSearchParams;
+  }, [setSearchParams]);
+
+  useEffect(() => {
+    if (!debouncedOrg.trim()) {
+      setSearchParamsRef.current({});
+      return;
+    }
+
     if (debouncedOrg === lastSearchedOrg.current) return;
 
     lastSearchedOrg.current = debouncedOrg;
-    setSearchParams({ org: debouncedOrg, page: "1" });
+    setSearchParamsRef.current({ org: debouncedOrg, page: "1" });
     fetchMembers(debouncedOrg, 1);
-  }, [debouncedOrg, fetchMembers, setSearchParams]);
+  }, [debouncedOrg, fetchMembers]);
 
   const handleInputChange = (value: string) => {
     setInputValue(value);
@@ -113,6 +125,7 @@ export const useOrgMembers = () => {
         error: null,
         totalPages: 1,
         currentPage: 1,
+        hasSearched: false,
       });
     }
   };
@@ -130,6 +143,21 @@ export const useOrgMembers = () => {
     fetchMembers(inputValue, page);
   };
 
+  const handleReset = () => {
+    setInputValue("");
+    lastSearchedOrg.current = "";
+    lastSuccessfulData.current = null;
+    setSearchParams({});
+    setState({
+      members: [],
+      isLoading: false,
+      error: null,
+      totalPages: 1,
+      currentPage: 1,
+      hasSearched: false,
+    });
+  };
+
   return {
     inputValue,
     members: state.members,
@@ -137,8 +165,10 @@ export const useOrgMembers = () => {
     error: state.error,
     currentPage: state.currentPage,
     totalPages: state.totalPages,
+    hasSearched: state.hasSearched,
     handleInputChange,
     handleSearch,
     handlePageChange,
+    handleReset,
   };
 };
