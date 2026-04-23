@@ -20,6 +20,7 @@ export const MembersPage = () => {
     handleInputChange,
     handleSearch,
     handlePageChange,
+    handleReset,
   } = useOrgMembers();
 
   const handleMemberClick = (username: string) => {
@@ -41,6 +42,7 @@ export const MembersPage = () => {
         isLoading={isLoading}
         onChange={handleInputChange}
         onSearch={handleSearch}
+        onReset={handleReset}
       />
       <MemberList
         members={members}
