@@ -1,11 +1,13 @@
-import { Box, TextField, Button, CircularProgress } from '@mui/material';
+import { Box, TextField, Button, IconButton, CircularProgress, Tooltip } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
+import DeleteIcon from '@mui/icons-material/Delete';
 
 interface OrgSearchBarProps {
   value: string;
   isLoading: boolean;
   onChange: (value: string) => void;
   onSearch: () => void;
+  onReset: () => void;
 }
 
 export const OrgSearchBar = ({
@@ -13,6 +15,7 @@ export const OrgSearchBar = ({
   isLoading,
   onChange,
   onSearch,
+  onReset,
 }: OrgSearchBarProps) => {
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
@@ -44,6 +47,18 @@ export const OrgSearchBar = ({
       >
         {isLoading ? 'Searching...' : 'Search'}
       </Button>
+      <Tooltip title="Clear">
+        <span>
+          <IconButton
+            onClick={onReset}
+            disabled={isLoading}
+            color="error"
+            aria-label="clear"
+          >
+            <DeleteIcon />
+          </IconButton>
+        </span>
+      </Tooltip>
     </Box>
   );
 };

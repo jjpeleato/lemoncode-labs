@@ -6,6 +6,7 @@ export interface OrgMembersState {
   error: string | null;
   totalPages: number;
   currentPage: number;
+  hasSearched: boolean;
 }
 
 export interface MemberDetailState {

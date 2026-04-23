@@ -17,9 +17,11 @@ export const MembersPage = () => {
     error,
     currentPage,
     totalPages,
+    hasSearched,
     handleInputChange,
     handleSearch,
     handlePageChange,
+    handleReset,
   } = useOrgMembers();
 
   const handleMemberClick = (username: string) => {
@@ -41,11 +43,13 @@ export const MembersPage = () => {
         isLoading={isLoading}
         onChange={handleInputChange}
         onSearch={handleSearch}
+        onReset={handleReset}
       />
       <MemberList
         members={members}
         isLoading={isLoading}
         error={error}
+        hasSearched={hasSearched}
         onMemberClick={handleMemberClick}
       />
       <MembersPagination
