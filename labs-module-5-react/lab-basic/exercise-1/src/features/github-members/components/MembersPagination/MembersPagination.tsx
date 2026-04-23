@@ -22,8 +22,6 @@ export const MembersPagination = ({
         onChange={(_, page) => onPageChange(page)}
         color="primary"
         shape="rounded"
-        showFirstButton
-        showLastButton
       />
     </Box>
   );
