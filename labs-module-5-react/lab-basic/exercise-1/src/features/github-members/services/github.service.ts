@@ -14,7 +14,7 @@ export const getOrgMembers = async (
   const response = await fetch(url);
 
   if (!response.ok) {
-    await handleApiError(response);
+    handleApiError(response);
   }
 
   const data: GithubMember[] = await response.json();
@@ -28,14 +28,14 @@ export const getMemberDetail = async (
   const response = await fetch(url);
 
   if (!response.ok) {
-    await handleApiError(response);
+    handleApiError(response);
   }
 
   const data: GithubMemberDetail = await response.json();
   return data;
 };
 
-const handleApiError = async (response: Response): Promise<never> => {
+const handleApiError = (response: Response): never => {
   const errorMessages: Record<number, string> = {
     404: "Ups! Organization not found",
     403: "Ups! GitHub API request limit reached. Please wait a few minutes.",
