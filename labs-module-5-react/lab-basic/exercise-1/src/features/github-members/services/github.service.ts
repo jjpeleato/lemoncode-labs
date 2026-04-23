@@ -6,20 +6,6 @@ import type { MembersSearchParams } from "../types/github-state.types";
 
 const GITHUB_API_BASE_URL = "https://api.github.com";
 
-const handleApiError = async (response: Response): Promise<never> => {
-  const errorMessages: Record<number, string> = {
-    404: "Ups! Organization not found",
-    403: "Ups! GitHub API request limit reached. Please wait a few minutes.",
-    500: "Internal error on GitHub server",
-  };
-
-  const message =
-    errorMessages[response.status] ??
-    `Unexpected error (code ${response.status})`;
-
-  throw new Error(message);
-};
-
 export const getOrgMembers = async (
   params: MembersSearchParams,
 ): Promise<GithubMember[]> => {
@@ -47,4 +33,18 @@ export const getMemberDetail = async (
 
   const data: GithubMemberDetail = await response.json();
   return data;
+};
+
+const handleApiError = async (response: Response): Promise<never> => {
+  const errorMessages: Record<number, string> = {
+    404: "Ups! Organization not found",
+    403: "Ups! GitHub API request limit reached. Please wait a few minutes.",
+    500: "Internal error on GitHub server",
+  };
+
+  const message =
+    errorMessages[response.status] ??
+    `Unexpected error (code ${response.status})`;
+
+  throw new Error(message);
 };

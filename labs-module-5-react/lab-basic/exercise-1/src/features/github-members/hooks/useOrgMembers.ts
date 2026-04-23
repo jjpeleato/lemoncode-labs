@@ -1,9 +1,9 @@
+import { useState, useEffect, useCallback, useRef } from "react";
+import { useSearchParams } from "react-router-dom";
 import { getOrgMembers } from "../services/github.service";
 import { useDebounce } from "../../../shared/hooks/useDebounce";
-import { useSearchParams } from "react-router-dom";
-import { useState, useEffect, useCallback, useRef } from "react";
-import type { GithubMember } from "../types/github-api.types";
 import type { OrgMembersState } from "../types/github-state.types";
+import type { GithubMember } from "../types/github-api.types";
 
 const PER_PAGE = 12;
 

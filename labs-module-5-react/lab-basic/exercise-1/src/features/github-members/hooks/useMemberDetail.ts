@@ -1,6 +1,6 @@
-import { getMemberDetail } from "../services/github.service";
-import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
+import { getMemberDetail } from "../services/github.service";
 import type { MemberDetailState } from "../types/github-state.types";
 
 export const useMemberDetail = () => {
