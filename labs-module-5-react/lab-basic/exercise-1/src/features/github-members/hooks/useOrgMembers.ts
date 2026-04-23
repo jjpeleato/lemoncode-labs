@@ -39,6 +39,25 @@ export const useOrgMembers = () => {
         perPage: PER_PAGE,
       });
 
+      if (members.length === 0 && page > 1) {
+        const previousPage = page - 1;
+        const previousMembers = await getOrgMembers({
+          org,
+          page: previousPage,
+          perPage: PER_PAGE,
+        });
+
+        setState((prev) => ({
+          ...prev,
+          members: previousMembers,
+          isLoading: false,
+          currentPage: previousPage,
+          totalPages: previousPage,
+        }));
+
+        return;
+      }
+
       setState((prev) => ({
         ...prev,
         members,
@@ -52,6 +71,8 @@ export const useOrgMembers = () => {
         isLoading: false,
         error: err instanceof Error ? err.message : "Unknown error",
         members: [],
+        totalPages: 1,
+        currentPage: 1,
       }));
     }
   }, []);
