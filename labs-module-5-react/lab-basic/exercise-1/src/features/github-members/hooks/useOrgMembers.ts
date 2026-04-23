@@ -102,7 +102,11 @@ export const useOrgMembers = () => {
   }, [setSearchParams]);
 
   useEffect(() => {
-    if (!debouncedOrg.trim()) return;
+    if (!debouncedOrg.trim()) {
+      setSearchParamsRef.current({});
+      return;
+    }
+
     if (debouncedOrg === lastSearchedOrg.current) return;
 
     lastSearchedOrg.current = debouncedOrg;

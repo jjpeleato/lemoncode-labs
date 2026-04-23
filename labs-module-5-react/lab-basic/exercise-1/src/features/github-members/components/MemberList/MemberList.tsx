@@ -66,7 +66,7 @@ export const MemberList = ({
       }}>
         <SearchOffIcon sx={{ fontSize: 64, opacity: 0.3 }} />
         <Typography variant="body1">
-          Esta organización no tiene miembros públicos
+          This organization has no public members
         </Typography>
       </Box>
     );
