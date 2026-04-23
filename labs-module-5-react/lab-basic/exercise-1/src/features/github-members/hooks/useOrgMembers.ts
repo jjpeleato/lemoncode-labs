@@ -32,6 +32,7 @@ export const useOrgMembers = () => {
     error: null,
     totalPages: 1,
     currentPage: initialPage.current,
+    hasSearched: false,
   });
 
   const fetchMembers = useCallback(async (org: string, page: number) => {
@@ -75,6 +76,7 @@ export const useOrgMembers = () => {
         isLoading: false,
         currentPage: page,
         totalPages: members.length < PER_PAGE ? page : page + 1,
+        hasSearched: true,
       }));
     } catch (err) {
       setState((prev) => ({
@@ -84,6 +86,7 @@ export const useOrgMembers = () => {
         members: [],
         totalPages: 1,
         currentPage: 1,
+        hasSearched: true,
       }));
     }
   }, []);
@@ -118,6 +121,7 @@ export const useOrgMembers = () => {
         error: null,
         totalPages: 1,
         currentPage: 1,
+        hasSearched: false,
       });
     }
   };
@@ -146,6 +150,7 @@ export const useOrgMembers = () => {
       error: null,
       totalPages: 1,
       currentPage: 1,
+      hasSearched: false,
     });
   };
 
@@ -156,6 +161,7 @@ export const useOrgMembers = () => {
     error: state.error,
     currentPage: state.currentPage,
     totalPages: state.totalPages,
+    hasSearched: state.hasSearched,
     handleInputChange,
     handleSearch,
     handlePageChange,

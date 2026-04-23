@@ -1,5 +1,6 @@
 import { Grid, Typography, Box, CircularProgress, Alert } from '@mui/material';
 import GroupIcon from '@mui/icons-material/Group';
+import SearchOffIcon from '@mui/icons-material/SearchOff';
 import { MemberCard } from '../MemberCard/MemberCard';
 import type { GithubMember } from '../../types/github-api.types';
 
@@ -7,6 +8,7 @@ interface MemberListProps {
   members: GithubMember[];
   isLoading: boolean;
   error: string | null;
+  hasSearched: boolean;
   onMemberClick: (username: string) => void;
 }
 
@@ -14,6 +16,7 @@ export const MemberList = ({
   members,
   isLoading,
   error,
+  hasSearched,
   onMemberClick,
 }: MemberListProps) => {
 
@@ -33,7 +36,7 @@ export const MemberList = ({
     );
   }
 
-  if (members.length === 0) {
+  if (members.length === 0 && !hasSearched) {
     return (
       <Box sx={{
         display: 'flex',
@@ -46,6 +49,24 @@ export const MemberList = ({
         <GroupIcon sx={{ fontSize: 64, opacity: 0.3 }} />
         <Typography variant="body1">
           Enter an organization's name to view its members
+        </Typography>
+      </Box>
+    );
+  }
+
+  if (members.length === 0 && hasSearched) {
+    return (
+      <Box sx={{
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        py: 8,
+        gap: 2,
+        color: 'text.secondary',
+      }}>
+        <SearchOffIcon sx={{ fontSize: 64, opacity: 0.3 }} />
+        <Typography variant="body1">
+          Esta organización no tiene miembros públicos
         </Typography>
       </Box>
     );

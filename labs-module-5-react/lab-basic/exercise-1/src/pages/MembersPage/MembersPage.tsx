@@ -17,6 +17,7 @@ export const MembersPage = () => {
     error,
     currentPage,
     totalPages,
+    hasSearched,
     handleInputChange,
     handleSearch,
     handlePageChange,
@@ -48,6 +49,7 @@ export const MembersPage = () => {
         members={members}
         isLoading={isLoading}
         error={error}
+        hasSearched={hasSearched}
         onMemberClick={handleMemberClick}
       />
       <MembersPagination
