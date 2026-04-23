@@ -16,6 +16,8 @@ export const useOrgMembers = () => {
   const initialOrg = useRef(orgFromUrl);
   const initialPage = useRef(pageFromUrl);
 
+  const isMounting = useRef(true);
+
   const [inputValue, setInputValue] = useState<string>(initialOrg.current);
   const debouncedOrg = useDebounce(inputValue, 500);
 
@@ -81,11 +83,17 @@ export const useOrgMembers = () => {
     if (initialOrg.current) {
       fetchMembers(initialOrg.current, initialPage.current);
     }
+
+    const timer = setTimeout(() => {
+      isMounting.current = false;
+    }, 0);
+
+    return () => clearTimeout(timer);
   }, [fetchMembers]);
 
   useEffect(() => {
     if (!debouncedOrg.trim()) return;
-    if (debouncedOrg === initialOrg.current) return;
+    if (isMounting.current) return;
 
     setSearchParams({ org: debouncedOrg, page: "1" });
     fetchMembers(debouncedOrg, 1);
