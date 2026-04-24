@@ -59,6 +59,7 @@ npm i --save-dev
 ### Module 5: React
 
 - [Basic laboratory - Exercise 1: GitHub Organization Member Explorer](labs-module-5-react/lab-basic/exercise-1/README.md)
+- [Basic laboratory - Exercise 1: Rick and Morty](labs-module-5-react/lab-basic-rick-morty/exercise-1/README.md)
 
 ## Support
 
