@@ -1,6 +1,6 @@
-import { Box, CircularProgress, Alert, Grid } from '@mui/material';
-import { CharacterCard } from '../CharacterCard/CharacterCard';
-import type { Character } from '../../types/character-api.types';
+import { Alert, Box, CircularProgress, Grid } from "@mui/material";
+import { CharacterCard } from "../CharacterCard/CharacterCard";
+import type { Character } from "../../types/character-api.types";
 
 interface CharacterListProps {
   characters: Character[];
@@ -12,7 +12,7 @@ interface CharacterListProps {
 export const CharacterList = ({ characters, isLoading, error, onClick }: CharacterListProps) => {
   if (isLoading) {
     return (
-      <Box sx={{ display: 'flex', justifyContent: 'center', py: 8 }}>
+      <Box sx={{ display: "flex", justifyContent: "center", py: 8 }}>
         <CircularProgress />
       </Box>
     );

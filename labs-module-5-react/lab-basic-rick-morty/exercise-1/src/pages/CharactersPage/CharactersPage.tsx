@@ -1,21 +1,24 @@
-import { buildCharacterDetailRoute } from '../../router/routes.constants';
-import { CharacterList } from '../../features/characters/components/CharacterList/CharacterList';
-import { CharacterSearchBar } from '../../features/characters/components/CharacterSearchBar/CharacterSearchBar';
-import { Container, Typography, Box } from '@mui/material';
-import { useCharacters } from '../../features/characters/hooks/useCharacters';
-import { useNavigate } from 'react-router-dom';
+import { Box, Container, Typography } from "@mui/material";
+import { buildCharacterDetailRoute } from "../../router/routes.constants";
+import { CharacterList } from "../../features/characters";
+import { CharacterPagination } from "../../features/characters";
+import { CharacterSearchBar } from "../../features/characters";
+import { useCharacters } from "../../features/characters";
+import { useNavigate } from "react-router-dom";
 
-export const HomePage = () => {
+export const CharactersPage = () => {
   const navigate = useNavigate();
   const {
     characters,
     isLoading,
     error,
+    currentPage,
     totalPages,
     totalCount,
     inputValue,
     handleInputChange,
     handleSearch,
+    handlePageChange,
     handleReset
   } = useCharacters();
 
@@ -45,6 +48,11 @@ export const HomePage = () => {
         isLoading={isLoading}
         error={error}
         onClick={handleClick}
+      />
+      <CharacterPagination
+        currentPage={currentPage}
+        totalPages={totalPages}
+        onPageChange={handlePageChange}
       />
     </Container>
   );

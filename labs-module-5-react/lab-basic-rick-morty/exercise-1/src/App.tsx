@@ -1,9 +1,9 @@
-import { AppRouter } from './router/AppRouter';
-import { CssBaseline, ThemeProvider, createTheme } from '@mui/material';
+import { AppRouter } from "./router/AppRouter";
+import { CssBaseline, ThemeProvider, createTheme } from "@mui/material";
 
 const theme = createTheme({
   palette: {
-    mode: 'dark',
+    mode: "dark",
   },
 });
 

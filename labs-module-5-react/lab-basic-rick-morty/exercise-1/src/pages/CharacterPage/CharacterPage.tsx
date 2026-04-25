@@ -1,6 +1,6 @@
 import { Alert, Box, Button, CircularProgress, Container } from "@mui/material";
-import { CharacterDetail } from "../../features/characters/components/CharacterDetail/CharacterDetail";
-import { useCharacter } from "../../features/characters/hooks/useCharacter";
+import { CharacterDetail } from "../../features/characters";
+import { useCharacter } from "../../features/characters";
 import { useNavigate } from "react-router-dom";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 
@@ -23,7 +23,7 @@ export const CharacterPage = () => {
         Back
       </Button>
       {isLoading && (
-        <Box sx={{ display: 'flex', justifyContent: 'center', py: 8 }}>
+        <Box sx={{ display: "flex", justifyContent: "center", py: 8 }}>
           <CircularProgress />
         </Box>
       )}

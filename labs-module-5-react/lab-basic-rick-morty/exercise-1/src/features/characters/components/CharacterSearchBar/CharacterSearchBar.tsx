@@ -1,5 +1,5 @@
 import { Box, Button, CircularProgress, IconButton, TextField, Tooltip } from "@mui/material";
-import DeleteIcon from '@mui/icons-material/Delete';
+import DeleteIcon from "@mui/icons-material/Delete";
 import SearchIcon from "@mui/icons-material/Search";
 
 interface CharacterSearchBarProps {
@@ -18,7 +18,7 @@ export const CharacterSearchBar = ({
   onReset,
 }: CharacterSearchBarProps) => {
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === 'Enter') onSearch();
+    if (e.key === "Enter") onSearch();
   };
 
   return (

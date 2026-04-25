@@ -1,7 +1,7 @@
 import { getCharacters } from "../services/character.service";
-import { useDebounce } from "../../../shared/hooks/useDebounce";
+import { useCallback, useEffect, useRef, useState } from "react";
+import { useDebounce } from "../../../shared";
 import { useSearchParams } from "react-router-dom";
-import { useState, useEffect, useCallback, useRef } from "react";
 import type { ApiResponse } from "../types/character-api.types";
 import type { CharactersState } from "../types/character-state.types";
 
