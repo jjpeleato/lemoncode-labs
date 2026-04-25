@@ -13,19 +13,18 @@ export const useCharacter = () => {
 
   useEffect(() => {
     if (!id) return;
-
     const numericId = Number(id);
 
-    if (isNaN(numericId)) {
-      setState({
-        character: null,
-        isLoading: false,
-        error: "Invalid character ID",
-      });
-      return;
-    }
-
     const fetchDetail = async () => {
+      if (isNaN(numericId)) {
+        setState({
+          character: null,
+          isLoading: false,
+          error: "Invalid character ID",
+        });
+        return;
+      }
+
       setState((prev) => ({ ...prev, isLoading: true, error: null }));
 
       try {

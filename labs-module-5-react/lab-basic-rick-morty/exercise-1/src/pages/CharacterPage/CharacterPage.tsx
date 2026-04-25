@@ -13,6 +13,7 @@ import { CharacterDetail } from "../../features/characters/components/CharacterD
 export const CharacterPage = () => {
   const navigate = useNavigate();
   const { character, isLoading, error } = useCharacter();
+
   const handleBack = () => {
     navigate(-1);
   };
