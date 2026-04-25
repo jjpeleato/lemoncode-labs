@@ -1,6 +1,5 @@
 import { Alert, Box, Button, CircularProgress, Container } from "@mui/material";
-import { CharacterDetail } from "@features/characters";
-import { useCharacter } from "@features/characters";
+import { CharacterDetail, useCharacter } from "@features/characters";
 import { useNavigate } from "react-router-dom";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 
