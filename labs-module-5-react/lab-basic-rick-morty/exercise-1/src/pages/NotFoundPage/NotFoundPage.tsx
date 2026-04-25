@@ -1,7 +1,12 @@
-import { Box, Container, Typography } from "@mui/material";
+import { Box, Button, Container, Typography } from "@mui/material";
+import { ROUTES } from "@router/routes.constants";
+import { useNavigate } from "react-router-dom";
+import HomeIcon from "@mui/icons-material/Home";
 import SentimentDissatisfiedIcon from "@mui/icons-material/SentimentDissatisfied";
 
 export const NotFoundPage = () => {
+  const navigate = useNavigate();
+
   return (
     <Container maxWidth="sm">
       <Box
@@ -32,6 +37,13 @@ export const NotFoundPage = () => {
             The page you are looking for does not exist or has been moved.
           </Typography>
         </Box>
+        <Button
+          variant="contained"
+          startIcon={<HomeIcon />}
+          onClick={() => navigate(ROUTES.HOME)}
+        >
+          Back to home
+        </Button>
       </Box>
     </Container>
   );
