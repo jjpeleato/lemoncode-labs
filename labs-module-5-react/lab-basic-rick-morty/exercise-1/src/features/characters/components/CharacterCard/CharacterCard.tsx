@@ -1,4 +1,5 @@
 import { Box, Card, CardActionArea, CardContent, CardMedia, Chip, Typography } from "@mui/material";
+import { STATUS_COLOR } from "../../constants/character.constants";
 import { useCallback } from "react";
 import type { Character } from "../../types/character-api.types";
 
@@ -6,12 +7,6 @@ interface CharacterCardProps {
   character: Character;
   onClick: (id: number) => void;
 }
-
-const statusColor: Record<string, "success" | "error" | "default"> = {
-  Alive: "success",
-  Dead: "error",
-  unknown: "default",
-};
 
 export const CharacterCard = ({character, onClick}: CharacterCardProps) => {
   const handleClick = useCallback(() => onClick(character.id), [character.id, onClick]);
@@ -45,7 +40,7 @@ export const CharacterCard = ({character, onClick}: CharacterCardProps) => {
             </Typography>
             <Chip
               label={character.status}
-              color={statusColor[character.status] ?? "default"}
+              color={STATUS_COLOR[character.status] ?? "default"}
               size="small"
             />
           </Box>
