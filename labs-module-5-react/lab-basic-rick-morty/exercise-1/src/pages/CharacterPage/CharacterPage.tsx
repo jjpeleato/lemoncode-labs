@@ -1,13 +1,43 @@
-import { Container, Typography, Box } from '@mui/material';
+import { useNavigate } from "react-router-dom";
+import { useCharacter } from "../../features/characters/hooks/useCharacter";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import {
+  Alert,
+  Box,
+  Button,
+  CircularProgress,
+  Container,
+} from "@mui/material";
+import { CharacterDetail } from "../../features/characters/components/CharacterDetail/CharacterDetail";
 
 export const CharacterPage = () => {
+  const navigate = useNavigate();
+  const { character, isLoading, error } = useCharacter();
+  const handleBack = () => {
+    navigate(-1);
+  };
+
   return (
-    <Container maxWidth="lg" sx={{ py: 4 }}>
-      <Box sx={{ mb: 4 }}>
-        <Typography variant="h2" fontWeight="bold" gutterBottom>
-          CharacterPage
-        </Typography>
-      </Box>
+    <Container maxWidth="md" sx={{ py: 4 }}>
+      <Button
+        startIcon={<ArrowBackIcon />}
+        onClick={handleBack}
+        variant="text"
+        sx={{ mb: 3 }}
+      >
+        Back
+      </Button>
+      {isLoading && (
+        <Box sx={{ display: 'flex', justifyContent: 'center', py: 8 }}>
+          <CircularProgress />
+        </Box>
+      )}
+      {error && (
+        <Alert severity="error">{error}</Alert>
+      )}
+      {character && (
+        <CharacterDetail character={character} />
+      )}
     </Container>
   );
-}
+};
