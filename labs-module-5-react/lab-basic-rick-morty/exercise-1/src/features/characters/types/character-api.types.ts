@@ -1,5 +1,5 @@
-export type CharacterStatus = "Alive" | "Dead" | "unknown";
 export type CharacterGender = "Male" | "Female" | "Genderless" | "unknown";
+export type CharacterStatus = "Alive" | "Dead" | "unknown";
 
 export interface CharacterLocation {
   name: string;

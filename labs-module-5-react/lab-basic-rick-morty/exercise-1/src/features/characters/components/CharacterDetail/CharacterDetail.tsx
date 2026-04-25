@@ -1,17 +1,11 @@
+import { Box, Chip, Divider, Paper, Typography } from "@mui/material";
+import { InfoRow } from "../InfoRow/InfoRow";
 import CategoryIcon from "@mui/icons-material/Category";
 import FaceIcon from "@mui/icons-material/Face";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import MovieIcon from "@mui/icons-material/Movie";
 import MyLocationIcon from "@mui/icons-material/MyLocation";
 import TransgenderIcon from "@mui/icons-material/Transgender";
-import {
-  Box,
-  Chip,
-  Divider,
-  Paper,
-  Typography,
-} from "@mui/material";
-import { InfoRow } from "../InfoRow/InfoRow";
 import type { Character } from "../../types/character-api.types";
 
 interface CharacterDetailProps {

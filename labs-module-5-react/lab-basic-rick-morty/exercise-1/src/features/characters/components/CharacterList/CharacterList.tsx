@@ -1,14 +1,15 @@
 import { Box, CircularProgress, Alert, Grid } from '@mui/material';
-import type { Character } from '../../types/character-api.types';
 import { CharacterCard } from '../CharacterCard/CharacterCard';
+import type { Character } from '../../types/character-api.types';
 
 interface CharacterListProps {
   characters: Character[];
   isLoading: boolean;
   error: string | null;
+  onClick: (id: number) => void
 }
 
-export const CharacterList = ({ characters, isLoading, error }: CharacterListProps) => {
+export const CharacterList = ({ characters, isLoading, error, onClick }: CharacterListProps) => {
   if (isLoading) {
     return (
       <Box sx={{ display: 'flex', justifyContent: 'center', py: 8 }}>
@@ -29,7 +30,7 @@ export const CharacterList = ({ characters, isLoading, error }: CharacterListPro
     <Grid container spacing={3}>
       {characters.map((character) => (
         <Grid size={{ xs: 12, sm: 6, md: 4, lg: 3 }} key={character.id}>
-          <CharacterCard character={character} />
+          <CharacterCard character={character} onClick={onClick} />
         </Grid>
       ))}
     </Grid>

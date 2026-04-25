@@ -1,6 +1,6 @@
+import { getCharacter } from "../services/character.service";
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { getCharacter } from "../services/character.service";
 import type { CharacterState } from "../types/character-state.types";
 
 export const useCharacter = () => {

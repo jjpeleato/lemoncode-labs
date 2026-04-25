@@ -3,6 +3,7 @@ import type { Character } from "../../types/character-api.types";
 
 interface CharacterCardProps {
   character: Character;
+  onClick: (id: number) => void;
 }
 
 const statusColor: Record<string, "success" | "error" | "default"> = {
@@ -11,10 +12,10 @@ const statusColor: Record<string, "success" | "error" | "default"> = {
   unknown: "default",
 };
 
-export const CharacterCard = ({character}: CharacterCardProps) => {
+export const CharacterCard = ({character, onClick}: CharacterCardProps) => {
   return (
     <Card elevation={2} sx={{ height: "100%" }}>
-      <CardActionArea sx={{ height: "100%" }}>
+      <CardActionArea onClick={() => onClick(character.id)} sx={{ height: "100%" }}>
         <CardMedia
           component="img"
           image={character.image}

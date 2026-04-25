@@ -1,6 +1,6 @@
-import { useState, useEffect, useCallback, useRef } from "react";
-import { useSearchParams } from "react-router-dom";
 import { getCharacters } from "../services/character.service";
+import { useSearchParams } from "react-router-dom";
+import { useState, useEffect, useCallback, useRef } from "react";
 import type { ApiResponse } from "../types/character-api.types";
 import type { CharactersState } from "../types/character-state.types";
 

@@ -1,9 +1,12 @@
-import { Container, Typography, Box, TextField, Button, CircularProgress } from '@mui/material';
-import SearchIcon from "@mui/icons-material/Search";
-import { useCharacters } from '../../features/characters/hooks/useCharacters';
+import { buildCharacterDetailRoute } from '../../router/routes.constants';
 import { CharacterList } from '../../features/characters/components/CharacterList/CharacterList';
+import { Container, Typography, Box, TextField, Button, CircularProgress } from '@mui/material';
+import { useCharacters } from '../../features/characters/hooks/useCharacters';
+import { useNavigate } from 'react-router-dom';
+import SearchIcon from "@mui/icons-material/Search";
 
 export const HomePage = () => {
+  const navigate = useNavigate();
   const {
     characters,
     isLoading,
@@ -11,6 +14,10 @@ export const HomePage = () => {
     totalPages,
     totalCount
   } = useCharacters();
+
+  const handleClick = (id: number) => {
+    navigate(buildCharacterDetailRoute(id));
+  }
 
   return (
     <Container maxWidth="lg" sx={{ py: 4 }}>
@@ -49,6 +56,7 @@ export const HomePage = () => {
         characters={characters}
         isLoading={isLoading}
         error={error}
+        onClick={handleClick}
       />
     </Container>
   );

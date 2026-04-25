@@ -1,8 +1,8 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { CharacterPage } from '../pages/CharacterPage/CharacterPage';
 import { HomePage } from '../pages/HomePage/HomePage';
-import { ROUTES } from './routes.constants';
 import { NotFoundPage } from '../pages/NotFoundPage/NotFoundPage';
+import { ROUTES } from './routes.constants';
 
 export const AppRouter = () => {
   return (

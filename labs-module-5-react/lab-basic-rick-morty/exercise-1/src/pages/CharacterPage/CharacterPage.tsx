@@ -1,21 +1,16 @@
-import { useNavigate } from "react-router-dom";
-import { useCharacter } from "../../features/characters/hooks/useCharacter";
-import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-import {
-  Alert,
-  Box,
-  Button,
-  CircularProgress,
-  Container,
-} from "@mui/material";
+import { Alert, Box, Button, CircularProgress, Container } from "@mui/material";
 import { CharacterDetail } from "../../features/characters/components/CharacterDetail/CharacterDetail";
+import { ROUTES } from "../../router/routes.constants";
+import { useCharacter } from "../../features/characters/hooks/useCharacter";
+import { useNavigate } from "react-router-dom";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 
 export const CharacterPage = () => {
   const navigate = useNavigate();
   const { character, isLoading, error } = useCharacter();
 
   const handleBack = () => {
-    navigate(-1);
+    navigate(ROUTES.HOME);
   };
 
   return (
