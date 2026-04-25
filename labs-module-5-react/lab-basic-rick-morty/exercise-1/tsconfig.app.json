@@ -2,6 +2,11 @@
   "compilerOptions": {
     "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
     "target": "es2023",
+    "paths": {
+      "@shared": ["./src/shared"],
+      "@features/*": ["./src/features/*"],
+      "@router/*": ["./src/router/*"]
+    },
     "useDefineForClassFields": true,
     "lib": ["ES2023", "DOM"],
     "module": "esnext",

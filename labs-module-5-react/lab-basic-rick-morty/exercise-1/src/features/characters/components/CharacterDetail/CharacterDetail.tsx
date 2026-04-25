@@ -1,5 +1,5 @@
 import { Box, Chip, Divider, Paper, Typography } from "@mui/material";
-import { InfoRow } from "../../../../shared";
+import { InfoRow } from "@shared";
 import CategoryIcon from "@mui/icons-material/Category";
 import FaceIcon from "@mui/icons-material/Face";
 import LocationOnIcon from "@mui/icons-material/LocationOn";

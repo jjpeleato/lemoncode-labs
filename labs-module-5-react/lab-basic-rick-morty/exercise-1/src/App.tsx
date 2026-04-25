@@ -1,4 +1,4 @@
-import { AppRouter } from "./router/AppRouter";
+import { AppRouter } from "@router/AppRouter";
 import { CssBaseline, ThemeProvider, createTheme } from "@mui/material";
 
 const theme = createTheme({

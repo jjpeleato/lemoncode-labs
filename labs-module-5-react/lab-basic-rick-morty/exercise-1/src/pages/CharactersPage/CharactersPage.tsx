@@ -1,9 +1,9 @@
 import { Box, Container, Typography } from "@mui/material";
-import { buildCharacterDetailRoute } from "../../router/routes.constants";
-import { CharacterList } from "../../features/characters";
-import { CharacterPagination } from "../../features/characters";
-import { CharacterSearchBar } from "../../features/characters";
-import { useCharacters } from "../../features/characters";
+import { buildCharacterDetailRoute } from "@router/routes.constants";
+import { CharacterList } from "@features/characters";
+import { CharacterPagination } from "@features/characters";
+import { CharacterSearchBar } from "@features/characters";
+import { useCharacters } from "@features/characters";
 import { useNavigate } from "react-router-dom";
 
 export const CharactersPage = () => {

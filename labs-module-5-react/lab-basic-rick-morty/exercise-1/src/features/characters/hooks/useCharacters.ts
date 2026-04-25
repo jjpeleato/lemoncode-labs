@@ -1,6 +1,6 @@
 import { getCharacters } from "../services/character.service";
 import { useCallback, useEffect, useRef, useState } from "react";
-import { useDebounce } from "../../../shared";
+import { useDebounce } from "@shared";
 import { useSearchParams } from "react-router-dom";
 import type { ApiResponse } from "../types/character-api.types";
 import type { CharactersState } from "../types/character-state.types";
