@@ -23,7 +23,7 @@ export const useCharacter = () => {
     const fetchDetail = async () => {
       const numericId = Number(id);
 
-      if (isNaN(numericId)) {
+      if (!Number.isInteger(numericId) || numericId <= 0) {
         setState({
           character: null,
           isLoading: false,
@@ -35,10 +35,7 @@ export const useCharacter = () => {
       setState((prev) => ({ ...prev, isLoading: true, error: null }));
 
       try {
-        const character = await getCharacter(
-          { id: numericId },
-          controller.signal,
-        );
+        const character = await getCharacter(numericId, controller.signal);
         if (controller.signal.aborted) return;
         setState({ character, isLoading: false, error: null });
       } catch (err) {
@@ -62,6 +59,5 @@ export const useCharacter = () => {
     character: state.character,
     isLoading: state.isLoading,
     error: state.error,
-    id,
   };
 };

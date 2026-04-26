@@ -14,53 +14,44 @@ export const useCharacters = () => {
     currentPage,
     totalPages,
     totalCount,
-    fetchCharacters,
+    refetch,
   } = useCharactersQuery(nameFromUrl, pageFromUrl);
 
   const lastFetchedName = useRef(nameFromUrl);
 
-  // Keeps a stable ref to setSearchParams so the debounce effect does not
-  // re-fire just because React Router regenerates the function on URL changes.
-  const setSearchParamsRef = useRef(setSearchParams);
-  useEffect(() => {
-    setSearchParamsRef.current = setSearchParams;
-  });
+  const commitSearch = useCallback(
+    (name: string, page: number) => {
+      const trimmed = name.trim();
+      lastFetchedName.current = trimmed;
+      setSearchParams(trimmed ? { name: trimmed, page: String(page) } : {});
+      refetch(trimmed, page);
+    },
+    [refetch, setSearchParams],
+  );
 
   useEffect(() => {
-    if (debouncedName === lastFetchedName.current) return;
-
-    lastFetchedName.current = debouncedName;
-    setSearchParamsRef.current(
-      debouncedName ? { name: debouncedName, page: "1" } : {},
-    );
-    fetchCharacters(debouncedName, 1);
-  }, [debouncedName, fetchCharacters]);
+    if (debouncedName.trim() === lastFetchedName.current) return;
+    commitSearch(debouncedName, 1);
+  }, [debouncedName, commitSearch]);
 
   const handleSearch = useCallback(() => {
     if (!inputValue.trim()) return;
-
-    lastFetchedName.current = inputValue;
-    setSearchParams({ name: inputValue, page: "1" });
-    fetchCharacters(inputValue, 1);
-  }, [inputValue, fetchCharacters, setSearchParams]);
+    commitSearch(inputValue, 1);
+  }, [inputValue, commitSearch]);
 
   const handlePageChange = useCallback(
     (page: number) => {
       const name = inputValue.trim();
-      setSearchParams(
-        name ? { name, page: String(page) } : { page: String(page) },
-      );
-      fetchCharacters(name, page);
+      setSearchParams(name ? { name, page: String(page) } : { page: String(page) });
+      refetch(name, page);
     },
-    [inputValue, fetchCharacters, setSearchParams],
+    [inputValue, refetch, setSearchParams],
   );
 
   const handleReset = useCallback(() => {
-    lastFetchedName.current = "";
     setInputValue("");
-    setSearchParams({});
-    fetchCharacters("", 1);
-  }, [fetchCharacters, setInputValue, setSearchParams]);
+    commitSearch("", 1);
+  }, [setInputValue, commitSearch]);
 
   return {
     characters,

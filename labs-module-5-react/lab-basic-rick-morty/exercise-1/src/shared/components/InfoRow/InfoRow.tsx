@@ -1,5 +1,5 @@
 import { Box, Typography } from "@mui/material";
-import type { ReactNode } from "react";
+import { memo, type ReactNode } from "react";
 
 interface InfoRowProps {
   icon: ReactNode;
@@ -7,7 +7,7 @@ interface InfoRowProps {
   value: string;
 }
 
-export const InfoRow = ({ icon, label, value }: InfoRowProps) => (
+export const InfoRow = memo(({ icon, label, value }: InfoRowProps) => (
   <Box sx={{ display: "flex", alignItems: "center", gap: 1.5 }}>
     <Box sx={{ color: "text.secondary", display: "flex" }}>{icon}</Box>
     <Box>
@@ -19,4 +19,4 @@ export const InfoRow = ({ icon, label, value }: InfoRowProps) => (
       </Typography>
     </Box>
   </Box>
-);
+));
