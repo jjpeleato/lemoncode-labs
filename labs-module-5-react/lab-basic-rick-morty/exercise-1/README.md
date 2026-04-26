@@ -10,8 +10,6 @@ It consumes the public [Rick and Morty API](https://rickandmortyapi.com/) and fe
 - Dark theme, responsive layout and lazy-loaded images
 - React Error Boundary for graceful error handling
 
-<https://rickandmortyapi.com/>
-
 ## Installation to develop
 
 1. Install the Node.js dependencies:
