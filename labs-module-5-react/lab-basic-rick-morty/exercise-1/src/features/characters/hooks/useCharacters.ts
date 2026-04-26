@@ -19,13 +19,22 @@ export const useCharacters = () => {
 
   const lastFetchedName = useRef(nameFromUrl);
 
+  // Keeps a stable ref to setSearchParams so the debounce effect does not
+  // re-fire just because React Router regenerates the function on URL changes.
+  const setSearchParamsRef = useRef(setSearchParams);
+  useEffect(() => {
+    setSearchParamsRef.current = setSearchParams;
+  });
+
   useEffect(() => {
     if (debouncedName === lastFetchedName.current) return;
 
     lastFetchedName.current = debouncedName;
-    setSearchParams(debouncedName ? { name: debouncedName, page: "1" } : {});
+    setSearchParamsRef.current(
+      debouncedName ? { name: debouncedName, page: "1" } : {},
+    );
     fetchCharacters(debouncedName, 1);
-  }, [debouncedName, fetchCharacters, setSearchParams]);
+  }, [debouncedName, fetchCharacters]);
 
   const handleSearch = useCallback(() => {
     if (!inputValue.trim()) return;
