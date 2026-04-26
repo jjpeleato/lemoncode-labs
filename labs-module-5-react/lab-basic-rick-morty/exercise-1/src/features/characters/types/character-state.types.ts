@@ -7,7 +7,6 @@ export interface CharactersState {
   currentPage: number;
   totalPages: number;
   totalCount: number;
-  hasSearched: boolean;
 }
 
 export interface CharacterState {
@@ -19,4 +18,8 @@ export interface CharacterState {
 export interface CharactersSearchParams {
   name: string;
   page: number;
+}
+
+export interface CharacterSearchParams {
+  id: number;
 }

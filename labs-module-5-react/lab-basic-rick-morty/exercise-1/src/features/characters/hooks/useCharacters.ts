@@ -11,14 +11,12 @@ export const useCharacters = () => {
   const nameFromUrl = searchParams.get("name") ?? "";
   const pageFromUrl = Number(searchParams.get("page") ?? "1");
 
-  const initialName = useRef(nameFromUrl);
-  const initialPage = useRef(pageFromUrl);
-  const lastSearchedName = useRef(nameFromUrl);
-  const setSearchParamsRef = useRef(setSearchParams);
-  const isMounting = useRef(true);
-
-  const [inputValue, setInputValue] = useState<string>(nameFromUrl);
+  const [inputValue, setInputValue] = useState(nameFromUrl);
   const debouncedName = useDebounce(inputValue, 500);
+
+  const abortRef = useRef<AbortController | null>(null);
+  const initialParams = useRef({ name: nameFromUrl, page: pageFromUrl });
+  const lastFetchedName = useRef(nameFromUrl);
 
   const [state, setState] = useState<CharactersState>({
     characters: [],
@@ -27,16 +25,21 @@ export const useCharacters = () => {
     currentPage: pageFromUrl,
     totalPages: 1,
     totalCount: 0,
-    hasSearched: false,
   });
 
   const fetchCharacters = useCallback(async (name: string, page: number) => {
+    abortRef.current?.abort();
+    const controller = new AbortController();
+    abortRef.current = controller;
+
     setState((prev) => ({ ...prev, isLoading: true, error: null }));
 
     try {
-      const apiResponse: ApiResponse = await getCharacters({ name, page });
+      const apiResponse: ApiResponse = await getCharacters(
+        { name, page },
+        controller.signal,
+      );
       const { info, results } = apiResponse;
-
       setState({
         characters: results,
         isLoading: false,
@@ -44,9 +47,9 @@ export const useCharacters = () => {
         currentPage: page,
         totalPages: info.pages,
         totalCount: info.count,
-        hasSearched: true,
       });
     } catch (err) {
+      if (controller.signal.aborted) return;
       setState({
         characters: [],
         isLoading: false,
@@ -54,70 +57,55 @@ export const useCharacters = () => {
         currentPage: 1,
         totalPages: 1,
         totalCount: 0,
-        hasSearched: true,
       });
     }
   }, []);
 
   useEffect(() => {
-    fetchCharacters(initialName.current, initialPage.current);
-    const timer = setTimeout(() => {
-      isMounting.current = false;
-    }, 0);
-    return () => clearTimeout(timer);
+    return () => {
+      abortRef.current?.abort();
+    };
+  }, []);
+
+  useEffect(() => {
+    fetchCharacters(initialParams.current.name, initialParams.current.page);
   }, [fetchCharacters]);
 
   useEffect(() => {
-    setSearchParamsRef.current = setSearchParams;
-  }, [setSearchParams]);
+    if (debouncedName === lastFetchedName.current) return;
+    lastFetchedName.current = debouncedName;
+    setSearchParams(debouncedName ? { name: debouncedName, page: "1" } : {});
+    fetchCharacters(debouncedName, 1);
+  }, [debouncedName, fetchCharacters, setSearchParams]);
 
-  useEffect(() => {
-    const search = async () => {
-      if (isMounting.current) return;
-
-      if (!debouncedName.trim()) {
-        setSearchParamsRef.current({});
-        await fetchCharacters("", 1);
-        return;
-      }
-
-      if (debouncedName === lastSearchedName.current) return;
-
-      lastSearchedName.current = debouncedName;
-      setSearchParamsRef.current({ name: debouncedName, page: "1" });
-      await fetchCharacters(debouncedName, 1);
-    };
-
-    search();
-  }, [debouncedName, fetchCharacters]);
-
-  const handleInputChange = (value: string) => {
+  const handleInputChange = useCallback((value: string) => {
     setInputValue(value);
-  };
+  }, []);
 
-  const handleSearch = () => {
+  const handleSearch = useCallback(() => {
     if (!inputValue.trim()) return;
-    lastSearchedName.current = inputValue;
+    lastFetchedName.current = inputValue;
     setSearchParams({ name: inputValue, page: "1" });
     fetchCharacters(inputValue, 1);
-  };
+  }, [inputValue, fetchCharacters, setSearchParams]);
 
-  const handlePageChange = (page: number) => {
-    if (!inputValue.trim()) {
-      setSearchParams({ page: String(page) });
-      fetchCharacters("", page);
-      return;
-    }
-    setSearchParams({ name: inputValue, page: String(page) });
-    fetchCharacters(inputValue, page);
-  };
+  const handlePageChange = useCallback(
+    (page: number) => {
+      const name = inputValue.trim();
+      setSearchParams(
+        name ? { name, page: String(page) } : { page: String(page) },
+      );
+      fetchCharacters(name, page);
+    },
+    [inputValue, fetchCharacters, setSearchParams],
+  );
 
-  const handleReset = () => {
-    lastSearchedName.current = "";
+  const handleReset = useCallback(() => {
+    lastFetchedName.current = "";
     setInputValue("");
     setSearchParams({});
     fetchCharacters("", 1);
-  };
+  }, [fetchCharacters, setSearchParams]);
 
   return {
     characters: state.characters,
@@ -126,7 +114,6 @@ export const useCharacters = () => {
     currentPage: state.currentPage,
     totalPages: state.totalPages,
     totalCount: state.totalCount,
-    hasSearched: state.hasSearched,
     inputValue,
     handleInputChange,
     handleSearch,

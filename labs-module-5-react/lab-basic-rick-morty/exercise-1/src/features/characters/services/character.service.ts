@@ -1,17 +1,22 @@
 import type { ApiResponse, Character } from "../types/character-api.types";
-import type { CharactersSearchParams } from "../types/character-state.types";
+import type {
+  CharacterSearchParams,
+  CharactersSearchParams,
+} from "../types/character-state.types";
 
 const RICK_AND_MORTY_API_BASE_URL = "https://rickandmortyapi.com/api";
 
 export const getCharacters = async (
   params: CharactersSearchParams,
+  signal?: AbortSignal,
 ): Promise<ApiResponse> => {
   const { name, page } = params;
   const url = new URL(`${RICK_AND_MORTY_API_BASE_URL}/character`);
+
   url.searchParams.set("page", String(page));
   if (name.trim()) url.searchParams.set("name", name.trim());
 
-  const response = await fetch(url.toString());
+  const response = await fetch(url.toString(), { signal });
 
   if (!response.ok) {
     if (response.status === 404) {
@@ -24,9 +29,14 @@ export const getCharacters = async (
   return data;
 };
 
-export const getCharacter = async (id: number): Promise<Character> => {
+export const getCharacter = async (
+  params: CharacterSearchParams,
+  signal?: AbortSignal,
+): Promise<Character> => {
+  const { id } = params;
   const url = `${RICK_AND_MORTY_API_BASE_URL}/character/${id}`;
-  const response = await fetch(url);
+
+  const response = await fetch(url, { signal });
 
   if (!response.ok) {
     throw new Error(`Failed to fetch character with id ${id}`);
