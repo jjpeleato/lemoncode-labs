@@ -13,10 +13,11 @@ export const CharacterPagination = ({
   isLoading,
   onPageChange,
 }: CharacterPaginationProps) => {
-  const hidden = !isLoading && totalPages <= 1;
+  // Never shown when there is only one page and no load is in progress.
+  if (!isLoading && totalPages <= 1) return null;
 
-  if (hidden) return null;
-
+  // While loading: reserves space with visibility: hidden to prevent layout shift
+  // when pagination appears after the fetch completes.
   return (
     <Box
       sx={{

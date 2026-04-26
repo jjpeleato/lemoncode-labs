@@ -1,5 +1,6 @@
 import { Box, Chip, Divider, Paper, Typography } from "@mui/material";
 import { InfoRow } from "@shared";
+import { memo } from "react";
 import { STATUS_COLOR } from "../../constants/character.constants";
 import CategoryIcon from "@mui/icons-material/Category";
 import FaceIcon from "@mui/icons-material/Face";
@@ -13,7 +14,7 @@ interface CharacterDetailProps {
   character: Character;
 }
 
-export const CharacterDetail = ({ character }: CharacterDetailProps) => {
+export const CharacterDetail = memo(({ character }: CharacterDetailProps) => {
   return (
     <Paper elevation={2} sx={{ p: 4, borderRadius: 3 }}>
       <Box
@@ -94,4 +95,4 @@ export const CharacterDetail = ({ character }: CharacterDetailProps) => {
       </Box>
     </Paper>
   );
-}
+});

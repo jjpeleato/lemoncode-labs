@@ -1,4 +1,4 @@
-import { Alert, Box, CircularProgress, Grid, Typography } from "@mui/material";
+import { Alert, Box, CircularProgress, Grid } from "@mui/material";
 import { CharacterCard } from "../CharacterCard/CharacterCard";
 import { memo } from "react";
 import type { Character } from "../../types/character-api.types";
@@ -29,11 +29,9 @@ export const CharacterList = memo(({ characters, isLoading, error, onClick }: Ch
 
   if (characters.length === 0) {
     return (
-      <Grid container spacing={3}>
-        <Typography variant="body1" sx={{ mt: 2, textAlign: "center", color: "text.secondary" }}>
-          No characters found.
-        </Typography>
-      </Grid>
+      <Alert severity="error" sx={{ mt: 2 }}>
+        No characters found.
+      </Alert>
     );
   }
 
