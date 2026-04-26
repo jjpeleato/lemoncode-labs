@@ -3,21 +3,31 @@ import { Box, Pagination } from "@mui/material";
 interface CharacterPaginationProps {
   currentPage: number;
   totalPages: number;
+  isLoading: boolean;
   onPageChange: (page: number) => void;
 }
 
 export const CharacterPagination = ({
   currentPage,
   totalPages,
+  isLoading,
   onPageChange,
 }: CharacterPaginationProps) => {
+  const hidden = !isLoading && totalPages <= 1;
 
-  if (totalPages <= 1) return null;
+  if (hidden) return null;
 
   return (
-    <Box sx={{ display: "flex", justifyContent: "center", mt: 4 }}>
+    <Box
+      sx={{
+        display: "flex",
+        justifyContent: "center",
+        mt: 4,
+        visibility: isLoading ? "hidden" : "visible",
+      }}
+    >
       <Pagination
-        count={totalPages}
+        count={Math.max(totalPages, 1)}
         page={currentPage}
         onChange={(_, page) => onPageChange(page)}
         color="primary"

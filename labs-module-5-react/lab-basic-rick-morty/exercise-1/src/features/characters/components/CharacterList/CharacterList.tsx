@@ -1,5 +1,6 @@
-import { Alert, Box, CircularProgress, Grid } from "@mui/material";
+import { Alert, Box, CircularProgress, Grid, Typography } from "@mui/material";
 import { CharacterCard } from "../CharacterCard/CharacterCard";
+import { memo } from "react";
 import type { Character } from "../../types/character-api.types";
 
 interface CharacterListProps {
@@ -9,7 +10,7 @@ interface CharacterListProps {
   onClick: (id: number) => void
 }
 
-export const CharacterList = ({ characters, isLoading, error, onClick }: CharacterListProps) => {
+export const CharacterList = memo(({ characters, isLoading, error, onClick }: CharacterListProps) => {
   if (isLoading) {
     return (
       <Box sx={{ display: "flex", justifyContent: "center", py: 8 }}>
@@ -26,6 +27,16 @@ export const CharacterList = ({ characters, isLoading, error, onClick }: Charact
     );
   }
 
+  if (characters.length === 0) {
+    return (
+      <Grid container spacing={3}>
+        <Typography variant="body1" sx={{ mt: 2, textAlign: "center", color: "text.secondary" }}>
+          No characters found.
+        </Typography>
+      </Grid>
+    );
+  }
+
   return (
     <Grid container spacing={3}>
       {characters.map((character) => (
@@ -35,4 +46,4 @@ export const CharacterList = ({ characters, isLoading, error, onClick }: Charact
       ))}
     </Grid>
   );
-}
+});

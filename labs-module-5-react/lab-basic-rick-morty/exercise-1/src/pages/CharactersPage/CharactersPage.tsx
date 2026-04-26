@@ -49,6 +49,7 @@ export const CharactersPage = () => {
       <CharacterPagination
         currentPage={currentPage}
         totalPages={totalPages}
+        isLoading={isLoading}
         onPageChange={handlePageChange}
       />
     </Container>
