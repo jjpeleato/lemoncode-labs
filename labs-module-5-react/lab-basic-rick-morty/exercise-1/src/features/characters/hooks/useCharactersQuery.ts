@@ -8,7 +8,8 @@ export const useCharactersQuery = (
   initialPage: number,
 ) => {
   const abortRef = useRef<AbortController | null>(null);
-  const initialParams = useRef({ name: initialName, page: initialPage });
+  const initialNameRef = useRef(initialName);
+  const initialPageRef = useRef(initialPage);
 
   const [state, setState] = useState<CharactersState>({
     characters: [],
@@ -31,6 +32,7 @@ export const useCharactersQuery = (
         { name, page },
         controller.signal,
       );
+      if (controller.signal.aborted) return;
       const { info, results } = apiResponse;
       setState({
         characters: results,
@@ -60,7 +62,7 @@ export const useCharactersQuery = (
   }, []);
 
   useEffect(() => {
-    fetchCharacters(initialParams.current.name, initialParams.current.page);
+    fetchCharacters(initialNameRef.current, initialPageRef.current);
   }, [fetchCharacters]);
 
   return {
@@ -70,6 +72,6 @@ export const useCharactersQuery = (
     currentPage: state.currentPage,
     totalPages: state.totalPages,
     totalCount: state.totalCount,
-    fetchCharacters,
+    refetch: fetchCharacters,
   };
 };
