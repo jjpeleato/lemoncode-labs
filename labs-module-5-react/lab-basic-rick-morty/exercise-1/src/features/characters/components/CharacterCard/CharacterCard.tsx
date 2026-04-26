@@ -1,7 +1,6 @@
 import { Box, Card, CardActionArea, CardContent, CardMedia, Chip, Typography } from "@mui/material";
-import { memo } from "react";
+import { memo, useCallback } from "react";
 import { STATUS_COLOR } from "../../constants/character.constants";
-import { useCallback } from "react";
 import type { Character } from "../../types/character-api.types";
 
 interface CharacterCardProps {

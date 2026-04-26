@@ -1,6 +1,7 @@
 import { Box, Container, Typography } from "@mui/material";
 import { buildCharacterDetailRoute } from "@router/routes.constants";
 import { CharacterList, CharacterPagination, CharacterSearchBar, useCharacters } from "@features/characters";
+import { useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 
 export const CharactersPage = () => {
@@ -19,9 +20,9 @@ export const CharactersPage = () => {
     handleReset
   } = useCharacters();
 
-  const handleClick = (id: number) => {
+  const handleClick = useCallback((id: number) => {
     navigate(buildCharacterDetailRoute(id));
-  }
+  }, [navigate]);
 
   return (
     <Container maxWidth="lg" sx={{ py: 4 }}>

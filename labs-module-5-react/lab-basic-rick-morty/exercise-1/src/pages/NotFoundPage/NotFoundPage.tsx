@@ -1,11 +1,13 @@
 import { Box, Button, Container, Typography } from "@mui/material";
 import { ROUTES } from "@router/routes.constants";
+import { useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import HomeIcon from "@mui/icons-material/Home";
 import SentimentDissatisfiedIcon from "@mui/icons-material/SentimentDissatisfied";
 
 export const NotFoundPage = () => {
   const navigate = useNavigate();
+  const handleGoHome = useCallback(() => navigate(ROUTES.HOME), [navigate]);
 
   return (
     <Container maxWidth="sm">
@@ -40,7 +42,7 @@ export const NotFoundPage = () => {
         <Button
           variant="contained"
           startIcon={<HomeIcon />}
-          onClick={() => navigate(ROUTES.HOME)}
+          onClick={handleGoHome}
         >
           Back to home
         </Button>

@@ -1,4 +1,5 @@
 import { Box, Button, CircularProgress, IconButton, TextField, Tooltip } from "@mui/material";
+import { useCallback } from "react";
 import DeleteIcon from "@mui/icons-material/Delete";
 import SearchIcon from "@mui/icons-material/Search";
 
@@ -17,9 +18,9 @@ export const CharacterSearchBar = ({
   onSearch,
   onReset,
 }: CharacterSearchBarProps) => {
-  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+  const handleKeyDown = useCallback((e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter") onSearch();
-  };
+  }, [onSearch]);
 
   return (
     <Box sx={{ display: "flex", gap: 2, mb: 4 }}>
