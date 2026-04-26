@@ -1,10 +1,13 @@
 import type { ApiResponse, Character } from "../types/character-api.types";
-import type {
-  CharacterSearchParams,
-  CharactersSearchParams,
-} from "../types/character-state.types";
+import type { CharactersSearchParams } from "../types/character-state.types";
 
 const RICK_AND_MORTY_API_BASE_URL = "https://rickandmortyapi.com/api";
+const REQUEST_TIMEOUT_MS = 10_000;
+
+const buildSignal = (signal?: AbortSignal): AbortSignal =>
+  signal
+    ? AbortSignal.any([signal, AbortSignal.timeout(REQUEST_TIMEOUT_MS)])
+    : AbortSignal.timeout(REQUEST_TIMEOUT_MS);
 
 export const getCharacters = async (
   params: CharactersSearchParams,
@@ -16,7 +19,7 @@ export const getCharacters = async (
   url.searchParams.set("page", String(page));
   if (name.trim()) url.searchParams.set("name", name.trim());
 
-  const response = await fetch(url.toString(), { signal });
+  const response = await fetch(url.toString(), { signal: buildSignal(signal) });
 
   if (!response.ok) {
     if (response.status === 404) {
@@ -31,13 +34,12 @@ export const getCharacters = async (
 };
 
 export const getCharacter = async (
-  params: CharacterSearchParams,
+  id: number,
   signal?: AbortSignal,
 ): Promise<Character> => {
-  const { id } = params;
   const url = `${RICK_AND_MORTY_API_BASE_URL}/character/${id}`;
 
-  const response = await fetch(url, { signal });
+  const response = await fetch(url, { signal: buildSignal(signal) });
 
   if (!response.ok) {
     if (response.status === 404) {
