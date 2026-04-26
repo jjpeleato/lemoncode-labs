@@ -1,7 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { CharacterPage } from "../pages/CharacterPage/CharacterPage";
-import { CharactersPage } from "../pages/CharactersPage/CharactersPage";
-import { NotFoundPage } from "../pages/NotFoundPage/NotFoundPage";
+import { CharacterPage, CharactersPage, NotFoundPage } from "@pages";
 import { ROUTES } from "./routes.constants";
 
 export const AppRouter = () => {
