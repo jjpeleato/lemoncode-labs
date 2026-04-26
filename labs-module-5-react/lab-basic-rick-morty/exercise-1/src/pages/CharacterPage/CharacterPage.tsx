@@ -22,17 +22,15 @@ export const CharacterPage = () => {
       >
         Back
       </Button>
-      {isLoading && (
+      {isLoading ? (
         <Box sx={{ display: "flex", justifyContent: "center", py: 8 }}>
           <CircularProgress />
         </Box>
-      )}
-      {error && (
+      ) : error ? (
         <Alert severity="error">{error}</Alert>
-      )}
-      {character && (
+      ) : character ? (
         <CharacterDetail character={character} />
-      )}
+      ) : null}
     </Container>
   );
 };
