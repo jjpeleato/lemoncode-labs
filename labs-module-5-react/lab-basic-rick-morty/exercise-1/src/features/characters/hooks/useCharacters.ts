@@ -18,11 +18,13 @@ export const useCharacters = () => {
   } = useCharactersQuery(nameFromUrl, pageFromUrl);
 
   const lastFetchedName = useRef(nameFromUrl);
+  const lastUrlRef = useRef({ name: nameFromUrl, page: pageFromUrl });
 
   const commitSearch = useCallback(
     (name: string, page: number) => {
       const trimmed = name.trim();
       lastFetchedName.current = trimmed;
+      lastUrlRef.current = { name: trimmed, page };
       setSearchParams(trimmed ? { name: trimmed, page: String(page) } : {});
       refetch(trimmed, page);
     },
@@ -34,6 +36,15 @@ export const useCharacters = () => {
     commitSearch(debouncedName, 1);
   }, [debouncedName, commitSearch]);
 
+  useEffect(() => {
+    const { name: prevName, page: prevPage } = lastUrlRef.current;
+    if (nameFromUrl === prevName && pageFromUrl === prevPage) return;
+    lastUrlRef.current = { name: nameFromUrl, page: pageFromUrl };
+    setInputValue(nameFromUrl);
+    lastFetchedName.current = nameFromUrl;
+    refetch(nameFromUrl, pageFromUrl);
+  }, [nameFromUrl, pageFromUrl, setInputValue, refetch]);
+
   const handleSearch = useCallback(() => {
     if (!inputValue.trim()) return;
     commitSearch(inputValue, 1);
@@ -41,11 +52,11 @@ export const useCharacters = () => {
 
   const handlePageChange = useCallback(
     (page: number) => {
-      const name = inputValue.trim();
-      setSearchParams(name ? { name, page: String(page) } : { page: String(page) });
-      refetch(name, page);
+      lastUrlRef.current = { name: nameFromUrl, page };
+      setSearchParams(nameFromUrl ? { name: nameFromUrl, page: String(page) } : { page: String(page) });
+      refetch(nameFromUrl, page);
     },
-    [inputValue, refetch, setSearchParams],
+    [nameFromUrl, refetch, setSearchParams],
   );
 
   const handleReset = useCallback(() => {
