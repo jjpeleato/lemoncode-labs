@@ -4,6 +4,8 @@ This application is a GitHub Organization Member Explorer built with React, Type
 
 The search input includes a debounce feature, which means the search triggers automatically after the user stops typing, without needing to press the button every time. The application also preserves the search state in the URL using query parameters, so users can share a direct link to a specific organization and page, use the browser back button to return to their previous results, and open multiple independent searches in different tabs.
 
+<https://docs.github.com/en/rest/orgs/members>
+
 ## Installation to develop
 
 1. Install the Node.js dependencies:
