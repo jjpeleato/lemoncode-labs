@@ -18,6 +18,7 @@ export const CharacterCard = memo(({character, onClick}: CharacterCardProps) => 
           component="img"
           image={character.image}
           alt={character.name}
+          loading="lazy"
           sx={{ aspectRatio: "1 / 1", objectFit: "cover" }}
         />
         <CardContent>

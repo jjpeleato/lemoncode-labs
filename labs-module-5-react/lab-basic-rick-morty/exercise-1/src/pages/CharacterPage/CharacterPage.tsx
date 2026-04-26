@@ -1,5 +1,6 @@
 import { Alert, Box, Button, CircularProgress, Container } from "@mui/material";
 import { CharacterDetail, useCharacter } from "@features/characters";
+import { useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 
@@ -7,9 +8,9 @@ export const CharacterPage = () => {
   const navigate = useNavigate();
   const { character, isLoading, error } = useCharacter();
 
-  const handleBack = () => {
+  const handleBack = useCallback(() => {
     navigate(-1);
-  };
+  }, [navigate]);
 
   return (
     <Container maxWidth="md" sx={{ py: 4 }}>
