@@ -1,4 +1,5 @@
 import { Box, Pagination } from "@mui/material";
+import { memo, useCallback } from "react";
 
 interface CharacterPaginationProps {
   currentPage: number;
@@ -7,12 +8,17 @@ interface CharacterPaginationProps {
   onPageChange: (page: number) => void;
 }
 
-export const CharacterPagination = ({
+export const CharacterPagination = memo(({
   currentPage,
   totalPages,
   isLoading,
   onPageChange,
 }: CharacterPaginationProps) => {
+  const handleChange = useCallback(
+    (_: unknown, page: number) => onPageChange(page),
+    [onPageChange],
+  );
+
   // Never shown when there is only one page and no load is in progress.
   if (!isLoading && totalPages <= 1) return null;
 
@@ -30,7 +36,7 @@ export const CharacterPagination = ({
       <Pagination
         count={Math.max(totalPages, 1)}
         page={currentPage}
-        onChange={(_, page) => onPageChange(page)}
+        onChange={handleChange}
         color="primary"
         shape="rounded"
         showFirstButton
@@ -38,4 +44,4 @@ export const CharacterPagination = ({
       />
     </Box>
   );
-};
+});

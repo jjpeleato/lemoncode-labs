@@ -29,7 +29,7 @@ export const CharacterList = memo(({ characters, isLoading, error, onClick }: Ch
 
   if (characters.length === 0) {
     return (
-      <Alert severity="error" sx={{ mt: 2 }}>
+      <Alert severity="info" sx={{ mt: 2 }}>
         No characters found.
       </Alert>
     );

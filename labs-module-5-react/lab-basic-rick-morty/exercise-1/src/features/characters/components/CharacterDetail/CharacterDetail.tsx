@@ -10,6 +10,13 @@ import MyLocationIcon from "@mui/icons-material/MyLocation";
 import TransgenderIcon from "@mui/icons-material/Transgender";
 import type { Character } from "../../types/character-api.types";
 
+const SPECIES_ICON = <FaceIcon />;
+const TYPE_ICON = <CategoryIcon />;
+const GENDER_ICON = <TransgenderIcon />;
+const ORIGIN_ICON = <MyLocationIcon />;
+const LOCATION_ICON = <LocationOnIcon />;
+const EPISODES_ICON = <MovieIcon />;
+
 interface CharacterDetailProps {
   character: Character;
 }
@@ -58,38 +65,14 @@ export const CharacterDetail = memo(({ character }: CharacterDetailProps) => {
           </Box>
           <Divider sx={{ mb: 3 }} />
           <Box sx={{ display: "flex", flexDirection: "column", gap: 2.5 }}>
-            <InfoRow
-              icon={<FaceIcon />}
-              label="Species"
-              value={character.species}
-            />
+            <InfoRow icon={SPECIES_ICON} label="Species" value={character.species} />
             {character.type && (
-              <InfoRow
-                icon={<CategoryIcon />}
-                label="Type"
-                value={character.type}
-              />
+              <InfoRow icon={TYPE_ICON} label="Type" value={character.type} />
             )}
-            <InfoRow
-              icon={<TransgenderIcon />}
-              label="Gender"
-              value={character.gender}
-            />
-            <InfoRow
-              icon={<MyLocationIcon />}
-              label="Origin"
-              value={character.origin.name}
-            />
-            <InfoRow
-              icon={<LocationOnIcon />}
-              label="Last known location"
-              value={character.location.name}
-            />
-            <InfoRow
-              icon={<MovieIcon />}
-              label="Episodes"
-              value={`${character.episode.length} episodes`}
-            />
+            <InfoRow icon={GENDER_ICON} label="Gender" value={character.gender} />
+            <InfoRow icon={ORIGIN_ICON} label="Origin" value={character.origin.name} />
+            <InfoRow icon={LOCATION_ICON} label="Last known location" value={character.location.name} />
+            <InfoRow icon={EPISODES_ICON} label="Episodes" value={`${character.episode.length} episodes`} />
           </Box>
         </Box>
       </Box>
