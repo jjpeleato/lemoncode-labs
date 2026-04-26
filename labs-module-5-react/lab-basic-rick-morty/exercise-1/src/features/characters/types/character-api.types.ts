@@ -21,7 +21,7 @@ export interface Character {
   created: string;
 }
 
-interface PaginationInfo {
+export interface PaginationInfo {
   count: number;
   pages: number;
   next: string | null;

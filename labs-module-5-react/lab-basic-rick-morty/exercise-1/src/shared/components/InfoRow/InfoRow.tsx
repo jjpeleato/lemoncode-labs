@@ -1,7 +1,8 @@
 import { Box, Typography } from "@mui/material";
+import type { ReactNode } from "react";
 
 interface InfoRowProps {
-  icon: React.ReactNode;
+  icon: ReactNode;
   label: string;
   value: string;
 }

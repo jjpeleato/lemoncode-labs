@@ -22,6 +22,7 @@ export const getCharacters = async (
     if (response.status === 404) {
       throw new Error("Ups! We haven't found any characters");
     }
+
     throw new Error(`Failed to fetch characters (${response.status})`);
   }
 
@@ -39,7 +40,11 @@ export const getCharacter = async (
   const response = await fetch(url, { signal });
 
   if (!response.ok) {
-    throw new Error(`Failed to fetch character with id ${id}`);
+    if (response.status === 404) {
+      throw new Error(`Character with id ${id} not found`);
+    }
+
+    throw new Error(`Failed to fetch character (${response.status})`);
   }
 
   const data: Character = await response.json();
