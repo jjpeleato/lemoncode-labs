@@ -1,6 +1,6 @@
+import { Alert, CssBaseline, ThemeProvider, createTheme } from "@mui/material";
 import { AppRouter } from "@router/AppRouter";
 import { ErrorBoundary } from "@shared";
-import { Alert, CssBaseline, ThemeProvider, createTheme } from "@mui/material";
 
 const theme = createTheme({
   palette: {
