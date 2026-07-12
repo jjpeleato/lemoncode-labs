@@ -1,14 +1,7 @@
-import { createContext, useState } from 'react';
+import { useState } from 'react';
 import type { ReactNode } from 'react';
 import { Cart } from '../../domain/entities/Cart';
-
-export interface CartContextValue {
-  cart: Cart;
-  toggle: (id: string) => void;
-  clear: () => void;
-}
-
-export const CartContext = createContext<CartContextValue | null>(null);
+import { CartContext } from './CartContext';
 
 interface CartProviderProps {
   children: ReactNode;
