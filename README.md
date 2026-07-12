@@ -60,6 +60,7 @@ npm i --save-dev
 
 - [Basic laboratory - Exercise 1: GitHub Organization Member Explorer](labs-module-5-react/lab-basic/exercise-1/README.md)
 - [Basic laboratory - Exercise 1: Rick and Morty](labs-module-5-react/lab-basic-rick-morty/exercise-1/README.md)
+- [Extra laboratory - Exercise 1: Image bank](labs-module-5-react/lab-extra-images/exercise-1/README.md)
 
 ### Module 6: Angular
 
