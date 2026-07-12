@@ -61,6 +61,30 @@ npm i --save-dev
 - [Basic laboratory - Exercise 1: GitHub Organization Member Explorer](labs-module-5-react/lab-basic/exercise-1/README.md)
 - [Basic laboratory - Exercise 1: Rick and Morty](labs-module-5-react/lab-basic-rick-morty/exercise-1/README.md)
 
+### Module 6: Angular
+
+[..coming soon..]
+
+### Module 7: Vue
+
+[..coming soon..]
+
+### Module 8: Frameworks
+
+[..coming soon..]
+
+### Module 9: Testing
+
+[..coming soon..]
+
+### Module 10: API Rest
+
+[..coming soon..]
+
+### Module 11: Cloud
+
+[..coming soon..]
+
 ## Support
 
 For issues or feature requests, please open an issue in the repository or contact with me directly.
