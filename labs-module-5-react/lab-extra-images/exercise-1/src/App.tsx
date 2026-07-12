@@ -1,9 +1,15 @@
-function App() {
-  return (
-    <>
-      <h1>Hello mom!</h1>
-    </>
-  )
-}
+import { CssBaseline, ThemeProvider, createTheme } from '@mui/material';
+import { AppRouter } from './router';
 
-export default App
+const theme = createTheme({ palette: { mode: 'light' } });
+
+const App = () => {
+  return (
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <AppRouter />
+    </ThemeProvider>
+  );
+};
+
+export default App;

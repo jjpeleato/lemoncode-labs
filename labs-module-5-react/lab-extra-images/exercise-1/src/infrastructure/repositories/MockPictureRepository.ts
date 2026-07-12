@@ -25,6 +25,16 @@ const KITTIES: Picture[] = [
     picUrl: "https://placecats.com/302/300",
     title: "Cool cat D",
   },
+  {
+    id: "cat-5",
+    picUrl: "https://placecats.com/302/303",
+    title: "Cool cat E",
+  },
+  {
+    id: "cat-6",
+    picUrl: "https://placecats.com/303/302",
+    title: "Cool cat F",
+  },
 ];
 
 const PUPPIES: Picture[] = [
