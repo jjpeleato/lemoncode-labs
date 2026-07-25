@@ -1,6 +1,6 @@
 # Module 5 - Extra Laboratory - Exercise Orders
 
-...
+This project is an order management application built with React, TypeScript, and Material UI, following a Clean Architecture approach. It displays a purchase order with header information, a calculated total amount, and a table of order lines that can be individually edited, validated, or invalidated through multi-row selection.
 
 ## Installation to develop
 
