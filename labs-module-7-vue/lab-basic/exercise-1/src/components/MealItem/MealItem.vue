@@ -18,7 +18,8 @@ const emit = defineEmits<{
   <li class="flex items-center justify-between gap-2 rounded border border-gray-200 px-3 py-2">
     <span class="truncate">{{ meal.name }}</span>
 
-    <div class="flex shrink-0 gap-1">
+    <div class="flex shrink-0 items-center gap-1">
+      <slot name="extra-actions" />
       <button
         type="button"
         :class="meal.isFavorite ? 'text-yellow-500' : 'text-gray-300'"
