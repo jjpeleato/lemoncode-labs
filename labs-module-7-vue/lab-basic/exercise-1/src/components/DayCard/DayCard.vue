@@ -25,37 +25,54 @@ const dinnerMeals = computed(() => dayMeals.value.filter((meal) => meal.time ===
 </script>
 
 <template>
-  <div class="rounded-lg border border-gray-200 p-4">
-    <h3 class="mb-3 font-semibold">{{ label }}</h3>
-
-    <div class="mb-3">
-      <p class="mb-1 text-sm font-medium text-gray-500">Comida</p>
-      <ul class="flex flex-col gap-1">
-        <MealItem
-          v-for="meal in lunchMeals"
-          :key="meal.id"
-          :meal="meal"
-          @remove="emit('remove', $event)"
-          @edit="emit('edit', $event)"
-          @toggle-favorite="emit('toggle-favorite', $event)"
-        />
-      </ul>
-      <p v-if="lunchMeals.length === 0" class="text-sm text-gray-400">Sin platos</p>
+  <div class="flex flex-col rounded-xl border border-border bg-surface p-6">
+    <div class="mb-5 flex items-baseline justify-between">
+      <h3 class="font-display text-xl font-semibold">{{ label }}</h3>
+      <span class="font-mono text-[11px] tracking-wide text-muted">
+        {{ dayMeals.length }} {{ dayMeals.length === 1 ? 'plato' : 'platos' }}
+      </span>
     </div>
 
-    <div>
-      <p class="mb-1 text-sm font-medium text-gray-500">Cena</p>
-      <ul class="flex flex-col gap-1">
-        <MealItem
-          v-for="meal in dinnerMeals"
-          :key="meal.id"
-          :meal="meal"
-          @remove="emit('remove', $event)"
-          @edit="emit('edit', $event)"
-          @toggle-favorite="emit('toggle-favorite', $event)"
-        />
+    <div class="mb-5 border-t border-dashed border-border"></div>
+
+    <div class="mb-6 flex flex-col gap-2.5">
+      <div class="flex items-center gap-2">
+        <span class="h-1.5 w-1.5 shrink-0 rounded-full bg-fg"></span>
+        <p class="font-mono text-[11px] uppercase tracking-wide text-muted">Comida</p>
+      </div>
+      <ul class="flex flex-col gap-2">
+        <li v-for="meal in lunchMeals" :key="meal.id">
+          <MealItem
+            :meal="meal"
+            @remove="emit('remove', $event)"
+            @edit="emit('edit', $event)"
+            @toggle-favorite="emit('toggle-favorite', $event)"
+          />
+        </li>
       </ul>
-      <p v-if="dinnerMeals.length === 0" class="text-sm text-gray-400">Sin platos</p>
+      <p v-if="lunchMeals.length === 0" class="rounded-md border border-dashed border-border px-3 py-2.5 text-xs text-muted/70">
+        Sin platos
+      </p>
+    </div>
+
+    <div class="flex flex-col gap-2.5">
+      <div class="flex items-center gap-2">
+        <span class="h-1.5 w-1.5 shrink-0 rounded-full border border-muted"></span>
+        <p class="font-mono text-[11px] uppercase tracking-wide text-muted">Cena</p>
+      </div>
+      <ul class="flex flex-col gap-2">
+        <li v-for="meal in dinnerMeals" :key="meal.id">
+          <MealItem
+            :meal="meal"
+            @remove="emit('remove', $event)"
+            @edit="emit('edit', $event)"
+            @toggle-favorite="emit('toggle-favorite', $event)"
+          />
+        </li>
+      </ul>
+      <p v-if="dinnerMeals.length === 0" class="rounded-md border border-dashed border-border px-3 py-2.5 text-xs text-muted/70">
+        Sin platos
+      </p>
     </div>
   </div>
 </template>

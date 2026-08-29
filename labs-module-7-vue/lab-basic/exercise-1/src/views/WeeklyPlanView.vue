@@ -41,28 +41,24 @@ const handleClearConfirmed = () => {
 </script>
 
 <template>
-  <div class="mx-auto max-w-6xl p-6">
-    <div class="mb-6 flex items-center justify-between">
-      <h1 class="text-2xl font-bold">Plan semanal</h1>
+  <div class="mx-auto grid w-full max-w-6xl grid-cols-1 gap-10 px-6 py-16 lg:grid-cols-[280px_1fr] lg:items-start lg:gap-16">
+    <aside class="lg:sticky lg:top-16">
+      <div class="border-t border-border pt-6">
+        <p class="mb-5 font-mono text-[10px] uppercase tracking-wide text-muted">Añadir plato</p>
+        <MealForm :meal="editingMeal ?? undefined" @submit="handleSubmit" @cancel="handleCancelEdit" />
+      </div>
+
       <button
         type="button"
         :disabled="isEmpty"
-        class="rounded border border-red-300 px-4 py-2 text-red-600 disabled:opacity-40"
+        class="mt-8 font-mono text-[11px] uppercase tracking-wide text-muted transition-colors hover:text-fg hover:underline underline-offset-4 disabled:cursor-not-allowed disabled:opacity-30"
         @click="isClearDialogOpen = true"
       >
-        Limpiar plan
+        Limpiar plan semanal
       </button>
-    </div>
+    </aside>
 
-    <div class="mb-8 rounded-lg border border-gray-200 p-4">
-      <MealForm
-        :meal="editingMeal ?? undefined"
-        @submit="handleSubmit"
-        @cancel="handleCancelEdit"
-      />
-    </div>
-
-    <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+    <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 xl:grid-cols-3">
       <DayCard
         v-for="option in DAYS_OF_WEEK"
         :key="option.value"

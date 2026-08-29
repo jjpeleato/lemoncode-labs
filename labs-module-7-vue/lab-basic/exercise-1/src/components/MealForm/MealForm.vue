@@ -46,50 +46,62 @@ const handleSubmit = () => {
 </script>
 
 <template>
-  <form class="flex flex-col gap-4" @submit.prevent="handleSubmit">
+  <form class="flex flex-col gap-5" @submit.prevent="handleSubmit">
     <div>
-      <label for="meal-name" class="block text-sm font-medium mb-1">Nombre del plato</label>
+      <label for="meal-name" class="mb-2 block font-mono text-[10px] uppercase tracking-wide text-muted">
+        Nombre del plato
+      </label>
       <input
         id="meal-name"
         v-model="name"
         type="text"
         placeholder="Ej: Pasta carbonara"
-        class="w-full rounded border border-gray-300 px-3 py-2"
+        class="w-full rounded-lg border border-border bg-surface-alt px-3 py-2.5 text-sm placeholder:text-muted/60 focus:border-fg focus:outline-none focus:ring-1 focus:ring-fg"
       />
     </div>
 
-    <div class="grid grid-cols-2 gap-4">
-      <div>
-        <label for="meal-day" class="block text-sm font-medium mb-1">Día</label>
-        <select id="meal-day" v-model="day" class="w-full rounded border border-gray-300 px-3 py-2">
-          <option v-for="option in DAYS_OF_WEEK" :key="option.value" :value="option.value">
-            {{ option.label }}
-          </option>
-        </select>
-      </div>
-
-      <div>
-        <label for="meal-time" class="block text-sm font-medium mb-1">Comida / Cena</label>
-        <select id="meal-time" v-model="time" class="w-full rounded border border-gray-300 px-3 py-2">
-          <option value="lunch">Comida</option>
-          <option value="dinner">Cena</option>
-        </select>
-      </div>
+    <div>
+      <label for="meal-day" class="mb-2 block font-mono text-[10px] uppercase tracking-wide text-muted">
+        Día
+      </label>
+      <select
+        id="meal-day"
+        v-model="day"
+        class="w-full rounded-lg border border-border bg-surface-alt px-3 py-2.5 text-sm focus:border-fg focus:outline-none focus:ring-1 focus:ring-fg"
+      >
+        <option v-for="option in DAYS_OF_WEEK" :key="option.value" :value="option.value">
+          {{ option.label }}
+        </option>
+      </select>
     </div>
 
-    <div class="flex gap-2">
+    <div>
+      <label for="meal-time" class="mb-2 block font-mono text-[10px] uppercase tracking-wide text-muted">
+        Comida / Cena
+      </label>
+      <select
+        id="meal-time"
+        v-model="time"
+        class="w-full rounded-lg border border-border bg-surface-alt px-3 py-2.5 text-sm focus:border-fg focus:outline-none focus:ring-1 focus:ring-fg"
+      >
+        <option value="lunch">Comida</option>
+        <option value="dinner">Cena</option>
+      </select>
+    </div>
+
+    <div class="flex flex-col gap-2 pt-1">
       <button
         type="submit"
         :disabled="!isNameValid"
-        class="flex-1 rounded bg-blue-600 px-4 py-2 text-white disabled:opacity-50"
+        class="w-full rounded-lg bg-fg px-4 py-2.5 text-sm font-medium text-ink transition-opacity hover:opacity-90 disabled:cursor-not-allowed disabled:bg-surface-alt disabled:text-muted"
       >
-        {{ isEditMode ? 'Guardar' : 'Agregar' }}
+        {{ isEditMode ? 'Guardar cambios' : 'Agregar al plan' }}
       </button>
 
       <button
         v-if="isEditMode"
         type="button"
-        class="rounded border border-gray-300 px-4 py-2"
+        class="w-full rounded-lg border border-border px-4 py-2.5 text-sm text-muted transition-colors hover:border-fg hover:text-fg"
         @click="emit('cancel')"
       >
         Cancelar
