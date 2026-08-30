@@ -1,0 +1,68 @@
+[
+  {
+    "id": "1",
+    "name": "Casa del Bosque Encantado",
+    "summary": "Cabaña de madera entre pinos centenarios, con chimenea y vistas al valle.",
+    "description": "Una acogedora casa de madera rodeada de pinos centenarios, perfecta para desconectar. Cuenta con chimenea de leña, terraza con vistas al valle y acceso directo a rutas de senderismo.",
+    "location": "Soria, Castilla y León",
+    "rooms": 3,
+    "bathrooms": 2,
+    "pricePerNight": 85,
+    "image": "https://images.unsplash.com/photo-1449158743715-0a90ebb6d2d8?w=800"
+  },
+  {
+    "id": "2",
+    "name": "El Molino Viejo",
+    "summary": "Molino de piedra restaurado junto a un riachuelo, con jardín privado.",
+    "description": "Antiguo molino de agua restaurado, con muros de piedra original y vigas de madera. Situado junto a un riachuelo, ofrece un jardín privado y barbacoa exterior.",
+    "location": "Potes, Cantabria",
+    "rooms": 2,
+    "bathrooms": 1,
+    "pricePerNight": 70,
+    "image": "https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?w=800"
+  },
+  {
+    "id": "3",
+    "name": "Refugio de Montaña Altavista",
+    "summary": "Vistas panorámicas a los Picos de Europa, con sauna privada.",
+    "description": "Casa rural en altura con vistas panorámicas a los Picos de Europa. Ideal para amantes de la naturaleza, con sauna privada y porche acristalado.",
+    "location": "Cangas de Onís, Asturias",
+    "rooms": 4,
+    "bathrooms": 3,
+    "pricePerNight": 120,
+    "image": "https://images.unsplash.com/photo-1518780664697-55e3ad937233?w=800"
+  },
+  {
+    "id": "4",
+    "name": "Cortijo Los Olivos",
+    "summary": "Cortijo andaluz entre olivares, con piscina privada y patio con fuente.",
+    "description": "Cortijo andaluz reformado entre olivares centenarios, con piscina privada y patio interior con fuente. Perfecto para grupos grandes.",
+    "location": "Cazorla, Jaén",
+    "rooms": 5,
+    "bathrooms": 3,
+    "pricePerNight": 150,
+    "image": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800"
+  },
+  {
+    "id": "5",
+    "name": "La Casita del Lago",
+    "summary": "Casa junto a un lago tranquilo, con embarcadero propio y sin cobertura.",
+    "description": "Pequeña casa junto a un lago tranquilo, con embarcadero propio y zona de picnic. Ambiente sereno y desconexión total, sin cobertura móvil.",
+    "location": "Sanabria, Zamora",
+    "rooms": 2,
+    "bathrooms": 1,
+    "pricePerNight": 65,
+    "image": "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=800"
+  },
+  {
+    "id": "6",
+    "name": "Masía Can Ferran",
+    "summary": "Masía del siglo XVIII entre viñedos, con bodega propia y catas de vino.",
+    "description": "Masía catalana del siglo XVIII rodeada de viñedos, con bodega propia visitable y clases de cata de vino incluidas en la estancia.",
+    "location": "Vilafranca del Penedès, Barcelona",
+    "rooms": 6,
+    "bathrooms": 4,
+    "pricePerNight": 180,
+    "image": "https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=800"
+  }
+]
