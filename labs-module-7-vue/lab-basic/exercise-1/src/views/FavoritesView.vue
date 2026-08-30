@@ -20,7 +20,7 @@ const handleAddToWeek = (id: string) => {
     </div>
 
     <ul v-if="store.favorites.length > 0" class="flex flex-col gap-3">
-      <li v-for="meal in store.favorites" :key="meal.id" class="flex items-center gap-3">
+      <li v-for="meal in store.favorites" :key="meal.id" class="flex flex-col gap-2 sm:flex-row sm:items-center sm:gap-3">
         <MealItem
           :meal="meal"
           hide-edit
@@ -31,7 +31,7 @@ const handleAddToWeek = (id: string) => {
 
         <button
           type="button"
-          class="flex shrink-0 items-center gap-1.5 rounded-lg border border-border px-4 py-3 text-xs text-muted transition-colors hover:border-fg hover:text-fg"
+          class="flex shrink-0 items-center justify-center gap-1.5 rounded-lg border border-border px-3 py-3 text-xs text-muted transition-colors hover:border-fg hover:text-fg sm:justify-start"
           @click="handleAddToWeek(meal.id)"
         >
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
