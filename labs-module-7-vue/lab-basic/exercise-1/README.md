@@ -1,6 +1,10 @@
 # Module 7 - Basic Laboratory - Exercise 1 - Meal Planner App
 
-[..coming soon..]
+This project is a weekly meal planner built with Vue 3, TypeScript, Pinia, and Tailwind CSS, kept intentionally simple (KISS) with no unnecessary architecture layers.
+
+Users can add, edit, remove, and favorite meals across the week, split into lunch and dinner, search favorites by name, and filter the weekly plan by meal time.
+
+The plan persists across reloads via Pinia's persisted-state plugin, while transient UI state stays out of the store.
 
 ## Installation to develop
 
