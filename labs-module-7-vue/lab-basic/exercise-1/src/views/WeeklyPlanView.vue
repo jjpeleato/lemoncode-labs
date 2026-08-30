@@ -5,14 +5,21 @@ import { DAYS_OF_WEEK } from '@/constants/days.constant'
 import MealForm from '@/components/MealForm/MealForm.vue'
 import DayCard from '@/components/DayCard/DayCard.vue'
 import ConfirmDialog from '@/components/ConfirmDialog/ConfirmDialog.vue'
-import type { Meal, MealInput } from '@/types/meal.types'
+import type { Meal, MealInput, MealTime } from '@/types/meal.types'
 
 const store = useMealsStore()
 
 const editingMeal = ref<Meal | null>(null)
 const isClearDialogOpen = ref(false)
+const timeFilter = ref<MealTime | 'all'>('all')
 
 const isEmpty = computed(() => store.meals.length === 0)
+
+const timeFilterOptions: Array<{ value: MealTime | 'all'; label: string }> = [
+  { value: 'all', label: 'Todos' },
+  { value: 'lunch', label: 'Comida' },
+  { value: 'dinner', label: 'Cena' },
+]
 
 const handleSubmit = (input: MealInput) => {
   if (editingMeal.value) {
@@ -58,16 +65,36 @@ const handleClearConfirmed = () => {
       </button>
     </aside>
 
-    <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 xl:grid-cols-3">
-      <DayCard
-        v-for="option in DAYS_OF_WEEK"
-        :key="option.value"
-        :day="option.value"
-        :label="option.label"
-        @remove="store.removeMeal"
-        @edit="handleEdit"
-        @toggle-favorite="store.toggleFavorite"
-      />
+    <div>
+      <div class="mb-6 flex items-center gap-2">
+        <button
+          v-for="option in timeFilterOptions"
+          :key="option.value"
+          type="button"
+          class="rounded-full border px-4 py-1.5 font-mono text-[11px] uppercase tracking-wide transition-colors"
+          :class="
+            timeFilter === option.value
+              ? 'border-fg bg-fg text-ink'
+              : 'border-border text-muted hover:border-fg hover:text-fg'
+          "
+          @click="timeFilter = option.value"
+        >
+          {{ option.label }}
+        </button>
+      </div>
+
+      <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 xl:grid-cols-3">
+        <DayCard
+          v-for="option in DAYS_OF_WEEK"
+          :key="option.value"
+          :day="option.value"
+          :label="option.label"
+          :time-filter="timeFilter"
+          @remove="store.removeMeal"
+          @edit="handleEdit"
+          @toggle-favorite="store.toggleFavorite"
+        />
+      </div>
     </div>
 
     <ConfirmDialog
