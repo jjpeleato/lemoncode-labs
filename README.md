@@ -69,7 +69,7 @@ npm i --save-dev
 
 ### Module 7: Vue
 
-[..coming soon..]
+- [Basic laboratory - Exercise 1: Meal Planner App](labs-module-7-vue/lab-basic/exercise-1/README.md)
 
 ### Module 8: Frameworks
 
