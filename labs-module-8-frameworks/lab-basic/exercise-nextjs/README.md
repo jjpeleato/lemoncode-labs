@@ -1,6 +1,18 @@
-# Module 8 - Basic Laboratory - Exercise: Next.js - Holiday cottage
+# Module 8 - Basic Laboratory - Exercise: Next.js - Rural Houses
 
-[..coming soon..]
+A rural houses rental portal built with **Next.js (App Router)**, **TypeScript** and **Tailwind CSS**. Users can browse a catalog of rural houses, search by name or location, view a house's detail page, and reserve/unreserve houses through a persistent cart drawer.
+
+## Rendering strategy
+
+| Page | Strategy | Why |
+|---|---|---|
+| `/houses` | ISR (`revalidate: 60`) | The catalog can grow without needing a fresh render on every request. |
+| `/houses/[id]` | SSG (`generateStaticParams`) + ISR | House content changes rarely — pre-rendered at build, revalidated in the background. |
+
+## Notes
+
+- `src/app/api/houses/**` endpoints are not consumed by the app itself — pages read data directly from `src/lib/houses.ts` to avoid a self-referential fetch. The endpoints exist to satisfy the exercise's API requirement and remain independently testable with `curl`.
+- The cart has no persistence by design — it resets on page reload.
 
 ## Installation to develop
 
