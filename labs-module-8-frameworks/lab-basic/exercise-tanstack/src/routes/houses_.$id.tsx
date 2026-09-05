@@ -1,5 +1,6 @@
 import { createFileRoute, notFound, Link } from '@tanstack/react-router';
 import { getHouseById } from '@/lib/houses';
+import { Image } from '@unpic/react';
 
 export const Route = createFileRoute('/houses_/$id')({
   loader: ({ params }) => {
@@ -36,8 +37,15 @@ function HousePage() {
       </Link>
 
       <div className="overflow-hidden rounded-xl border border-neutral-200">
-        <div className="aspect-[16/9] w-full bg-neutral-100">
-          <img src={house.image} alt={house.name} className="h-full w-full object-cover" />
+        <div className="w-full bg-neutral-100">
+          <Image
+            src={house.image}
+            alt={house.name}
+            layout="constrained"
+            width={1600}
+            height={900}
+            priority
+          />
         </div>
 
         <div className="flex flex-col gap-4 p-6">

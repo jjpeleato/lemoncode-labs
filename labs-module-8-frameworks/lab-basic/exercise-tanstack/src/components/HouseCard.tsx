@@ -1,3 +1,4 @@
+import { Image } from '@unpic/react';
 import { Link } from '@tanstack/react-router';
 import type { House } from '@/lib/types';
 
@@ -12,11 +13,14 @@ export function HouseCard({ house }: HouseCardProps) {
       params={{ id: house.id }}
       className="group flex flex-col overflow-hidden rounded-xl border border-neutral-200 transition-shadow hover:shadow-lg"
     >
-      <div className="aspect-[4/3] w-full overflow-hidden bg-neutral-100">
-        <img
+      <div className="w-full overflow-hidden bg-neutral-100">
+        <Image
           src={house.image}
           alt={house.name}
-          className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+          layout="constrained"
+          width={800}
+          height={600}
+          className="transition-transform duration-300 group-hover:scale-105"
         />
       </div>
 
