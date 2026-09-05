@@ -10,33 +10,52 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ApiHousesRouteImport } from './routes/api/houses'
+import { Route as ApiHousesIdRouteImport } from './routes/api/houses.$id'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiHousesRoute = ApiHousesRouteImport.update({
+  id: '/api/houses',
+  path: '/api/houses',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiHousesIdRoute = ApiHousesIdRouteImport.update({
+  id: '/$id',
+  path: '/$id',
+  getParentRoute: () => ApiHousesRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/api/houses': typeof ApiHousesRouteWithChildren
+  '/api/houses/$id': typeof ApiHousesIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/api/houses': typeof ApiHousesRouteWithChildren
+  '/api/houses/$id': typeof ApiHousesIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/api/houses': typeof ApiHousesRouteWithChildren
+  '/api/houses/$id': typeof ApiHousesIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths: '/' | '/api/houses' | '/api/houses/$id'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/api/houses' | '/api/houses/$id'
+  id: '__root__' | '/' | '/api/houses' | '/api/houses/$id'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ApiHousesRoute: typeof ApiHousesRouteWithChildren
 }
 
 declare module '@tanstack/react-router' {
@@ -48,12 +67,48 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/houses': {
+      id: '/api/houses'
+      path: '/api/houses'
+      fullPath: '/api/houses'
+      preLoaderRoute: typeof ApiHousesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/houses/$id': {
+      id: '/api/houses/$id'
+      path: '/$id'
+      fullPath: '/api/houses/$id'
+      preLoaderRoute: typeof ApiHousesIdRouteImport
+      parentRoute: typeof ApiHousesRoute
+    }
   }
 }
 
+interface ApiHousesRouteChildren {
+  ApiHousesIdRoute: typeof ApiHousesIdRoute
+}
+
+const ApiHousesRouteChildren: ApiHousesRouteChildren = {
+  ApiHousesIdRoute: ApiHousesIdRoute,
+}
+
+const ApiHousesRouteWithChildren = ApiHousesRoute._addFileChildren(
+  ApiHousesRouteChildren,
+)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ApiHousesRoute: ApiHousesRouteWithChildren,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { createStart } from '@tanstack/react-start'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+  }
+}
