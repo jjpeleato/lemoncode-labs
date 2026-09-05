@@ -1,10 +1,16 @@
 'use client';
 
+import { getHouses } from '@/lib/houses';
 import { useCart } from '@/hooks/useCart';
-import { useEffect } from 'react';
+import { useEffect, useMemo } from 'react';
 
 export function CartDrawer() {
   const { cart, toggle, isOpen, close } = useCart();
+
+  const reservedHouses = useMemo(() => {
+    const houses = getHouses();
+    return houses.filter((house) => cart.contains(house.id));
+  }, [cart]);
 
   useEffect(() => {
     if (!isOpen) return;
@@ -30,9 +36,7 @@ export function CartDrawer() {
 
       <div className="relative flex h-full w-full max-w-sm flex-col bg-white p-6 shadow-xl">
         <div className="mb-6 flex items-center justify-between">
-          <h2 className="text-lg font-semibold text-neutral-900">
-            Cart ({cart.size})
-          </h2>
+          <h2 className="text-lg font-semibold text-neutral-900">Cart ({cart.size})</h2>
           <button
             type="button"
             onClick={close}
@@ -46,17 +50,24 @@ export function CartDrawer() {
         {cart.isEmpty ? (
           <p className="text-sm text-neutral-500">No houses selected yet.</p>
         ) : (
-          <ul className="flex flex-col gap-2 overflow-y-auto">
-            {cart.getIds().map((id) => (
+          <ul className="flex flex-col gap-3 overflow-y-auto">
+            {reservedHouses.map((house) => (
               <li
-                key={id}
-                className="flex items-center justify-between rounded-lg border border-neutral-200 px-3 py-2"
+                key={house.id}
+                className="flex items-center gap-3 rounded-lg border border-neutral-200 p-3"
               >
-                <span className="text-sm text-neutral-700">House #{id}</span>
+                <div className="min-w-0 flex-1">
+                  <p className="truncate text-sm font-medium text-neutral-900">{house.name}</p>
+                  <p className="text-xs text-neutral-500">{house.location}</p>
+                  <p className="text-xs font-medium text-neutral-700">
+                    {house.pricePerNight} € / night
+                  </p>
+                </div>
                 <button
                   type="button"
-                  onClick={() => toggle(id)}
-                  className="cursor-pointer text-xs text-neutral-500 hover:text-neutral-900"
+                  onClick={() => toggle(house.id)}
+                  aria-label={`Remove ${house.name} from cart`}
+                  className="cursor-pointer shrink-0 text-xs text-neutral-500 hover:text-neutral-900"
                 >
                   Remove
                 </button>
