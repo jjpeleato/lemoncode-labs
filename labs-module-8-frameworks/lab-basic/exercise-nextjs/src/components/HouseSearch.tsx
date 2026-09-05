@@ -1,26 +1,26 @@
-'use client'
+'use client';
 
-import { useState, useMemo } from 'react'
-import type { House } from '@/lib/types'
-import { HouseGrid } from './HouseGrid'
+import { useState, useMemo } from 'react';
+import type { House } from '@/lib/types';
+import { HouseGrid } from './HouseGrid';
 
 interface HouseSearchProps {
   houses: House[]
 }
 
 export function HouseSearch({ houses }: HouseSearchProps) {
-  const [query, setQuery] = useState('')
+  const [query, setQuery] = useState('');
 
   const filteredHouses = useMemo(() => {
-    const term = query.trim().toLowerCase()
-    if (!term) return houses
+    const term = query.trim().toLowerCase();
+    if (!term) return houses;
 
     return houses.filter(
       (house) =>
         house.name.toLowerCase().includes(term) ||
         house.location.toLowerCase().includes(term),
-    )
-  }, [houses, query])
+    );
+  }, [houses, query]);
 
   return (
     <div>

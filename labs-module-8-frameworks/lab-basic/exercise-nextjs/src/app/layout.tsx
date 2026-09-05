@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: 'Rural Houses',
   description: 'Browse and discover rural houses available for vacation rental.',
-}
+};
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (

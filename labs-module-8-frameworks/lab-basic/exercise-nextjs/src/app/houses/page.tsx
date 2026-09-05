@@ -1,10 +1,10 @@
-import { getHouses } from '@/lib/houses'
-import { HouseSearch } from '@/components/HouseSearch'
+import { getHouses } from '@/lib/houses';
+import { HouseSearch } from '@/components/HouseSearch';
 
-export const revalidate = 60
+export const revalidate = 60;
 
 export default function HousesPage() {
-  const houses = getHouses()
+  const houses = getHouses();
 
   return (
     <main className="mx-auto max-w-6xl px-6 py-12">

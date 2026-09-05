@@ -1,5 +1,5 @@
-import type { House } from '@/lib/types'
-import { HouseCard } from './HouseCard'
+import type { House } from '@/lib/types';
+import { HouseCard } from './HouseCard';
 
 interface HouseGridProps {
   houses: House[]

@@ -1,8 +1,9 @@
-import Link from 'next/link'
-import type { House } from '@/lib/types'
+import Image from 'next/image';
+import Link from 'next/link';
+import type { House } from '@/lib/types';
 
 interface HouseCardProps {
-  house: House
+  house: House;
 }
 
 export function HouseCard({ house }: HouseCardProps) {
@@ -11,12 +12,13 @@ export function HouseCard({ house }: HouseCardProps) {
       href={`/houses/${house.id}`}
       className="group flex flex-col overflow-hidden rounded-xl border border-neutral-200 transition-shadow hover:shadow-lg"
     >
-      <div className="aspect-4/3 w-full overflow-hidden bg-neutral-100">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
+      <div className="relative aspect-4/3 w-full overflow-hidden bg-neutral-100">
+        <Image
           src={house.image}
           alt={house.name}
-          className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+          fill
+          sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+          className="object-cover transition-transform duration-300 group-hover:scale-105"
         />
       </div>
 
@@ -35,5 +37,5 @@ export function HouseCard({ house }: HouseCardProps) {
         </div>
       </div>
     </Link>
-  )
+  );
 }

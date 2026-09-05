@@ -1,38 +1,39 @@
-import { notFound } from 'next/navigation'
-import Link from 'next/link'
-import type { Metadata } from 'next'
-import { getHouseById, getHouses } from '@/lib/houses'
+import Image from 'next/image';
+import { notFound } from 'next/navigation';
+import Link from 'next/link';
+import type { Metadata } from 'next';
+import { getHouseById, getHouses } from '@/lib/houses';
 
-export const revalidate = 60
+export const revalidate = 60;
 
 interface HousePageProps {
-  params: Promise<{ id: string }>
+  params: Promise<{ id: string }>;
 }
 
 export function generateStaticParams() {
-  return getHouses().map((house) => ({ id: house.id }))
+  return getHouses().map((house) => ({ id: house.id }));
 }
 
 export async function generateMetadata({ params }: HousePageProps): Promise<Metadata> {
-  const { id } = await params
-  const house = getHouseById(id)
+  const { id } = await params;
+  const house = getHouseById(id);
 
   if (!house) {
-    return { title: 'House not found' }
+    return { title: 'House not found' };
   }
 
   return {
     title: `${house.name} | Rural Houses`,
     description: house.description,
-  }
+  };
 }
 
 export default async function HousePage({ params }: HousePageProps) {
-  const { id } = await params
-  const house = getHouseById(id)
+  const { id } = await params;
+  const house = getHouseById(id);
 
   if (!house) {
-    notFound()
+    notFound();
   }
 
   return (
@@ -45,9 +46,15 @@ export default async function HousePage({ params }: HousePageProps) {
       </Link>
 
       <div className="overflow-hidden rounded-xl border border-neutral-200">
-        <div className="aspect-video w-full bg-neutral-100">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={house.image} alt={house.name} className="h-full w-full object-cover" />
+        <div className="relative aspect-video w-full bg-neutral-100">
+          <Image
+            src={house.image}
+            alt={house.name}
+            fill
+            priority
+            sizes="(min-width: 1024px) 800px, 100vw"
+            className="object-cover"
+          />
         </div>
 
         <div className="flex flex-col gap-4 p-6">
@@ -69,5 +76,5 @@ export default async function HousePage({ params }: HousePageProps) {
         </div>
       </div>
     </main>
-  )
+  );
 }
