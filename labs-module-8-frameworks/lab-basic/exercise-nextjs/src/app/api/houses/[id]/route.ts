@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import houses from "@/data/houses.json";
+import { getHouseById } from "@/lib/houses";
 
 interface RouteParams {
   params: Promise<{ id: string }>;
@@ -7,8 +7,7 @@ interface RouteParams {
 
 export async function GET(_request: Request, { params }: RouteParams) {
   const { id } = await params;
-
-  const house = houses.find((h) => h.id === id);
+  const house = getHouseById(id);
 
   if (!house) {
     return NextResponse.json({ error: "House not found" }, { status: 404 });

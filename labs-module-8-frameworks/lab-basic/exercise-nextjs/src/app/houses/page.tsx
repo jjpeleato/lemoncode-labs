@@ -3,8 +3,8 @@ import { HouseGrid } from '@/components/HouseGrid'
 
 export const revalidate = 60
 
-export default async function HousesPage() {
-  const houses = await getHouses()
+export default function HousesPage() {
+  const houses = getHouses();
 
   return (
     <main className="mx-auto max-w-6xl px-6 py-12">
