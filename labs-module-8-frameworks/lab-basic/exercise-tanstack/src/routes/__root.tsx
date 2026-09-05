@@ -15,7 +15,11 @@ export const Route = createRootRoute({
         content: 'width=device-width, initial-scale=1',
       },
       {
-        title: 'TanStack Start Starter',
+        title: 'Rural Houses',
+      },
+      {
+        name: 'description',
+        content: 'Browse and discover rural houses available for vacation rental.',
       },
     ],
     links: [

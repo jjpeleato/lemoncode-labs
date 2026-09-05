@@ -10,12 +10,18 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as HousesRouteImport } from './routes/houses'
 import { Route as ApiHousesRouteImport } from './routes/api/houses'
 import { Route as ApiHousesIdRouteImport } from './routes/api/houses.$id'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HousesRoute = HousesRouteImport.update({
+  id: '/houses',
+  path: '/houses',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ApiHousesRoute = ApiHousesRouteImport.update({
@@ -31,30 +37,34 @@ const ApiHousesIdRoute = ApiHousesIdRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/houses': typeof HousesRoute
   '/api/houses': typeof ApiHousesRouteWithChildren
   '/api/houses/$id': typeof ApiHousesIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/houses': typeof HousesRoute
   '/api/houses': typeof ApiHousesRouteWithChildren
   '/api/houses/$id': typeof ApiHousesIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/houses': typeof HousesRoute
   '/api/houses': typeof ApiHousesRouteWithChildren
   '/api/houses/$id': typeof ApiHousesIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/api/houses' | '/api/houses/$id'
+  fullPaths: '/' | '/houses' | '/api/houses' | '/api/houses/$id'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/api/houses' | '/api/houses/$id'
-  id: '__root__' | '/' | '/api/houses' | '/api/houses/$id'
+  to: '/' | '/houses' | '/api/houses' | '/api/houses/$id'
+  id: '__root__' | '/' | '/houses' | '/api/houses' | '/api/houses/$id'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  HousesRoute: typeof HousesRoute
   ApiHousesRoute: typeof ApiHousesRouteWithChildren
 }
 
@@ -65,6 +75,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/houses': {
+      id: '/houses'
+      path: '/houses'
+      fullPath: '/houses'
+      preLoaderRoute: typeof HousesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/api/houses': {
@@ -98,6 +115,7 @@ const ApiHousesRouteWithChildren = ApiHousesRoute._addFileChildren(
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  HousesRoute: HousesRoute,
   ApiHousesRoute: ApiHousesRouteWithChildren,
 }
 export const routeTree = rootRouteImport
