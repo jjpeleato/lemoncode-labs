@@ -10,7 +10,7 @@ export function CartButton() {
       type="button"
       onClick={open}
       aria-label={`Cart, ${cart.size} ${cart.size === 1 ? 'house' : 'houses'} selected`}
-      className="relative rounded-full p-2 text-neutral-700 transition-colors hover:bg-neutral-100"
+      className="cursor-pointer relative rounded-full p-2 text-neutral-700 transition-colors hover:bg-neutral-100"
     >
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75">
         <path d="M6 6h15l-1.5 9h-12z" strokeLinecap="round" strokeLinejoin="round" />

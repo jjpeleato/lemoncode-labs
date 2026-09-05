@@ -24,7 +24,7 @@ export function CartDrawer() {
       <button
         type="button"
         aria-label="Close cart"
-        className="absolute inset-0 bg-black/40"
+        className="cursor-pointer absolute inset-0 bg-black/40"
         onClick={close}
       />
 
@@ -37,7 +37,7 @@ export function CartDrawer() {
             type="button"
             onClick={close}
             aria-label="Close cart"
-            className="rounded-full p-1 text-neutral-500 hover:bg-neutral-100"
+            className="cursor-pointer rounded-full p-1 text-neutral-500 hover:bg-neutral-100"
           >
             ✕
           </button>
@@ -56,7 +56,7 @@ export function CartDrawer() {
                 <button
                   type="button"
                   onClick={() => toggle(id)}
-                  className="text-xs text-neutral-500 hover:text-neutral-900"
+                  className="cursor-pointer text-xs text-neutral-500 hover:text-neutral-900"
                 >
                   Remove
                 </button>

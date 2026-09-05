@@ -1,5 +1,6 @@
 import { getHouseById, getHouses } from '@/lib/houses';
 import { notFound } from 'next/navigation';
+import { ReserveButton } from '@/components/ReserveButton';
 import Image from 'next/image';
 import Link from 'next/link';
 import type { Metadata } from 'next';
@@ -38,10 +39,7 @@ export default async function HousePage({ params }: HousePageProps) {
 
   return (
     <main className="mx-auto max-w-4xl px-6 py-12">
-      <Link
-        href="/houses"
-        className="mb-6 inline-block text-sm text-neutral-500 hover:text-neutral-900"
-      >
+      <Link href="/houses" className="mb-6 inline-block text-sm text-neutral-500 hover:text-neutral-900">
         ← Back to listing
       </Link>
 
@@ -73,6 +71,8 @@ export default async function HousePage({ params }: HousePageProps) {
           <div className="text-xl font-semibold text-neutral-900">
             {house.pricePerNight} € <span className="text-base font-normal text-neutral-500">/ night</span>
           </div>
+
+          <ReserveButton houseId={house.id} houseName={house.name} variant="full" />
         </div>
       </div>
     </main>
