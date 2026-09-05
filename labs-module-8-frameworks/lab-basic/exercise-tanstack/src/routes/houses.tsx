@@ -1,6 +1,6 @@
 import { createFileRoute } from '@tanstack/react-router';
 import { getHouses } from '@/lib/houses';
-import { HouseGrid } from '@/components/HouseGrid';
+import { HouseSearch } from '@/components/HouseSearch';
 
 export const Route = createFileRoute('/houses')({
   loader: () => getHouses(),
@@ -15,7 +15,7 @@ function HousesPage() {
       <h1 className="mb-8 text-3xl font-bold text-neutral-900">
         Rural houses for your next getaway
       </h1>
-      <HouseGrid houses={houses} />
+      <HouseSearch houses={houses} />
     </main>
   );
 }
