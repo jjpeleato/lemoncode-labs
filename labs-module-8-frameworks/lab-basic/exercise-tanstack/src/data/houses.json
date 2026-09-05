@@ -1,0 +1,68 @@
+[
+  {
+    "id": "1",
+    "name": "Enchanted Forest House",
+    "summary": "Wooden cabin among century-old pines, with a fireplace and valley views.",
+    "description": "A cozy wooden house surrounded by century-old pine trees, perfect for unplugging. It features a wood-burning fireplace, a terrace with valley views, and direct access to hiking trails.",
+    "location": "Soria, Castile and León",
+    "rooms": 3,
+    "bathrooms": 2,
+    "pricePerNight": 85,
+    "image": "https://images.unsplash.com/photo-1449158743715-0a90ebb6d2d8?w=800"
+  },
+  {
+    "id": "2",
+    "name": "The Old Mill",
+    "summary": "Restored stone mill by a small stream, with a private garden.",
+    "description": "A restored old watermill with original stone walls and wooden beams. Set beside a small stream, it offers a private garden and an outdoor barbecue.",
+    "location": "Potes, Cantabria",
+    "rooms": 2,
+    "bathrooms": 1,
+    "pricePerNight": 70,
+    "image": "https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?w=800"
+  },
+  {
+    "id": "3",
+    "name": "Altavista Mountain Refuge",
+    "summary": "Panoramic views of the Picos de Europa, with a private sauna.",
+    "description": "A hillside rural house with panoramic views of the Picos de Europa mountain range. Ideal for nature lovers, featuring a private sauna and a glazed porch.",
+    "location": "Cangas de Onís, Asturias",
+    "rooms": 4,
+    "bathrooms": 3,
+    "pricePerNight": 120,
+    "image": "https://images.unsplash.com/photo-1518780664697-55e3ad937233?w=800"
+  },
+  {
+    "id": "4",
+    "name": "Los Olivos Farmhouse",
+    "summary": "Andalusian farmhouse among olive groves, with a private pool and a courtyard fountain.",
+    "description": "A renovated Andalusian farmhouse surrounded by century-old olive groves, with a private pool and an inner courtyard with a fountain. Perfect for large groups.",
+    "location": "Cazorla, Jaén",
+    "rooms": 5,
+    "bathrooms": 3,
+    "pricePerNight": 150,
+    "image": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800"
+  },
+  {
+    "id": "5",
+    "name": "The Little Lake House",
+    "summary": "House by a peaceful lake, with its own dock and no mobile signal.",
+    "description": "A small house by a peaceful lake, with its own dock and a picnic area. A serene setting for total disconnection, with no mobile signal.",
+    "location": "Sanabria, Zamora",
+    "rooms": 2,
+    "bathrooms": 1,
+    "pricePerNight": 65,
+    "image": "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=800"
+  },
+  {
+    "id": "6",
+    "name": "Can Ferran Farmhouse",
+    "summary": "18th-century farmhouse among vineyards, with its own winery and wine tastings.",
+    "description": "An 18th-century Catalan farmhouse surrounded by vineyards, with its own winery open for visits and wine-tasting sessions included in the stay.",
+    "location": "Vilafranca del Penedès, Barcelona",
+    "rooms": 6,
+    "bathrooms": 4,
+    "pricePerNight": 180,
+    "image": "https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=800"
+  }
+]

@@ -73,7 +73,8 @@ npm i --save-dev
 
 ### Module 8: Frameworks
 
-- [Basic laboratory - Exercise: Next.js - Holiday cottage](labs-module-8-frameworks/lab-basic/exercise-nextjs/README.md)
+- [Basic laboratory - Exercise: Next.js - Rural Houses](labs-module-8-frameworks/lab-basic/exercise-nextjs/README.md)
+- [Basic laboratory - Exercise: TanStack Start - Rural Houses](labs-module-8-frameworks/lab-basic/exercise-tanstack/README.md)
 
 ### Module 9: Testing
 
