@@ -8,8 +8,8 @@ interface HouseGridProps {
 export function HouseGrid({ houses }: HouseGridProps) {
   if (houses.length === 0) {
     return (
-      <p className="py-16 text-center text-neutral-500">
-        No rural houses available.
+      <p className="w-full py-16 text-center text-neutral-500">
+        No houses match your search.
       </p>
     )
   }
