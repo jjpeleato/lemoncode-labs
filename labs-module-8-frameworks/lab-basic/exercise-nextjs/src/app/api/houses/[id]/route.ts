@@ -1,5 +1,5 @@
-import { NextResponse } from "next/server";
 import { getHouseById } from "@/lib/houses";
+import { NextResponse } from "next/server";
 
 interface RouteParams {
   params: Promise<{ id: string }>;

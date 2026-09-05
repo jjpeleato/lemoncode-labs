@@ -1,8 +1,8 @@
 'use client';
 
+import { HouseGrid } from './HouseGrid';
 import { useState, useMemo } from 'react';
 import type { House } from '@/lib/types';
-import { HouseGrid } from './HouseGrid';
 
 interface HouseSearchProps {
   houses: House[]

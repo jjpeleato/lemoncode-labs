@@ -1,8 +1,8 @@
-import Image from 'next/image';
+import { getHouseById, getHouses } from '@/lib/houses';
 import { notFound } from 'next/navigation';
+import Image from 'next/image';
 import Link from 'next/link';
 import type { Metadata } from 'next';
-import { getHouseById, getHouses } from '@/lib/houses';
 
 export const revalidate = 60;
 

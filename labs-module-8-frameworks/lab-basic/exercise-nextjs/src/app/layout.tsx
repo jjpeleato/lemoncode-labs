@@ -1,9 +1,10 @@
-import type { Metadata } from 'next';
+import './globals.css';
+import { CartButton } from '@/components/CartButton';
+import { CartDrawer } from '@/components/CartDrawer';
+import { CartProvider } from '@/context/CartProvider';
 import { Geist, Geist_Mono } from 'next/font/google';
 import Link from 'next/link';
-import { CartProvider } from '@/context/CartProvider';
-import { CartButton } from '@/components/CartButton';
-import './globals.css';
+import type { Metadata } from 'next';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -36,6 +37,8 @@ export default function RootLayout({ children }: LayoutProps<'/'>) {
               <CartButton />
             </div>
           </header>
+
+          <CartDrawer />
 
           {children}
         </CartProvider>
