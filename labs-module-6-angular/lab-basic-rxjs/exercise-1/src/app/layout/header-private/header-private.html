@@ -1,4 +1,11 @@
 <mat-toolbar color="primary">
   <mat-icon>cottage</mat-icon>
   <span class="site-name">Lemoncode Angular Lab</span>
+
+  <span class="spacer"></span>
+
+  <span class="username">{{ auth.getUsername() }}</span>
+  <button mat-icon-button (click)="onLogout()" aria-label="Logout">
+    <mat-icon>logout</mat-icon>
+  </button>
 </mat-toolbar>

@@ -1,7 +1,10 @@
 <mat-sidenav-container class="app-shell">
   <mat-sidenav #drawer mode="over" [opened]="menuOpen">
-    <app-menu-public />
+    @if (auth.isLogged()) {
     <app-menu-private />
+    } @else {
+    <app-menu-public />
+    }
   </mat-sidenav>
 
   <mat-sidenav-content>
@@ -11,8 +14,11 @@
       </button>
     </mat-toolbar>
 
-    <app-header-public />
+    @if (auth.isLogged()) {
     <app-header-private />
+    } @else {
+    <app-header-public />
+    }
 
     <main class="app-content">
       <router-outlet />

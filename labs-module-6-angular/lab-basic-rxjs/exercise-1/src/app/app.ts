@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -9,6 +9,7 @@ import { HeaderPrivate } from './layout/header-private/header-private';
 import { MenuPublic } from './layout/menu-public/menu-public';
 import { MenuPrivate } from './layout/menu-private/menu-private';
 import { Footer } from './layout/footer/footer';
+import { Auth } from './core/auth';
 
 @Component({
   selector: 'app-root',
@@ -28,5 +29,6 @@ import { Footer } from './layout/footer/footer';
   styleUrl: './app.scss',
 })
 export class App {
-  protected menuOpen = true;
+  protected readonly auth = inject(Auth);
+  protected menuOpen = false;
 }
