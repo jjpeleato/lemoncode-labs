@@ -1,4 +1,7 @@
 <mat-toolbar color="primary">
-  <mat-icon>cottage</mat-icon>
-  <span class="site-name">Lemoncode Angular Lab</span>
+  <button mat-icon-button (click)="menuToggle.emit()" aria-label="Toggle menu">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <mat-icon>terminal</mat-icon>
+  <span class="site-name">lemoncode angular lab</span>
 </mat-toolbar>

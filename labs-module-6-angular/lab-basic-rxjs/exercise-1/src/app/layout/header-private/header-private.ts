@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, output } from '@angular/core';
 import { Router } from '@angular/router';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
@@ -14,6 +14,8 @@ import { Auth } from '../../core/auth';
 export class HeaderPrivate {
   protected readonly auth = inject(Auth);
   private readonly router = inject(Router);
+
+  menuToggle = output<void>();
 
   protected onLogout(): void {
     this.auth.logout();

@@ -8,16 +8,10 @@
   </mat-sidenav>
 
   <mat-sidenav-content>
-    <mat-toolbar color="accent">
-      <button mat-icon-button (click)="drawer.toggle()">
-        <mat-icon>menu</mat-icon>
-      </button>
-    </mat-toolbar>
-
     @if (auth.isLogged()) {
-    <app-header-private />
+    <app-header-private (menuToggle)="drawer.toggle()" />
     } @else {
-    <app-header-public />
+    <app-header-public (menuToggle)="drawer.toggle()" />
     }
 
     <main class="app-content">

@@ -1,9 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { MatSidenavModule } from '@angular/material/sidenav';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatButtonModule } from '@angular/material/button';
-import { MatIconModule } from '@angular/material/icon';
 import { HeaderPublic } from './layout/header-public/header-public';
 import { HeaderPrivate } from './layout/header-private/header-private';
 import { MenuPublic } from './layout/menu-public/menu-public';
@@ -16,9 +13,6 @@ import { Auth } from './core/auth';
   imports: [
     RouterOutlet,
     MatSidenavModule,
-    MatToolbarModule,
-    MatButtonModule,
-    MatIconModule,
     HeaderPublic,
     HeaderPrivate,
     MenuPublic,

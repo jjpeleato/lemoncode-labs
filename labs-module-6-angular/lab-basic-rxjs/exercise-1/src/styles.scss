@@ -13,6 +13,15 @@ html {
       density: 0,
     )
   );
+
+  .page-title {
+    margin: 0 0 24px;
+    font-family: 'Space Mono', monospace;
+    font-weight: 700;
+    font-size: 1.75rem;
+    letter-spacing: 0.01em;
+    color: var(--mat-sys-on-surface);
+  }
 }
 
 body {

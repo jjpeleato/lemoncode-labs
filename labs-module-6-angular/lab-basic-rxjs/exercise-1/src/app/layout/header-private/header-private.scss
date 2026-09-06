@@ -1,7 +1,16 @@
+.site-name {
+  font-family: 'Space Mono', monospace;
+  font-weight: 700;
+  margin-left: 8px;
+  letter-spacing: 0.02em;
+}
+
 .spacer {
   flex: 1 1 auto;
 }
 
 .username {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.85rem;
   margin-right: 8px;
 }
