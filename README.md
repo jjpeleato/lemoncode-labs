@@ -65,7 +65,7 @@ npm i --save-dev
 
 ### Module 6: Angular
 
-[..coming soon..]
+- [Basic laboratory - Exercise 1: Scaffold + RxJs](labs-module-6-angular/lab-basic-rxjs/exercise-1/README.md)
 
 ### Module 7: Vue
 
