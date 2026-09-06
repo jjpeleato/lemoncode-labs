@@ -1,9 +1,11 @@
 import { Component } from '@angular/core';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
-  imports: [],
   selector: 'app-header-private',
-  styleUrl: './header-private.scss',
+  imports: [MatToolbarModule, MatIconModule],
   templateUrl: './header-private.html',
+  styleUrl: './header-private.scss',
 })
 export class HeaderPrivate {}

@@ -1,9 +1,11 @@
 import { Component } from '@angular/core';
+import { RouterLink, RouterLinkActive } from '@angular/router';
+import { MatListModule } from '@angular/material/list';
 
 @Component({
-  imports: [],
   selector: 'app-menu-private',
-  styleUrl: './menu-private.scss',
+  imports: [RouterLink, RouterLinkActive, MatListModule],
   templateUrl: './menu-private.html',
+  styleUrl: './menu-private.scss',
 })
 export class MenuPrivate {}
