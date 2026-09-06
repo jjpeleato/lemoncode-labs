@@ -22,6 +22,12 @@ html {
     letter-spacing: 0.01em;
     color: var(--mat-sys-on-surface);
   }
+
+  .page-content p {
+    margin: 0 0 16px;
+    line-height: 1.6;
+    color: var(--mat-sys-on-surface-variant);
+  }
 }
 
 body {
