@@ -5,10 +5,12 @@ const VALID_CREDENTIALS = {
   password: '12345678',
 };
 
+const STORAGE_KEY = 'auth-username';
+
 @Service()
 export class Auth {
-  private readonly loggedSignal = signal(false);
-  private readonly usernameSignal = signal<string | null>(null);
+  private readonly loggedSignal = signal(this.readStoredUsername() !== null);
+  private readonly usernameSignal = signal<string | null>(this.readStoredUsername());
 
   readonly isLogged = this.loggedSignal.asReadonly();
   readonly getUsername = this.usernameSignal.asReadonly();
@@ -20,6 +22,7 @@ export class Auth {
     if (isValid) {
       this.loggedSignal.set(true);
       this.usernameSignal.set(username);
+      localStorage.setItem(STORAGE_KEY, username);
     }
 
     return isValid;
@@ -28,5 +31,10 @@ export class Auth {
   logout(): void {
     this.loggedSignal.set(false);
     this.usernameSignal.set(null);
+    localStorage.removeItem(STORAGE_KEY);
+  }
+
+  private readStoredUsername(): string | null {
+    return localStorage.getItem(STORAGE_KEY);
   }
 }
