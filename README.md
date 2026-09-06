@@ -15,16 +15,16 @@ For more information visit:
 
 1. Clone or download this repository.
 
-```bash
-git clone https://github.com/jjpeleato/lemoncode-labs.git lemoncode_labs/
-```
+    ```bash
+    git clone https://github.com/jjpeleato/lemoncode-labs.git lemoncode_labs/
+    ```
 
 2. Install the Node.js dependencies:
 
-```bash
-cd lemoncode_labs/
-npm i --save-dev
-```
+    ```bash
+    cd lemoncode_labs/
+    npm i --save-dev
+    ```
 
 3. End and happy coding!
 
@@ -65,7 +65,7 @@ npm i --save-dev
 
 ### Module 6: Angular
 
-- [Basic laboratory - Exercise 1: Scaffold + RxJs](labs-module-6-angular/lab-basic-rxjs/exercise-1/README.md)
+- [Basic laboratory - Exercise 1: Angular Lab](labs-module-6-angular/lab-basic/exercise-1/README.md)
 
 ### Module 7: Vue
 

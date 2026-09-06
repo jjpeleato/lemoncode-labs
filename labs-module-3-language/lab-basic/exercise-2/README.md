@@ -2,6 +2,8 @@
 
 Implement an immutable concat function that concatenates two arrays. Use rest/spread operators.
 
+## Source
+
 ```js
 const concat = (a, b) => {}; // Implementation here.
 ```
@@ -13,15 +15,19 @@ Implement a new version of `concat` that accepts multiple input arrays (more tha
 ## Installation to develop
 
 1. Install the Node.js dependencies:
+
    ```bash
    cd labs-module-3-language/lab-basic/exercise-2
    npm i --save-dev
    ```
+
 2. Start the development server:
+
    ```bash
    npm run dev
    ```
-4. End and happy coding!
+
+3. End and happy coding!
 
 ## Finally
 

@@ -6,16 +6,16 @@ A bundling lab using **Webpack 5** with **React 19** and **TypeScript**. It incl
 
 1. Install dependencies:
 
-```bash
-cd labs-module-4-bundling/lab-webpack
-npm i --save-dev
-```
+    ```bash
+    cd labs-module-4-bundling/lab-webpack
+    npm i --save-dev
+    ```
 
 2. Start the development server:
 
-```bash
-npm run dev
-```
+    ```bash
+    npm run dev
+    ```
 
 Open [http://localhost:8080](http://localhost:8080) in your browser.
 

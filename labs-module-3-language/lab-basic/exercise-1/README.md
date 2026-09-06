@@ -2,6 +2,8 @@
 
 This exercise implements four immutable array operations: `head` (first element), `tail` (all except first), `init` (all except last), and `last` (last element). Each function uses different JavaScript techniques like destructuring, rest operator, and Array.prototype methods.
 
+## Source
+
 ### Head
 
 Implement an immutable `head` function that extracts and returns the first element from an array using destructuring.
@@ -37,15 +39,19 @@ const last = (/* array */) => {}; // Implementation here.
 ## Installation to develop
 
 1. Install the Node.js dependencies:
+
    ```bash
    cd labs-module-3-language/lab-basic/exercise-1
    npm i --save-dev
    ```
+
 2. Start the development server:
+
    ```bash
    npm run dev
    ```
-4. End and happy coding!
+
+3. End and happy coding!
 
 ## Finally
 

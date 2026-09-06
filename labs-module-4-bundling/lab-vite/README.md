@@ -6,16 +6,16 @@ A bundling lab using **Vite 7** with **TypeScript**. It includes a fast developm
 
 1. Install dependencies:
 
-```bash
-cd labs-module-4-bundling/lab-vite
-npm i --save-dev
-```
+    ```bash
+    cd labs-module-4-bundling/lab-vite
+    npm i --save-dev
+    ```
 
 2. Start the development server:
 
-```bash
-npm start
-```
+    ```bash
+    npm start
+    ```
 
 Open [http://localhost:5173](http://localhost:5173) in your browser.
 
