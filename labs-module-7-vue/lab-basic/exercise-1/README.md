@@ -9,18 +9,24 @@ The plan persists across reloads via Pinia's persisted-state plugin, while trans
 ## Installation to develop
 
 1. Install the Node.js dependencies:
+
     ```bash
     cd labs-module-7-vue/lab-basic/exercise-1
     npm i --save-dev
     ```
+
 2. Start the development server:
+
     ```bash
     npm run dev
     ```
+
 3. If you want to validate the code according standard only, run:
+
     ```bash
     npm run lint
     ```
+
 4. End and happy coding!
 
 ## Finally

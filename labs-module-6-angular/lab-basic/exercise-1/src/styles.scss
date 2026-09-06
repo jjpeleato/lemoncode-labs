@@ -1,0 +1,36 @@
+@use '@angular/material' as mat;
+@use './styles/theme-colors' as my-theme;
+
+html {
+  @include mat.theme(
+    (
+      color: (
+        theme-type: dark,
+        primary: my-theme.$primary-palette,
+        tertiary: my-theme.$tertiary-palette,
+      ),
+      typography: Roboto,
+      density: 0,
+    )
+  );
+
+  .page-title {
+    margin: 0 0 24px;
+    font-family: 'Space Mono', monospace;
+    font-weight: 700;
+    font-size: 1.75rem;
+    letter-spacing: 0.01em;
+    color: var(--mat-sys-on-surface);
+  }
+
+  .page-content p {
+    margin: 0 0 16px;
+    line-height: 1.6;
+    color: var(--mat-sys-on-surface-variant);
+  }
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, sans-serif;
+}
