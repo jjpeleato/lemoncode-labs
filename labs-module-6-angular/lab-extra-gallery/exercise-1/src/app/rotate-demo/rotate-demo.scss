@@ -1,0 +1,31 @@
+.rotate-demo {
+  max-width: 800px;
+  margin: 32px auto;
+  padding: 24px;
+}
+
+.rotate-demo__items {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+
+  img {
+    width: 140px;
+    height: 140px;
+    object-fit: cover;
+    cursor: pointer;
+  }
+}
+
+.rotate-demo__box {
+  width: 140px;
+  height: 140px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  background: #eee;
+  cursor: not-allowed;
+  text-align: center;
+  font-size: 0.75rem;
+}
