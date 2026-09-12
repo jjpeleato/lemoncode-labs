@@ -1,59 +1,26 @@
-# Exercise1
+# Module 6 - Extra Laboratory - Exercise: Gallery Lab
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 22.1.7.
+[..coming soon..]
 
-## Development server
+## Installation to develop
 
-To start a local development server, run:
+1. Install the Node.js dependencies:
 
-```bash
-ng serve
-```
+    ```bash
+    cd labs-module-6-angular/lab-extra-gallery/exercise-1
+    npm install
+    ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+2. Start the development server:
 
-## Code scaffolding
+    ```bash
+    npm run start
+    ```
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+3. End and happy coding!
 
-```bash
-ng generate component component-name
-```
+## Finally
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+More info in the following commits. If required.
 
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Grettings [**@jjpeleato**.](https://www.jjpeleato.com/)

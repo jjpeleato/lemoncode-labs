@@ -1,0 +1,56 @@
+<main class="gallery">
+  <h1 class="gallery-title">Photo gallery</h1>
+
+  <section class="gallery-viewer">
+    <img class="gallery-viewer__image" [src]="selectedPhoto().src" [alt]="selectedPhoto().title"
+      [style.transform]="'scale(' + zoomLevel() + ')'" />
+    <p class="gallery-viewer__caption">{{ selectedPhoto().title }}</p>
+  </section>
+
+  <section class="gallery-thumbnails" aria-label="Photo thumbnails">
+    <button mat-icon-button (click)="prevPage()" [disabled]="!canGoPrevPage()" aria-label="Previous thumbnails page">
+      <mat-icon>chevron_left</mat-icon>
+    </button>
+
+    <div class="gallery-thumbnails__list">
+      @for (photo of photos | slice: pageStart() : pageEnd(); track photo.id) {
+      <button type="button" class="gallery-thumbnails__item"
+        [class.gallery-thumbnails__item--active]="photo.id === selectedPhoto().id" (click)="selectPhoto(photo)">
+        <img [src]="photo.src" [alt]="photo.title" />
+      </button>
+      }
+    </div>
+
+    <button mat-icon-button (click)="nextPage()" [disabled]="!canGoNextPage()" aria-label="Next thumbnails page">
+      <mat-icon>chevron_right</mat-icon>
+    </button>
+  </section>
+
+  <section class="gallery-controls" aria-label="Gallery controls">
+    <button mat-stroked-button (click)="prev()" [disabled]="!canGoPrev()">
+      <mat-icon>navigate_before</mat-icon>
+      Previous
+    </button>
+    <button mat-stroked-button (click)="next()" [disabled]="!canGoNext()">
+      Next
+      <mat-icon>navigate_next</mat-icon>
+    </button>
+    <button mat-stroked-button (click)="zoomOut()" [disabled]="!canZoomOut()">
+      <mat-icon>zoom_out</mat-icon>
+    </button>
+    <button mat-stroked-button (click)="zoomIn()" [disabled]="!canZoomIn()">
+      <mat-icon>zoom_in</mat-icon>
+    </button>
+    @if (isPlaying()) {
+    <button mat-flat-button (click)="stop()">
+      <mat-icon>stop</mat-icon>
+      Stop
+    </button>
+    } @else {
+    <button mat-flat-button (click)="play()">
+      <mat-icon>play_arrow</mat-icon>
+      Play
+    </button>
+    }
+  </section>
+</main>
