@@ -66,6 +66,7 @@ For more information visit:
 ### Module 6: Angular
 
 - [Basic laboratory - Exercise 1: Angular Lab](labs-module-6-angular/lab-basic/exercise-1/README.md)
+- [Extra laboratory - Exercise 2: RxJs Lab](labs-module-6-angular/lab-extra-rxjs/exercise-1/README.md)
 
 ### Module 7: Vue
 
