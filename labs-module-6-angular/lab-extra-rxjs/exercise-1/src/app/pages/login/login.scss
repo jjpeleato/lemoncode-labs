@@ -1,0 +1,16 @@
+.login-intro {
+  margin: 0 0 24px;
+  color: var(--mat-sys-on-surface-variant);
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-width: 360px;
+}
+
+.login-error {
+  color: var(--mat-sys-error);
+  margin: 0 0 8px;
+}

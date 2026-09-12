@@ -1,0 +1,30 @@
+.file-menu {
+  display: flex;
+  flex-direction: column;
+  min-width: 220px;
+  padding: 24px 0;
+}
+
+.file-menu__item {
+  padding: 10px 24px;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.9rem;
+  color: var(--mat-sys-on-surface);
+  text-decoration: none;
+  border-left: 3px solid transparent;
+  transition: border-color 0.15s ease, background-color 0.15s ease;
+
+  &:hover {
+    background-color: var(--mat-sys-surface-container-high);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--mat-sys-primary);
+    outline-offset: -2px;
+  }
+
+  &.file-menu__item--active {
+    color: var(--mat-sys-primary);
+    border-left-color: var(--mat-sys-primary);
+  }
+}
