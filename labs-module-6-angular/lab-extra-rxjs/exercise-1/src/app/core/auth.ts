@@ -1,4 +1,6 @@
 import { Service, signal } from '@angular/core';
+import { Observable, of } from 'rxjs';
+import { delay, tap } from 'rxjs/operators';
 
 const VALID_CREDENTIALS = {
   username: 'master@lemoncode.net',
@@ -15,17 +17,20 @@ export class Auth {
   readonly isLogged = this.loggedSignal.asReadonly();
   readonly getUsername = this.usernameSignal.asReadonly();
 
-  login(username: string, password: string): boolean {
+  login(username: string, password: string): Observable<boolean> {
     const isValid =
       username === VALID_CREDENTIALS.username && password === VALID_CREDENTIALS.password;
 
-    if (isValid) {
-      this.loggedSignal.set(true);
-      this.usernameSignal.set(username);
-      localStorage.setItem(STORAGE_KEY, username);
-    }
-
-    return isValid;
+    return of(isValid).pipe(
+      delay(2000),
+      tap((success) => {
+        if (success) {
+          this.loggedSignal.set(true);
+          this.usernameSignal.set(username);
+          localStorage.setItem(STORAGE_KEY, username);
+        }
+      }),
+    );
   }
 
   logout(): void {

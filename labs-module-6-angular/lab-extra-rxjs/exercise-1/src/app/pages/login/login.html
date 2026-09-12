@@ -24,9 +24,14 @@
     }
   </mat-form-field>
 
-  @if (loginFailed) {
+  @if (loginFailed()) {
   <p class="login-error">Invalid username or password</p>
   }
 
-  <button mat-flat-button type="submit">Login</button>
+  <div class="login-actions">
+    <button mat-flat-button type="submit" [disabled]="isLoading()">Login</button>
+    @if (isLoading()) {
+    <span class="login-spinner" role="status" aria-label="Signing in"></span>
+    }
+  </div>
 </form>

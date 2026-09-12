@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { Router } from '@angular/router';
 import { ReactiveFormsModule, FormBuilder, Validators } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -22,7 +22,8 @@ export class Login {
     password: ['', [Validators.required, Validators.minLength(8)]],
   });
 
-  protected loginFailed = false;
+  protected readonly loginFailed = signal(false);
+  protected readonly isLoading = signal(false);
 
   protected onSubmit(): void {
     if (this.loginForm.invalid) {
@@ -31,14 +32,21 @@ export class Login {
     }
 
     const { username, password } = this.loginForm.getRawValue();
-    const isSuccess = this.auth.login(username ?? '', password ?? '');
 
-    if (isSuccess) {
-      this.loginFailed = false;
-      this.router.navigate(['/dashboard']);
-      return;
-    }
+    this.isLoading.set(true);
+    this.loginFailed.set(false);
 
-    this.loginFailed = true;
+    this.auth.login(username ?? '', password ?? '').subscribe({
+      next: (isSuccess) => {
+        this.isLoading.set(false);
+
+        if (isSuccess) {
+          this.router.navigate(['/dashboard']);
+          return;
+        }
+
+        this.loginFailed.set(true);
+      },
+    });
   }
 }
