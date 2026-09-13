@@ -1,0 +1,14 @@
+<mat-toolbar color="primary">
+  <button mat-icon-button (click)="menuToggle.emit()" aria-label="Toggle menu">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <mat-icon>terminal</mat-icon>
+  <span class="site-name">lemoncode angular lab</span>
+
+  <span class="spacer"></span>
+
+  <span class="username">{{ auth.getUsername() }}</span>
+  <button mat-icon-button (click)="onLogout()" aria-label="Logout">
+    <mat-icon>logout</mat-icon>
+  </button>
+</mat-toolbar>

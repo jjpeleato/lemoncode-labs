@@ -5,7 +5,7 @@ A rural houses rental portal built with **TanStack Start**, **TypeScript** and *
 ## Rendering strategy
 
 | Page | Strategy |
-|---|---|
+| --- | --- |
 | `/houses` | SSR (framework default) |
 | `/houses/$id` | Static prerendering, configured in `vite.config.ts` |
 
@@ -18,18 +18,24 @@ A rural houses rental portal built with **TanStack Start**, **TypeScript** and *
 ## Installation to develop
 
 1. Install the Node.js dependencies:
+
     ```bash
     cd labs-module-8-frameworks/lab-basic/exercise-tanstack
     npm install
     ```
+
 2. Start the development server:
+
     ```bash
     npm run dev
     ```
+
 3. If you want to validate the code according standard only, run:
+
     ```bash
     npm run lint
     ```
+
 4. End and happy coding!
 
 ## Finally

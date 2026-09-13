@@ -1,5 +1,7 @@
 # Module 3 - Basic Laboratory - Exercise 3 - Clone & Merge
 
+## Source
+
 Implement clone and merge functions for JavaScript objects. Clone copies an object, merge combines two objects with source overwriting target properties.
 
 ### Clone
@@ -40,15 +42,19 @@ function merge(source, target) {
 ## Installation to develop
 
 1. Install the Node.js dependencies:
+
    ```bash
    cd labs-module-3-language/lab-basic/exercise-3
    npm i --save-dev
    ```
+
 2. Start the development server:
+
    ```bash
    npm run dev
    ```
-4. End and happy coding!
+
+3. End and happy coding!
 
 ## Finally
 

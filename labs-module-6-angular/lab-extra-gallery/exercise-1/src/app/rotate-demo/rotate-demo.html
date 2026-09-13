@@ -1,0 +1,26 @@
+<main class="rotate-demo">
+  <h1 class="rotate-demo__title">rotate directive</h1>
+  <p class="rotate-demo__hint">click an image to rotate it. shift+click rotates the other way.</p>
+
+  <ul class="rotate-demo__list">
+    <li class="rotate-demo__row">
+      <img rotate src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=200" alt="Default rotation" />
+      <span class="rotate-demo__code">&lt;img rotate&gt;</span>
+    </li>
+
+    <li class="rotate-demo__row">
+      <img rotate="45" src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=200" alt="Initial rotation 45 degrees" />
+      <span class="rotate-demo__code">&lt;img rotate="45"&gt;</span>
+    </li>
+
+    <li class="rotate-demo__row">
+      <img rotate="45" step="15" src="https://images.unsplash.com/photo-1518791841217-8f162f1e1131?w=200" alt="Initial rotation 45 degrees, step 15" />
+      <span class="rotate-demo__code">&lt;img rotate="45" step="15"&gt;</span>
+    </li>
+
+    <li class="rotate-demo__row">
+      <div rotate class="rotate-demo__box">non-img element</div>
+      <span class="rotate-demo__code">selector restricted to img[rotate] — does not rotate</span>
+    </li>
+  </ul>
+</main>

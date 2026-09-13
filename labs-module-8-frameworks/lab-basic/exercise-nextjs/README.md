@@ -5,7 +5,7 @@ A rural houses rental portal built with **Next.js (App Router)**, **TypeScript**
 ## Rendering strategy
 
 | Page | Strategy | Why |
-|---|---|---|
+| --- | --- | --- |
 | `/houses` | ISR (`revalidate: 60`) | The catalog can grow without needing a fresh render on every request. |
 | `/houses/[id]` | SSG (`generateStaticParams`) + ISR | House content changes rarely — pre-rendered at build, revalidated in the background. |
 
@@ -17,18 +17,24 @@ A rural houses rental portal built with **Next.js (App Router)**, **TypeScript**
 ## Installation to develop
 
 1. Install the Node.js dependencies:
+
     ```bash
     cd labs-module-8-frameworks/lab-basic/exercise-nextjs
     npm i --save-dev
     ```
+
 2. Start the development server:
+
     ```bash
     npm run dev
     ```
+
 3. If you want to validate the code according standard only, run:
+
     ```bash
     npm run lint
     ```
+
 4. End and happy coding!
 
 ## Finally

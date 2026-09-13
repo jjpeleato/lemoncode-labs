@@ -1,0 +1,65 @@
+<main class="gallery">
+  <h1 class="gallery__title">gallery</h1>
+
+  <section class="gallery__viewer">
+    <div class="gallery__frame">
+      <img class="gallery__image" [src]="selectedPhoto().src" [alt]="selectedPhoto().title"
+        [style.transform]="'scale(' + zoomLevel() + ')'" />
+      <span class="gallery__counter">{{ frameLabel() }}</span>
+    </div>
+    <p class="gallery__caption">{{ selectedPhoto().title }}</p>
+  </section>
+
+  <section class="gallery__thumbnails" aria-label="Photo thumbnails">
+    <button mat-icon-button (click)="prevPage()" [disabled]="!canGoPrevPage()" aria-label="Previous thumbnails page">
+      <mat-icon>chevron_left</mat-icon>
+    </button>
+
+    <div class="gallery__thumbnails-list">
+      @for (photo of photos | slice: pageStart() : pageEnd(); track photo.id) {
+      <button type="button" class="gallery__thumbnail"
+        [class.gallery__thumbnail--active]="photo.id === selectedPhoto().id" (click)="selectPhoto(photo)">
+        <img [src]="photo.src" [alt]="photo.title" />
+      </button>
+      }
+    </div>
+
+    <button mat-icon-button (click)="nextPage()" [disabled]="!canGoNextPage()" aria-label="Next thumbnails page">
+      <mat-icon>chevron_right</mat-icon>
+    </button>
+  </section>
+
+  <section class="gallery__controls" aria-label="Gallery controls">
+    <button mat-stroked-button (click)="prev()" [disabled]="!canGoPrev()">
+      <mat-icon>navigate_before</mat-icon>
+      previous
+    </button>
+    <button mat-stroked-button (click)="next()" [disabled]="!canGoNext()">
+      next
+      <mat-icon>navigate_next</mat-icon>
+    </button>
+    <button mat-stroked-button (click)="zoomOut()" [disabled]="!canZoomOut()">
+      <mat-icon>zoom_out</mat-icon>
+      zoom out
+    </button>
+    <button mat-stroked-button (click)="zoomReset()" [disabled]="zoomLevel() === 1">
+      <mat-icon>restart_alt</mat-icon>
+      reset zoom
+    </button>
+    <button mat-stroked-button (click)="zoomIn()" [disabled]="!canZoomIn()">
+      <mat-icon>zoom_in</mat-icon>
+      zoom in
+    </button>
+    @if (isPlaying()) {
+    <button mat-stroked-button (click)="stop()">
+      <mat-icon>stop</mat-icon>
+      stop
+    </button>
+    } @else {
+    <button mat-stroked-button (click)="play()">
+      <mat-icon>play_arrow</mat-icon>
+      play
+    </button>
+    }
+  </section>
+</main>
