@@ -23,7 +23,6 @@ export class Gallery implements OnDestroy {
   protected readonly selectedIndex = signal(0);
   protected readonly zoomLevel = signal(1);
   protected readonly isPlaying = signal(false);
-  protected readonly currentPage = signal(0);
 
   protected readonly selectedPhoto = computed(() => this.photos[this.selectedIndex()]);
   protected readonly canGoPrev = computed(() => this.selectedIndex() > 0);
@@ -31,7 +30,18 @@ export class Gallery implements OnDestroy {
   protected readonly canZoomOut = computed(() => this.zoomLevel() > ZOOM_MIN);
   protected readonly canZoomIn = computed(() => this.zoomLevel() < ZOOM_MAX);
 
+  protected readonly frameLabel = computed(() => {
+    const current = String(this.selectedIndex() + 1).padStart(2, '0');
+    const total = String(this.photos.length).padStart(2, '0');
+    return `${current} / ${total}`;
+  });
+
   protected readonly totalPages = Math.ceil(this.photos.length / PAGE_SIZE);
+
+  // currentPage is derived from selectedIndex, not an independent signal —
+  // this guarantees the thumbnail page always contains the selected photo.
+  protected readonly currentPage = computed(() => Math.floor(this.selectedIndex() / PAGE_SIZE));
+
   protected readonly pageStart = computed(() => this.currentPage() * PAGE_SIZE);
   protected readonly pageEnd = computed(() => this.pageStart() + PAGE_SIZE);
   protected readonly canGoPrevPage = computed(() => this.currentPage() > 0);
@@ -66,6 +76,10 @@ export class Gallery implements OnDestroy {
     this.zoomLevel.update((zoom) => Math.max(ZOOM_MIN, zoom - ZOOM_STEP));
   }
 
+  protected zoomReset(): void {
+    this.zoomLevel.set(1);
+  }
+
   protected play(): void {
     if (this.isPlaying()) return;
 
@@ -85,25 +99,15 @@ export class Gallery implements OnDestroy {
 
   protected nextPage(): void {
     if (this.canGoNextPage()) {
-      this.currentPage.update((page) => page + 1);
+      this.selectedIndex.set(this.currentPage() * PAGE_SIZE + PAGE_SIZE);
     }
   }
 
   protected prevPage(): void {
     if (this.canGoPrevPage()) {
-      this.currentPage.update((page) => page - 1);
+      this.selectedIndex.set((this.currentPage() - 1) * PAGE_SIZE);
     }
   }
-
-  protected zoomReset(): void {
-    this.zoomLevel.set(1);
-  }
-
-  protected readonly frameLabel = computed(() => {
-    const current = String(this.selectedIndex() + 1).padStart(2, '0');
-    const total = String(this.photos.length).padStart(2, '0');
-    return `${current} / ${total}`;
-  });
 
   ngOnDestroy(): void {
     this.stop();
