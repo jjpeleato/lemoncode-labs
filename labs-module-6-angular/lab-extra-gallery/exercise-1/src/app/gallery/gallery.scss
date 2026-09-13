@@ -1,70 +1,94 @@
 .gallery {
-  max-width: 800px;
+  max-width: 768px;
   margin: 0 auto;
-  padding: 24px;
+  padding: 32px 24px;
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 24px;
+  text-align: center;
 }
 
-.gallery-title {
+.gallery__title {
   margin: 0;
+  font-family: 'Zilla Slab', serif;
+  font-weight: 700;
+  font-size: 2rem;
 }
 
-.gallery-viewer {
+.gallery__viewer {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 8px;
-  overflow: hidden;
 }
 
-.gallery-viewer__image {
-  max-width: 100%;
+.gallery__frame {
+  position: relative;
+  background: var(--mat-sys-surface-container);
+  padding: 12px;
   border-radius: 4px;
+}
+
+.gallery__image {
+  display: block;
+  max-width: 100%;
+  max-height: 360px;
+  border-radius: 2px;
   transition: transform 0.2s ease;
 }
 
-.gallery-viewer__caption {
-  margin: 0;
-  color: rgba(0, 0, 0, 0.6);
+.gallery__counter {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.8rem;
+  color: var(--mat-sys-on-surface-variant);
+  background: var(--mat-sys-surface);
+  padding: 2px 8px;
+  border-radius: 2px;
 }
 
-.gallery-thumbnails {
+.gallery__caption {
+  margin: 0;
+  font-family: 'Zilla Slab', serif;
+  color: var(--mat-sys-on-surface-variant);
+}
+
+.gallery__thumbnails {
   display: flex;
   align-items: center;
   gap: 8px;
 }
 
-.gallery-thumbnails__list {
+.gallery__thumbnails-list {
   display: flex;
   gap: 8px;
-  flex: 1;
-  justify-content: center;
 }
 
-.gallery-thumbnails__item {
+.gallery__thumbnail {
   padding: 0;
   border: 3px solid transparent;
-  border-radius: 4px;
+  border-radius: 2px;
   background: none;
   cursor: pointer;
   line-height: 0;
 
   img {
-    width: 80px;
-    height: 80px;
+    width: 72px;
+    height: 72px;
     object-fit: cover;
-    border-radius: 2px;
+    border-radius: 1px;
     display: block;
   }
 
   &--active {
-    border-color: #3f51b5;
+    border-color: var(--mat-sys-primary);
   }
 }
 
-.gallery-controls {
+.gallery__controls {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;

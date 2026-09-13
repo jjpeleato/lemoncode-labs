@@ -1,31 +1,70 @@
 .rotate-demo {
-  max-width: 800px;
-  margin: 32px auto;
-  padding: 24px;
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 32px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  text-align: center;
 }
 
-.rotate-demo__items {
+.rotate-demo__title {
+  margin: 0;
+  font-family: 'Zilla Slab', serif;
+  font-weight: 700;
+  font-size: 2rem;
+}
+
+.rotate-demo__hint {
+  margin: 0 0 24px;
+  color: var(--mat-sys-on-surface-variant);
+}
+
+.rotate-demo__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  max-width: 460px;
   display: flex;
-  gap: 16px;
-  flex-wrap: wrap;
+  flex-direction: column;
+  gap: 48px;
+}
+
+.rotate-demo__row {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  text-align: left;
 
   img {
-    width: 140px;
-    height: 140px;
+    flex-shrink: 0;
+    width: 120px;
+    height: 120px;
     object-fit: cover;
+    border-radius: 4px;
     cursor: pointer;
   }
 }
 
+.rotate-demo__code {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.85rem;
+  color: var(--mat-sys-on-surface-variant);
+}
+
 .rotate-demo__box {
-  width: 140px;
-  height: 140px;
+  flex-shrink: 0;
+  width: 120px;
+  height: 120px;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 8px;
-  background: #eee;
+  background: var(--mat-sys-surface-container);
+  border-radius: 4px;
   cursor: not-allowed;
-  text-align: center;
   font-size: 0.75rem;
+  padding: 8px;
+  text-align: center;
 }

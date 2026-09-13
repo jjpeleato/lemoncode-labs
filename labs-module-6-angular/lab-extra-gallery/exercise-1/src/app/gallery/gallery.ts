@@ -95,6 +95,16 @@ export class Gallery implements OnDestroy {
     }
   }
 
+  protected zoomReset(): void {
+    this.zoomLevel.set(1);
+  }
+
+  protected readonly frameLabel = computed(() => {
+    const current = String(this.selectedIndex() + 1).padStart(2, '0');
+    const total = String(this.photos.length).padStart(2, '0');
+    return `${current} / ${total}`;
+  });
+
   ngOnDestroy(): void {
     this.stop();
   }
