@@ -8,3 +8,6 @@ junit.xml
 *.orig
 .awcache
 public
+
+# Tracked so CI can use `npm ci` with dependency caching for this lab
+!package-lock.json
