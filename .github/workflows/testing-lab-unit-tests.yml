@@ -1,0 +1,33 @@
+name: Testing Lab - Unit Tests
+
+on:
+  push:
+    paths:
+      - 'labs-module-9-testing/exercise-1/**'
+      - '.github/workflows/testing-lab-unit-tests.yml'
+  pull_request:
+    paths:
+      - 'labs-module-9-testing/exercise-1/**'
+      - '.github/workflows/testing-lab-unit-tests.yml'
+
+defaults:
+  run:
+    working-directory: labs-module-9-testing/exercise-1
+
+jobs:
+  unit-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 24
+          cache: npm
+          cache-dependency-path: labs-module-9-testing/exercise-1/package-lock.json
+
+      - run: npm ci
+
+      - run: npm run type-check
+
+      - run: npm test -- run
