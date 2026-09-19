@@ -11,3 +11,8 @@ public
 
 # Tracked so CI can use `npm ci` with dependency caching for this lab
 !package-lock.json
+
+# Cypress artifacts
+cypress/videos
+cypress/screenshots
+cypress/downloads

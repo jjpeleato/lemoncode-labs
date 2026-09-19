@@ -80,7 +80,7 @@ For more information visit:
 
 ### Module 9: Testing
 
-[..coming soon..]
+- [Basic laboratory - Exercise: Testing](labs-module-9-testing/lab-basic/exercise-1/README.md)
 
 ### Module 10: API Rest
 
