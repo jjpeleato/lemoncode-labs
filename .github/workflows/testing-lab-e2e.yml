@@ -1,21 +1,21 @@
-name: Testing Lab - Unit Tests
+name: Testing Lab - E2E Tests
 
 on:
   push:
     paths:
       - "labs-module-9-testing/exercise-1/**"
-      - ".github/workflows/testing-lab-unit-tests.yml"
+      - ".github/workflows/testing-lab-e2e.yml"
   pull_request:
     paths:
       - "labs-module-9-testing/exercise-1/**"
-      - ".github/workflows/testing-lab-unit-tests.yml"
+      - ".github/workflows/testing-lab-e2e.yml"
 
 defaults:
   run:
     working-directory: labs-module-9-testing/exercise-1
 
 jobs:
-  unit-tests:
+  e2e-tests:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
@@ -28,6 +28,13 @@ jobs:
 
       - run: npm ci
 
-      - run: npm run type-check
+      - run: npm run build
 
-      - run: npm test -- run
+      - run: npm run e2e
+
+      - uses: actions/upload-artifact@v6
+        if: failure()
+        with:
+          name: cypress-screenshots
+          path: labs-module-9-testing/exercise-1/cypress/screenshots
+          if-no-files-found: ignore
