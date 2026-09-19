@@ -3,16 +3,16 @@ name: Testing Lab - Unit Tests
 on:
   push:
     paths:
-      - "labs-module-9-testing/exercise-1/**"
+      - "labs-module-9-testing/lab-basic/exercise-1/**"
       - ".github/workflows/testing-lab-unit-tests.yml"
   pull_request:
     paths:
-      - "labs-module-9-testing/exercise-1/**"
+      - "labs-module-9-testing/lab-basic/exercise-1/**"
       - ".github/workflows/testing-lab-unit-tests.yml"
 
 defaults:
   run:
-    working-directory: labs-module-9-testing/exercise-1
+    working-directory: labs-module-9-testing/lab-basic/exercise-1
 
 jobs:
   unit-tests:
@@ -24,7 +24,7 @@ jobs:
         with:
           node-version: 24
           cache: npm
-          cache-dependency-path: labs-module-9-testing/exercise-1/package-lock.json
+          cache-dependency-path: labs-module-9-testing/lab-basic/exercise-1/package-lock.json
 
       - run: npm ci
 
