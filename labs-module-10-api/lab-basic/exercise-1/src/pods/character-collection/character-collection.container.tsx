@@ -1,13 +1,14 @@
 import * as React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 import { linkRoutes } from '#core/router';
 import { useCharacterCollection } from './character-collection.hook';
 import { CharacterCollectionComponent } from './character-collection.component';
 
 export const CharacterCollectionContainer = () => {
-  const { characterCollection, pageCount, loadCharacterCollection } =
+  const { characterCollection, pageCount, error, loadCharacterCollection } =
     useCharacterCollection();
-  const [page, setPage] = React.useState(1);
+  const [searchParams, setSearchParams] = useSearchParams();
+  const page = Number(searchParams.get('page')) || 1;
   const navigate = useNavigate();
 
   React.useEffect(() => {
@@ -19,7 +20,7 @@ export const CharacterCollectionContainer = () => {
   };
 
   const handlePageChange = (_: React.ChangeEvent<unknown>, value: number) => {
-    setPage(value);
+    setSearchParams({ page: String(value) });
   };
 
   return (
@@ -29,6 +30,7 @@ export const CharacterCollectionContainer = () => {
       page={page}
       pageCount={pageCount}
       onPageChange={handlePageChange}
+      error={error}
     />
   );
 };

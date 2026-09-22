@@ -8,10 +8,15 @@ import * as classes from './character.styles';
 
 interface Props {
   character: Character;
+  error: boolean;
 }
 
 export const CharacterComponent: React.FunctionComponent<Props> = (props) => {
-  const { character } = props;
+  const { character, error } = props;
+
+  if (error) {
+    return <p>Could not load this character. Please try again.</p>;
+  }
 
   return (
     <Card className={classes.root}>

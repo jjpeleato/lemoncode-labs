@@ -9,16 +9,22 @@ export const CharacterContainer: React.FunctionComponent = () => {
   const [character, setCharacter] = React.useState<Character>(
     createEmptyCharacter()
   );
+  const [error, setError] = React.useState(false);
   const { id } = useParams<{ id: string }>();
 
   const handleLoadCharacter = async () => {
-    const apiCharacter = await getCharacter(id);
-    setCharacter(mapCharacterFromApiToVm(apiCharacter));
+    setError(false);
+    try {
+      const apiCharacter = await getCharacter(id);
+      setCharacter(mapCharacterFromApiToVm(apiCharacter));
+    } catch {
+      setError(true);
+    }
   };
 
   React.useEffect(() => {
     handleLoadCharacter();
   }, []);
 
-  return <CharacterComponent character={character} />;
+  return <CharacterComponent character={character} error={error} />;
 };

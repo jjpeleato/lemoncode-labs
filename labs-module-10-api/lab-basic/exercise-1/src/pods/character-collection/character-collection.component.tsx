@@ -10,13 +10,18 @@ interface Props {
   page: number;
   pageCount: number;
   onPageChange: (event: React.ChangeEvent<unknown>, value: number) => void;
+  error: boolean;
 }
 
 export const CharacterCollectionComponent: React.FunctionComponent<Props> = (
   props
 ) => {
-  const { characterCollection, onView, page, pageCount, onPageChange } =
+  const { characterCollection, onView, page, pageCount, onPageChange, error } =
     props;
+
+  if (error) {
+    return <p>Could not load characters. Please try again.</p>;
+  }
 
   return (
     <>
