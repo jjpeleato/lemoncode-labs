@@ -1,5 +1,4 @@
-import { Character } from "./model.js";
-
+import { Character } from './model.js';
 
 export const characters: Character[] = [
   {

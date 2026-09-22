@@ -1,6 +1,18 @@
 import { css } from '@emotion/css';
 import { theme } from '#core/theme';
 
+export const searchForm = css`
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  gap: 1rem;
+  margin-bottom: 2rem;
+`;
+
+export const searchField = css`
+  flex: 1 1 240px;
+`;
+
 export const list = css`
   display: grid;
   grid-template-columns: repeat(1, 1fr);

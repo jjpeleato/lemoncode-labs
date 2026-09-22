@@ -11,9 +11,9 @@ export const useCharacterCollection = () => {
   const [pageCount, setPageCount] = React.useState(1);
   const [error, setError] = React.useState(false);
 
-  const loadCharacterCollection = (page: number) => {
+  const loadCharacterCollection = (page: number, name?: string) => {
     setError(false);
-    getCharacterList(page)
+    getCharacterList(page, name)
       .then((result) => {
         setCharacterCollection(mapToCollection(result.results, mapFromApiToVm));
         setPageCount(result.info.pages);
