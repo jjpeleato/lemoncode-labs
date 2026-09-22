@@ -8,12 +8,14 @@ export const useCharacterCollection = () => {
   const [characterCollection, setCharacterCollection] = React.useState<
     CharacterEntityVm[]
   >([]);
+  const [pageCount, setPageCount] = React.useState(1);
 
-  const loadCharacterCollection = () => {
-    getCharacterList().then((result) =>
-      setCharacterCollection(mapToCollection(result, mapFromApiToVm))
-    );
+  const loadCharacterCollection = (page: number) => {
+    getCharacterList(page).then((result) => {
+      setCharacterCollection(mapToCollection(result.results, mapFromApiToVm));
+      setPageCount(result.info.pages);
+    });
   };
 
-  return { characterCollection, loadCharacterCollection };
+  return { characterCollection, pageCount, loadCharacterCollection };
 };

@@ -17,4 +17,18 @@ export const list = css`
   @media (min-width: ${theme.breakpoints.values.md}px) {
     grid-template-columns: repeat(3, 1fr);
   }
+
+  @media (min-width: ${theme.breakpoints.values.lg}px) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+`;
+
+export const pagination = css`
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+
+  ul {
+    justify-content: center;
+  }
 `;
