@@ -1,7 +1,8 @@
 import React from 'react';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
+import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
@@ -33,6 +34,22 @@ export const AppLayout: React.FC<Props> = (props) => {
           <Typography variant="h6" className={classes.title}>
             Rick and Morty
           </Typography>
+          <nav className={classes.nav}>
+            <Button
+              color="inherit"
+              component={Link}
+              to={switchRoutes.characterCollection}
+            >
+              Characters
+            </Button>
+            <Button
+              color="inherit"
+              component={Link}
+              to={switchRoutes.locationCollection}
+            >
+              Locations
+            </Button>
+          </nav>
           <div className={classes.spacer} />
           {!isRoot && (
             <IconButton
