@@ -16,7 +16,7 @@ export const useCharacterCollection = () => {
     getCharacterList(page, name)
       .then((result) => {
         setCharacterCollection(mapToCollection(result.results, mapFromApiToVm));
-        setPageCount(result.info.pages);
+        setPageCount(result.info.pages ?? 1);
       })
       .catch(() => setError(true));
   };

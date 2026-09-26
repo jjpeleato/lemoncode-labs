@@ -13,6 +13,7 @@ interface Props {
   pageCount: number;
   onPageChange: (event: React.ChangeEvent<unknown>, value: number) => void;
   error: boolean;
+  searchable: boolean;
   search: string;
   onSearch: (value: string) => void;
   onSubmit: (event: React.FormEvent) => void;
@@ -29,6 +30,7 @@ export const CharacterCollectionComponent: React.FunctionComponent<Props> = (
     pageCount,
     onPageChange,
     error,
+    searchable,
     search,
     onSearch,
     onSubmit,
@@ -37,25 +39,27 @@ export const CharacterCollectionComponent: React.FunctionComponent<Props> = (
 
   return (
     <>
-      <form className={classes.searchForm} onSubmit={onSubmit}>
-        <TextField
-          className={classes.searchField}
-          label="Search by name"
-          value={search}
-          onChange={(event) => onSearch(event.target.value)}
-        />
-        <Button type="submit" variant="contained" color="primary">
-          Search
-        </Button>
-        <Button
-          type="button"
-          variant="outlined"
-          onClick={onClear}
-          disabled={!search}
-        >
-          Clear
-        </Button>
-      </form>
+      {searchable && (
+        <form className={classes.searchForm} onSubmit={onSubmit}>
+          <TextField
+            className={classes.searchField}
+            label="Search by name"
+            value={search}
+            onChange={(event) => onSearch(event.target.value)}
+          />
+          <Button type="submit" variant="contained" color="primary">
+            Search
+          </Button>
+          <Button
+            type="button"
+            variant="outlined"
+            onClick={onClear}
+            disabled={!search}
+          >
+            Clear
+          </Button>
+        </form>
+      )}
 
       {error && <p>Could not load characters. Please try again.</p>}
 

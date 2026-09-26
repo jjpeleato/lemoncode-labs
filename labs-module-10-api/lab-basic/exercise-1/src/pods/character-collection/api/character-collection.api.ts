@@ -1,8 +1,6 @@
 import axios from 'axios';
 import { CharacterListResponse } from './character-collection.api-model';
-import { getWithRetry } from '#common/http';
-
-const baseUrl = 'https://rickandmortyapi.com/api/character';
+import { characterApiUrl, getWithRetry } from '#common/http';
 
 const emptyResponse: CharacterListResponse = {
   info: { count: 0, pages: 0, next: null, prev: null },
@@ -14,7 +12,7 @@ export const getCharacterList = async (
   name?: string
 ): Promise<CharacterListResponse> => {
   try {
-    return await getWithRetry<CharacterListResponse>(baseUrl, {
+    return await getWithRetry<CharacterListResponse>(characterApiUrl, {
       params: { page, name: name || undefined },
     });
   } catch (error) {

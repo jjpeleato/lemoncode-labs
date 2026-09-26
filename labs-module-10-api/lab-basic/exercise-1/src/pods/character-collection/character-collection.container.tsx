@@ -2,6 +2,7 @@ import * as React from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { linkRoutes } from '#core/router';
 import { useDebounce } from '#common/hooks';
+import { isRemoteApi } from '#common/http';
 import { useCharacterCollection } from './character-collection.hook';
 import { CharacterCollectionComponent } from './character-collection.component';
 
@@ -66,6 +67,7 @@ export const CharacterCollectionContainer = () => {
       pageCount={pageCount}
       onPageChange={handlePageChange}
       error={error}
+      searchable={isRemoteApi}
       search={search}
       onSearch={setSearch}
       onSubmit={handleSubmit}
