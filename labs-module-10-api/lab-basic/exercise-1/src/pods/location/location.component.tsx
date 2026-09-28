@@ -2,8 +2,7 @@ import * as React from 'react';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
-import Chip from '@mui/material/Chip';
-import Avatar from '@mui/material/Avatar';
+import { CharacterChipsComponent } from '#common/components';
 import { Location } from './location.vm';
 import * as classes from './location.styles';
 
@@ -37,24 +36,11 @@ export const LocationComponent: React.FunctionComponent<Props> = (props) => {
             No known residents.
           </Typography>
         ) : (
-          <div className={classes.residents}>
-            {location.residents.map((resident) => (
-              <Chip
-                key={resident.id}
-                label={resident.name}
-                avatar={
-                  <Avatar
-                    src={resident.image}
-                    alt={resident.name}
-                    slotProps={{ img: { loading: 'lazy' } }}
-                  />
-                }
-                onClick={
-                  linkable ? () => onViewResident(resident.id) : undefined
-                }
-              />
-            ))}
-          </div>
+          <CharacterChipsComponent
+            characters={location.residents}
+            linkable={linkable}
+            onView={onViewResident}
+          />
         )}
       </CardContent>
     </Card>

@@ -2,9 +2,10 @@ import * as React from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { linkRoutes } from '#core/router';
 import { isRemoteApi } from '#common/http';
+import { mapIdsFromUrls } from '#common/mappers';
 import { getLocation, getResidents } from './api';
 import { createEmptyLocation, Location } from './location.vm';
-import { mapIdsFromUrls, mapLocationFromApiToVm } from './location.mappers';
+import { mapLocationFromApiToVm } from './location.mappers';
 import { LocationComponent } from './location.component';
 
 export const LocationContainer: React.FunctionComponent = () => {

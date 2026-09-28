@@ -15,3 +15,11 @@ export const mapCharacterFromApiToVm = (
   episodeCount: character.episode.length,
   bestSentence: character.bestSentence ?? '',
 });
+
+export const mapEpisodeFromApiToVm = (
+  episode: apiModel.Episode
+): viewModel.CharacterEpisode => ({
+  id: String(episode.id),
+  code: episode.episode,
+  name: episode.name,
+});

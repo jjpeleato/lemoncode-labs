@@ -11,6 +11,12 @@ export interface Character {
   bestSentence: string;
 }
 
+export interface CharacterEpisode {
+  id: string;
+  code: string;
+  name: string;
+}
+
 export const createEmptyCharacter = (): Character => ({
   id: '',
   name: '',

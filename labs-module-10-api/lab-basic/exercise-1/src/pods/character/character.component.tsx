@@ -4,23 +4,36 @@ import Card from '@mui/material/Card';
 import CardMedia from '@mui/material/CardMedia';
 import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
+import Chip from '@mui/material/Chip';
 import Typography from '@mui/material/Typography';
 import { TextFieldComponent } from '#common/components';
-import { Character } from './character.vm';
+import { Character, CharacterEpisode } from './character.vm';
 import * as classes from './character.styles';
 
 export type SaveStatus = 'idle' | 'saved' | 'error';
 
 interface Props {
   character: Character;
+  episodes: CharacterEpisode[];
+  episodesError: boolean;
   error: boolean;
   editable: boolean;
   saveStatus: SaveStatus;
   onSave: (bestSentence: string) => void;
+  onViewEpisode: (id: string) => void;
 }
 
 export const CharacterComponent: React.FunctionComponent<Props> = (props) => {
-  const { character, error, editable, saveStatus, onSave } = props;
+  const {
+    character,
+    episodes,
+    episodesError,
+    error,
+    editable,
+    saveStatus,
+    onSave,
+    onViewEpisode,
+  } = props;
 
   if (error) {
     return <p>Could not load this character. Please try again.</p>;
@@ -44,9 +57,24 @@ export const CharacterComponent: React.FunctionComponent<Props> = (props) => {
         <Typography className={classes.field}>
           Last known location: {character.location}
         </Typography>
-        <Typography className={classes.field}>
-          Episodes: {character.episodeCount}
+        <Typography className={classes.field} variant="h6">
+          Episodes ({character.episodeCount})
         </Typography>
+        {episodesError ? (
+          <Typography className={classes.field} color="error">
+            Could not load the episodes. Please try again.
+          </Typography>
+        ) : (
+          <div className={classes.episodes}>
+            {episodes.map((episode) => (
+              <Chip
+                key={episode.id}
+                label={`${episode.code} · ${episode.name}`}
+                onClick={() => onViewEpisode(episode.id)}
+              />
+            ))}
+          </div>
+        )}
       </CardContent>
       {editable && (
         <CardContent>

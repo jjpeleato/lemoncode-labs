@@ -1,9 +1,6 @@
 import * as apiModel from './api/location.api-model';
 import * as viewModel from './location.vm';
 
-export const mapIdsFromUrls = (urls: string[]): string[] =>
-  urls.map((url) => url.split('/').pop());
-
 const mapResidentFromApiToVm = (
   resident: apiModel.Resident
 ): viewModel.Resident => ({

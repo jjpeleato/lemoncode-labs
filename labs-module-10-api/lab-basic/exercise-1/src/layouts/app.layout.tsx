@@ -49,6 +49,13 @@ export const AppLayout: React.FC<Props> = (props) => {
             >
               Locations
             </Button>
+            <Button
+              color="inherit"
+              component={Link}
+              to={switchRoutes.episodeCollection}
+            >
+              Episodes
+            </Button>
           </nav>
           <div className={classes.spacer} />
           {!isRoot && (

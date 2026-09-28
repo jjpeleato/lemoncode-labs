@@ -19,3 +19,9 @@ export interface Character {
   created: string;
   bestSentence?: string;
 }
+
+export interface Episode {
+  id: number;
+  name: string;
+  episode: string;
+}
