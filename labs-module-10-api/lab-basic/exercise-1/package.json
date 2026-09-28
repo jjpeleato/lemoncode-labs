@@ -1,7 +1,7 @@
 {
-  "name": "06-rest-api-01-concepts",
+  "name": "rick-and-morty-app",
   "version": "1.0.0",
-  "description": "Rest API demos",
+  "description": "Module 10 - Basic Laboratory - Rick and Morty REST API",
   "type": "module",
   "scripts": {
     "start": "run-p -l type-check:watch start:dev start:server",
@@ -24,9 +24,6 @@
     "@emotion/css": "^11.13.5",
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.1",
-    "@lemoncode/fonk": "^1.5.4",
-    "@lemoncode/fonk-formik": "^4.0.1",
-    "@lemoncode/fonk-min-number-validator": "^1.2.0",
     "@mui/icons-material": "^9.2.0",
     "@mui/material": "^9.2.0",
     "axios": "^1.19.0",

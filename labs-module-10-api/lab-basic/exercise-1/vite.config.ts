@@ -6,7 +6,6 @@ export default defineConfig({
   server: {
     proxy: {
       '/api': 'http://localhost:3000',
-      '/thumbnails': 'http://localhost:3000',
     },
   },
 });
