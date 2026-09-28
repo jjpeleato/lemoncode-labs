@@ -84,7 +84,7 @@ For more information visit:
 
 ### Module 10: API Rest
 
-[..coming soon..]
+- [Basic laboratory - Exercise: Rick and Morty](labs-module-10-api/lab-basic/exercise-1/README.md)
 
 ### Module 11: Cloud
 
