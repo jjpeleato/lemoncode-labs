@@ -42,6 +42,11 @@ export const LAB_MODULES: LabModule[] = [
     ],
   },
   {
+    id: 2,
+    title: "UX/UI",
+    labs: [],
+  },
+  {
     id: 3,
     title: "Language",
     labs: [
@@ -181,5 +186,10 @@ export const LAB_MODULES: LabModule[] = [
         url: readme("labs-module-10-api/lab-basic/exercise-1"),
       },
     ],
+  },
+  {
+    id: 11,
+    title: "Cloud",
+    labs: [],
   },
 ];
