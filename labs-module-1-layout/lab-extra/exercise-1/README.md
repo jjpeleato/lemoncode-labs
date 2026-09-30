@@ -29,4 +29,4 @@ Lemoncode Academy, a leading coding bootcamp, is looking to redesign its website
 
 More info in the following commits. If required.
 
-Grettings [**@jjpeleato**.](https://www.jjpeleato.com/)
+Greetings [**@jjpeleato**.](https://www.jjpeleato.com/)

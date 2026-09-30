@@ -29,4 +29,4 @@ Warner Live, an online film platform created by a renowned production company, i
 
 More info in the following commits. If required.
 
-Grettings [**@jjpeleato**.](https://www.jjpeleato.com/)
+Greetings [**@jjpeleato**.](https://www.jjpeleato.com/)

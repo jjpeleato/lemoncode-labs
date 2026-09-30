@@ -52,4 +52,4 @@ machine1.play(); // "Congratulations!!!. You won 2 coins!!"
 
 More info in the following commits. If required.
 
-Grettings [**@jjpeleato**.](https://www.jjpeleato.com/)
+Greetings [**@jjpeleato**.](https://www.jjpeleato.com/)

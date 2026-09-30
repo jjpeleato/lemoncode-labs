@@ -35,4 +35,4 @@ To check that everything is working as expected, use the HTML from the instructi
 
 More info in the following commits. If required.
 
-Grettings [**@jjpeleato**.](https://www.jjpeleato.com/)
+Greetings [**@jjpeleato**.](https://www.jjpeleato.com/)

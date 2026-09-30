@@ -33,4 +33,4 @@ The search input includes a debounce feature, which means the search triggers au
 
 More info in the following commits. If required.
 
-Grettings [**@jjpeleato**.](https://www.jjpeleato.com/)
+Greetings [**@jjpeleato**.](https://www.jjpeleato.com/)

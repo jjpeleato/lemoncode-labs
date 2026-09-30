@@ -98,4 +98,4 @@ For issues or feature requests, please open an issue in the repository or contac
 
 More info in the following commits. If required.
 
-Grettings [**@jjpeleato**.](https://www.jjpeleato.com/)
+Greetings [**@jjpeleato**.](https://www.jjpeleato.com/)
