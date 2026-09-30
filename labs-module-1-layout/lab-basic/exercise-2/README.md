@@ -38,4 +38,4 @@ To see the changes, it should be enough to import one theme or another in the ma
 
 More info in the following commits. If required.
 
-Grettings [**@jjpeleato**.](https://www.jjpeleato.com/)
+Greetings [**@jjpeleato**.](https://www.jjpeleato.com/)

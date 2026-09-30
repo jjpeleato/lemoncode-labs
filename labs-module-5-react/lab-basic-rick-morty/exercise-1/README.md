@@ -37,4 +37,4 @@ It consumes the public [Rick and Morty API](https://rickandmortyapi.com/) and fe
 
 More info in the following commits. If required.
 
-Grettings [**@jjpeleato**.](https://www.jjpeleato.com/)
+Greetings [**@jjpeleato**.](https://www.jjpeleato.com/)

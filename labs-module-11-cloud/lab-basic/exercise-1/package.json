@@ -7,6 +7,10 @@
     "build": "next build",
     "deploy:pages": "npm run build:pages && gh-pages -d out --dotfiles",
     "dev": "next dev",
+    "docker:build": "docker build -f docker/Dockerfile -t lemoncode-labs .",
+    "docker:down": "docker compose -f docker/compose.yaml down",
+    "docker:run": "docker run --rm -p 8080:80 lemoncode-labs",
+    "docker:up": "docker compose -f docker/compose.yaml up --build",
     "lint": "eslint",
     "start": "next start"
   },
