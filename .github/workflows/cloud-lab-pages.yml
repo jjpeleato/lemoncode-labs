@@ -1,0 +1,53 @@
+name: Cloud Lab - GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "labs-module-11-cloud/lab-basic/exercise-1/**"
+      - ".github/workflows/cloud-lab-pages.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+defaults:
+  run:
+    working-directory: labs-module-11-cloud/lab-basic/exercise-1
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 24
+          cache: npm
+          cache-dependency-path: labs-module-11-cloud/lab-basic/exercise-1/package-lock.json
+
+      - run: npm ci
+
+      - run: npm run build:pages
+
+      - uses: actions/upload-pages-artifact@v4
+        with:
+          path: labs-module-11-cloud/lab-basic/exercise-1/out
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

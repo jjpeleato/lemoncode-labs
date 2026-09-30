@@ -1,0 +1,14 @@
+@import "tailwindcss";
+
+@theme {
+  --color-leaf-paper: #f4f7f1;
+  --color-ink: #1f2a1c;
+  --color-stem: #5c6b55;
+  --color-rind: #d4dcc9;
+  --color-lemon: #f2d531;
+}
+
+@theme inline {
+  --font-display: var(--font-bricolage);
+  --font-body: var(--font-newsreader);
+}
