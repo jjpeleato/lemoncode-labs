@@ -44,7 +44,13 @@ export const LAB_MODULES: LabModule[] = [
   {
     id: 2,
     title: "UX/UI",
-    labs: [],
+    labs: [
+      {
+        title: "UX/UI",
+        level: "basic",
+        url: readme("labs-module-2-ux-ui/lab-basic/exercise-1"),
+      },
+    ],
   },
   {
     id: 3,
@@ -190,6 +196,12 @@ export const LAB_MODULES: LabModule[] = [
   {
     id: 11,
     title: "Cloud",
-    labs: [],
+    labs: [
+      {
+        title: "Binnacle",
+        level: "basic",
+        url: readme("labs-module-11-cloud/lab-basic/exercise-1"),
+      },
+    ],
   },
 ];

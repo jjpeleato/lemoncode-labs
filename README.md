@@ -41,7 +41,7 @@ For more information visit:
 
 ### Module 2: UX/UI
 
-[..coming soon..]
+- [Basic laboratory - Exercise 1: UX/UI](labs-module-2-ux-ui/lab-basic/exercise-1/README.md)
 
 ### Module 3: Language
 
@@ -80,15 +80,15 @@ For more information visit:
 
 ### Module 9: Testing
 
-- [Basic laboratory - Exercise: Testing](labs-module-9-testing/lab-basic/exercise-1/README.md)
+- [Basic laboratory - Exercise 1: Testing](labs-module-9-testing/lab-basic/exercise-1/README.md)
 
 ### Module 10: API Rest
 
-- [Basic laboratory - Exercise: Rick and Morty](labs-module-10-api/lab-basic/exercise-1/README.md)
+- [Basic laboratory - Exercise 1: Rick and Morty](labs-module-10-api/lab-basic/exercise-1/README.md)
 
 ### Module 11: Cloud
 
-[..coming soon..]
+- [Basic laboratory - Exercise 1: Binnacle](labs-module-11-cloud/lab-basic/exercise-1/README.md)
 
 ## Support
 
