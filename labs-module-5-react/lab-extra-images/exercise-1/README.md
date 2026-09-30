@@ -29,4 +29,4 @@ This project is a gallery cart application built with React, TypeScript, Materia
 
 More info in the following commits. If required.
 
-Grettings [**@jjpeleato**.](https://www.jjpeleato.com/)
+Greetings [**@jjpeleato**.](https://www.jjpeleato.com/)

@@ -33,4 +33,4 @@ The plan persists across reloads via Pinia's persisted-state plugin, while trans
 
 More info in the following commits. If required.
 
-Grettings [**@jjpeleato**.](https://www.jjpeleato.com/)
+Greetings [**@jjpeleato**.](https://www.jjpeleato.com/)

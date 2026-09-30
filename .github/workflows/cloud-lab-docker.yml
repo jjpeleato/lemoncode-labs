@@ -1,0 +1,27 @@
+name: Cloud Lab - Docker
+
+on:
+  push:
+    paths:
+      - "labs-module-11-cloud/lab-basic/exercise-1/**"
+      - ".github/workflows/cloud-lab-docker.yml"
+  pull_request:
+    paths:
+      - "labs-module-11-cloud/lab-basic/exercise-1/**"
+      - ".github/workflows/cloud-lab-docker.yml"
+
+defaults:
+  run:
+    working-directory: labs-module-11-cloud/lab-basic/exercise-1
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - run: docker build -f docker/Dockerfile -t lemoncode-labs .
+
+      - run: docker run -d -p 8080:80 --name lemoncode-labs lemoncode-labs
+
+      - run: curl --fail --silent --show-error --retry 5 --retry-connrefused http://localhost:8080/ > /dev/null
