@@ -39,3 +39,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Tracked so CI can use `npm ci` with dependency caching for this lab
+!package-lock.json
